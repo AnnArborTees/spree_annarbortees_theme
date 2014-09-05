@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    attributes:
+      spree/product:
+        layout: Layout
