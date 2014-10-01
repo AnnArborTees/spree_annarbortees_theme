@@ -16,6 +16,8 @@ module SpreeAnnarborteesTheme
       Rails.application.config.assets.precompile += %w( spree/frontend/spree_annarbortees_theme.js )
       Rails.application.config.assets.precompile << %r(noimage\.(?:png|gif|jpg)$)
       Rails.application.config.assets.precompile << %w( logo.png logo.svg michigan-golf-course.png )
+      Rails.application.config.assets.precompile << %r(fonts\.(?:otf|eot|svg|ttf|woff)$)
+      Rails.application.config.assets.precompile << %r(images\.(?:png|gif|jpg)$)
     end
 
     def self.activate
