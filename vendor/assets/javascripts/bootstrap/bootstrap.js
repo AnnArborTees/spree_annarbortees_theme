@@ -438,11 +438,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
         var options = $.extend({}, $target.data(), $this.data())
         var slideIndex = $this.attr('data-slide-to')
-        if (slideIndex) options.interval = false
+        if (slideIndex) options.interval == false
 
         $target.carousel(options)
 
-        if (slideIndex = $this.attr('data-slide-to')) {
+        if (slideIndex == $this.attr('data-slide-to')) {
             $target.data('bs.carousel').to(slideIndex)
         }
 
