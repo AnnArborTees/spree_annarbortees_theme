@@ -1,16 +1,23 @@
-
-<% if !current_store.homepage_slides.empty? %>
 <div class="row-fluid" id="banner-slides">
   <div class="container">
       <div class="carousel-homepage carousel slide">
         <ol class="carousel-indicators">
-          <% current_store.homepage_slides.each_with_index do |slide, i| %>
-            <li data-target="#banner-slides" data-slide-to="<%= i %>" <%= "class=active" if i == 0 %>></li>
+          <% if !current_store.homepage_slides.empty? %>
+              <li data-target="#banner-slides" data-slide-to="0" class="active"></li>
+              <% current_store.homepage_slides.each_with_index do |slide, i| %>
+                <li data-target="#banner-slides" data-slide-to="<%= i+1 %>"></li>
+              <% end %>
           <% end %>
         </ol>
         <div class="carousel-inner">
-          <% current_store.homepage_slides.each_with_index do |slide, i| %>
-              <div class="item <%= 'active' if i == 0 %>">
+          <div class="item active">
+                <img data-src="holder.js/900x250/auto/#333:#333" src="data:image/png;base64," alt="<%= current_store.name %>" class="banner-trans-img">
+            <div class="carousel-caption">
+              <h3 class="site-name"><%= current_store.name %></h3>
+            </div>
+          </div>
+          <% current_store.homepage_slides.each do |slide| %>
+              <div class="item">
                 <% if slide.image.blank? %>
                     <img data-src="holder.js/900x250/auto/#333:#333" src="data:image/png;base64," alt="<%= slide.label %>" class="banner-trans-img">
                 <% else %>
@@ -26,7 +33,6 @@
       </div>
   </div>
 </div>
-<% end %>
 
 
 <div id="taxon-nav-and-products" class="container">
