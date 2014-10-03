@@ -75,4 +75,15 @@ Spree::BaseHelper.class_eval do
     end
   end
 
+  def flash_messages(opts = {})
+    opts[:ignore_types] = [:commerce_tracking].concat(Array(opts[:ignore_types]) || [])
+
+    flash.each do |msg_type, text|
+      unless opts[:ignore_types].include?(msg_type)
+        concat(content_tag(:div, content_tag(:div, text, class: "container"), class: "flash #{msg_type}"))
+      end
+    end
+    nil
+  end
+
 end
