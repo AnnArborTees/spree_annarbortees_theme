@@ -25,7 +25,7 @@
               </ul>
             </div>
         <% end %>
-        <%= hidden_field_tag :variant_id, '' %>
+        <%= hidden_field_tag :variant_id, '', 'data-variant-count' => @product.variants.count %>
         <%= hidden_field_tag :quantity, 1 %>
         <div class="btn-group clearfix buy-button" id="buy-button">
           <%= f.submit 'BUY T-SHIRT', class: 'btn btn-default' %>
