@@ -1,5 +1,7 @@
 Spree::Product.class_eval do
   validate :product_configured_properly_for_layout
+  after_update :expire_cache
+
 
   LAYOUTS = {
       'Default' => 'default',
@@ -31,6 +33,12 @@ Spree::Product.class_eval do
         one variant in order to use this layout") if self.option_values_for_option_type(style).empty?
      errors.add(:layout, "Must define Option Value 'apparel-size' and at least
         one variant in order to use this layout") if self.option_values_for_option_type(size).empty?
+    end
+  end
+
+  def expire_cache
+    stores.all.each do |store|
+      expire_fragment [self.id, store.id]
     end
   end
 
