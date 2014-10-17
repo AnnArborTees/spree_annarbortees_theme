@@ -7,23 +7,40 @@ describe 'spree/admin/images/index.html.erb', image_spec: true, story_142: true 
   let!(:product) { create :custom_product }
 
   before(:each) do
-    image = double('Image', id: 0, alt: 'duhhhhh')
+    image = Spree::Image.create
     allow(image).to receive_message_chain(:attachment, :url)
       .and_return 'http://image.com/image.png'
 
+    template = { template: 'spree/admin/images/index' }
+
     allow(view).to receive(:render).and_return ''
 
-    product.master.option_values += [unisex_value, ladies_value]
-    allow(product).to receive(:variant_images).and_return image
+    allow(view).to receive(:render)
+      .with(hash_including(template), anything)
+      .and_call_original    
 
-    assign(:product, create(:product))
+    allow(view).to receive(:new_admin_product_image_url)
+      .and_return 'http://duhhhh.com'
+    allow(view).to receive(:edit_admin_product_image_url)
+      .and_return 'http://duhhhh.com'
+    allow(view).to receive(:admin_product_image_url)
+      .and_return 'http://duhhhh.com'
+    allow(view).to receive(:update_positions_admin_product_images_url)
+      .and_return 'http://ddd.com'
+
+    product.master.option_values += [unisex_value, ladies_value]
+    allow(product).to receive(:variant_images).and_return [image]
+    allow(product).to receive_message_chain(:images, :any?)
+      .and_return true
+
+    assign(:product, product)
   end
 
   context 'when the image has no set option value' do
     it 'should have an option value column' do
       render
       expect(rendered).to have_css 'th', text: 'Option Value'
-      expect(rendered).to have_css 'td', text: '<None>'
+      expect(rendered).to have_css 'td', text: 'None'
     end
   end
 end
