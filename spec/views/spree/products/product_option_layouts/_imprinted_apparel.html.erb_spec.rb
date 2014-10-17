@@ -18,6 +18,6 @@ describe 'spree/products/product_option_layouts/_imprinted_apparel.html.erb', im
   it 'adds a data-option-value-id to each style tab' do
     render
     expect(rendered).to have_css 'a[href="#Unisex"][data-option-value-id="1"]'
-    expect(rendered).to have_css 'a[href="#Ladies"][data-option-value-id="2"]'
+    expect(rendered).to have_css 'a[href="#Ladies"][data-option-value-id="4"]'
   end
 end

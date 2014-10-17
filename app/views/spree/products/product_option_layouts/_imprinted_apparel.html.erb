@@ -3,7 +3,9 @@
       <ul class="nav nav-tabs">
         <% @styles.each_with_index do |option_value, index| %>
             <li <% if index == 0 %>class="active"<% end %>>
-              <a href="#<%= sanitize_id(option_value.presentation) %>">
+              <a href="#<%= sanitize_id(option_value.presentation) %>"
+                 class='nav-tab-button'
+                 data-option-value-id='<%= option_value.id %>'>
                 <%= option_value.presentation %>
               </a>
             </li>
@@ -11,7 +13,7 @@
       </ul>
 
       <div class="tab-content imprinted-product-layout">
-        <%@styles.each_with_index do |option_value, index| %>
+        <% @styles.each_with_index do |option_value, index| %>
             <div class="tab-pane clearfix  <% if index == 0 %>active<% end %>" id="<%= sanitize_id(option_value.presentation) %>">
               <p class="clearfix text-right" style="margin: 0.5em 2.5em">
                 <a href="#">Sizing Guide</a>
