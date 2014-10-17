@@ -1,26 +1,28 @@
 require 'spec_helper'
 
 describe 'spree/admin/images/_form.html.erb', image_spec: true, story_142: true do
-  let!(:shirt_style_type) { create :option_type, name: 'shirt-style', presentation: 'shirt style' }
-  let!(:unisex_value) { create :option_value, name: 'unisex', presentation: 'Unisex', option_type: shirt_style_type }
-  let!(:ladies_value) { create :option_value, name: 'ladies', presentation: 'Ladies', option_type: shirt_style_type }
+  let!(:apparel_style) { create :option_type, name: 'apparel-style', presentation: 'apparel style' }
+  let!(:unisex_value) { create :option_value, name: 'unisex', presentation: 'Unisex', option_type: apparel_style }
+  let!(:ladies_value) { create :option_value, name: 'ladies', presentation: 'Ladies', option_type: apparel_style }
   let!(:product) { create :custom_product }
+  let!(:image_path) { "#{Rails.root}/spec/fixtures/images/" }
+  let!(:image) do
+    Spree::Image.new
+  end
 
   before(:each) do
-    image = double('Image', id: 0, alt: 'duhhhhh')
-    allow(image).to receive_message_chain(:attachment, :url)
-      .and_return 'http://image.com/image.png'
-
-    allow(view).to receive(:option_text_for).and_return 'All'
-
-    product.option_types += [unisex_value, ladies_value]
-    allow(product).to receive(:variant_images).and_return image
-
-    assign(:product, create(:product))
+    # allow(image).to receive_message_chain(:attachment, :url)
+    #   .and_return 'http://image.com/image.png'
+    # allow(image).to receive_message_chain(:class, :model_name, :param_key)
+    #   .and_return 'image'
   end
 
   it 'displays a select field for option value' do
-    render
+    assign(:variants, [])
+    f = nil
+    form_for(image, url: spree.admin_product_images_path(product)) { |builder| f = builder }
+    
+    render partial: 'spree/admin/images/form', locals: { f: f }
     expect(rendered).to have_css 'select.select2.fullwidth[name="image[option_value_id]"]'
   end
 end

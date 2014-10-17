@@ -4,6 +4,9 @@ describe 'spree/products/product_option_layouts/_imprinted_apparel.html.erb', im
   let!(:product) { create :product }
 
   before(:each) do
+    allow(view).to receive(:populate_orders_path)
+      .and_return spree.populate_orders_path
+
     styles = [
       double('style', id: 1, presentation: 'Unisex'),
       double('style', id: 4, presentation: 'Ladies')
@@ -14,7 +17,7 @@ describe 'spree/products/product_option_layouts/_imprinted_apparel.html.erb', im
 
   it 'adds a data-option-value-id to each style tab' do
     render
-    expect(page).to have_css 'a[href="#Unisex"][data-option-value-id="1"]'
-    expect(page).to have_css 'a[href="#Ladies"][data-option-value-id="2"]'
+    expect(rendered).to have_css 'a[href="#Unisex"][data-option-value-id="1"]'
+    expect(rendered).to have_css 'a[href="#Ladies"][data-option-value-id="2"]'
   end
 end

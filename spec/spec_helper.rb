@@ -33,6 +33,7 @@ require 'spree_multi_domain/factories'
 
 # Requires factories defined in lib/spree_annarbortees_theme/factories.rb
 require 'spree_annarbortees_theme/factories'
+require 'shoulda-matchers'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
@@ -44,6 +45,8 @@ RSpec.configure do |config|
   # visit spree.admin_path
   # current_path.should eql(spree.products_path)
   config.include Spree::TestingSupport::UrlHelpers
+
+  config.infer_spec_type_from_file_location!
 
   # == Mock Framework
   #
@@ -70,9 +73,13 @@ RSpec.configure do |config|
   end
 
   # Before each spec check if it is a Javascript test and switch between using database transactions or not where necessary.
-  config.before :each do
+  config.before :each do |example|
     DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
+  end
+
+  config.before :each, type: :view do
+    view.extend(Spree::BaseHelper)
   end
 
   # After each spec clean the database.

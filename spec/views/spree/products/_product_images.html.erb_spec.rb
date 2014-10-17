@@ -7,8 +7,8 @@ describe 'spree/products/_product_images.html.erb', image_spec: true, story_142:
 
   before(:each) do
     images = [
-      double('Image', id: 0),
-      double('Image', id: 1)
+      double('Image', id: 0, alt: 'dur'),
+      double('Image', id: 1, alt: 'dur')
     ]
     allow(images.first).to receive_message_chain(:attachment, :url)
       .and_return image_path + "bestshirt.png"

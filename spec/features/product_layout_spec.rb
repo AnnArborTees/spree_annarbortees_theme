@@ -14,6 +14,7 @@ feature 'ProductLayout' do
   end
 
   context 'as a site visitor viewing a product', js: true do
+    let!(:image_path) { "#{Rails.root}/spec/fixtures/images/" }
     let!(:product) { create(:base_product, layout: 'imprinted_apparel') }
 
     before(:each) do

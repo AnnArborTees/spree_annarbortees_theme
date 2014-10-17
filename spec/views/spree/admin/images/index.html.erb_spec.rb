@@ -11,9 +11,9 @@ describe 'spree/admin/images/index.html.erb', image_spec: true, story_142: true 
     allow(image).to receive_message_chain(:attachment, :url)
       .and_return 'http://image.com/image.png'
 
-    allow(view).to receive(:option_text_for).and_return 'All'
+    allow(view).to receive(:render).and_return ''
 
-    product.option_types += [unisex_value, ladies_value]
+    product.master.option_values += [unisex_value, ladies_value]
     allow(product).to receive(:variant_images).and_return image
 
     assign(:product, create(:product))
@@ -25,11 +25,5 @@ describe 'spree/admin/images/index.html.erb', image_spec: true, story_142: true 
       expect(rendered).to have_css 'th', text: 'Option Value'
       expect(rendered).to have_css 'td', text: '<None>'
     end
-  end
-
-  context 'when the image has an option value set' do
-    render
-    expect(rendered).to have_css 'th', text: 'Option Value'
-    expect(rendered).to have_css 'td', text: '<None>'
   end
 end
