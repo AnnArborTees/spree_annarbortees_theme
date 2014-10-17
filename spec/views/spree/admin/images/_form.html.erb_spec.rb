@@ -11,10 +11,7 @@ describe 'spree/admin/images/_form.html.erb', image_spec: true, story_142: true 
   end
 
   before(:each) do
-    # allow(image).to receive_message_chain(:attachment, :url)
-    #   .and_return 'http://image.com/image.png'
-    # allow(image).to receive_message_chain(:class, :model_name, :param_key)
-    #   .and_return 'image'
+    assign(:product, product)
   end
 
   it 'displays a select field for option value' do

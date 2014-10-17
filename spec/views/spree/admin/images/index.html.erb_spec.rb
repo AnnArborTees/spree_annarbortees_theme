@@ -5,9 +5,9 @@ describe 'spree/admin/images/index.html.erb', image_spec: true, story_142: true 
   let!(:unisex_value) { create :option_value, name: 'unisex', presentation: 'Unisex', option_type: shirt_style_type }
   let!(:ladies_value) { create :option_value, name: 'ladies', presentation: 'Ladies', option_type: shirt_style_type }
   let!(:product) { create :custom_product }
+  let!(:image) { Spree::Image.create }
 
   before(:each) do
-    image = Spree::Image.create
     allow(image).to receive_message_chain(:attachment, :url)
       .and_return 'http://image.com/image.png'
 
@@ -37,10 +37,20 @@ describe 'spree/admin/images/index.html.erb', image_spec: true, story_142: true 
   end
 
   context 'when the image has no set option value' do
-    it 'should have an option value column' do
+    it 'should have an option value column with "none" in its cel' do
       render
       expect(rendered).to have_css 'th', text: 'Option Value'
       expect(rendered).to have_css 'td', text: 'None'
+    end
+  end
+
+  context 'when the image has a set option value' do
+    it 'should render it' do
+      allow(image).to receive_message_chain(:option_value, :try)
+        .with(:presentation)
+        .and_return 'THAT VALUE'
+      render
+      expect(rendered).to have_css 'td', text: 'THAT VALUE'
     end
   end
 end
