@@ -1,5 +1,7 @@
 $( document).ready(function(){
-    $('#carousel-product').carousel();
+    $('#carousel-product').carousel({
+      interval: 30000
+    });
 
     $('#variantTabs > .nav-tabs a').click(function (e) {
         e.preventDefault()

@@ -13,26 +13,51 @@ feature 'ProductLayout' do
     end
   end
 
-  context 'as a site visitor viewing a product', js: true do
-    let!(:image_path) { "#{Rails.root}/spec/fixtures/images/" }
-    let!(:product) { create(:base_product, layout: 'imprinted_apparel') }
+  context 'as a site visitor viewing a product', js: true, story_142: true do
+    let!(:store) { create :default_store }
+    let!(:image_path) { "#{Rails.root}/../fixtures/images/" }
+    let!(:product) { create(:product) }
 
     before(:each) do
+      store.products << product
+
+      option_types = %w(apparel-style apparel-size).map do |name|
+        Spree::OptionType.new(name: name, presentation: name)
+      end
+      product.option_types = option_types
+
+      product.master.option_values = [
+        Spree::OptionValue.create(
+          option_type: option_types[0],
+          name: 'cool-style',
+          presentation: 'Cool Style'
+        ),
+
+        Spree::OptionValue.create(
+          option_type: option_types[1],
+          name: 'small',
+          presentation: 'S'
+        )
+      ]
+
+      product.layout = 'imprinted_apparel'
+      product.save
+
       styles = [
         double('style', id: 1, presentation: 'Unisex'),
         double('style', id: 4, presentation: 'Ladies')
       ]
 
       image_1 = Spree::Image.new(
-        attachment: image_path + "bestshirt.png",
+        attachment: Rack::Test::UploadedFile.new(image_path+"bestshirt.png", 'image/png'),
         option_value_id: 1
       )
       image_2 = Spree::Image.new(
-        attachment: image_path + "bestshirt2.png",
+        attachment: Rack::Test::UploadedFile.new(image_path+"bestshirt2.png", 'image/png'),
         option_value_id: 4
       )
 
-      product.variant_images = [image_1, image_2]
+      product.master.images = [image_1, image_2]
 
       allow_any_instance_of(Spree::Product)
         .to receive(:option_values_for_option_type)
@@ -45,7 +70,9 @@ feature 'ProductLayout' do
       expect(page).to have_css 'li.active > a[href="#Unisex"]'
       expect(page).to have_css "div.item.active > img[alt='Bestshirt']"
 
+      sleep 0.5
       find('li > a[href="#Ladies"]').click
+      sleep 0.5
 
       expect(page).to have_css "div.item.active > img[alt='Bestshirt2']"
     end
