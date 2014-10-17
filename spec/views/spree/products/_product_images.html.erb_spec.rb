@@ -15,7 +15,7 @@ describe 'spree/products/_product_images.html.erb', image_spec: true, story_142:
     allow(images.last).to receive_message_chain(:attachment, :url)
       .and_return image_path + "bestshirt2.png"
 
-    allow(product).to receive(:variant_images).and_return images
+    allow(product).to receive(:images).and_return images
 
     assign(:product, product)
   end
