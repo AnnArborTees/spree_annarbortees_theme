@@ -9,6 +9,15 @@ module SpreeAnnarborteesTheme
       g.test_framework :rspec
     end
 
+    initializer :assets do |config|
+      Rails.application.config.assets.precompile += %w( spree/frontend/spree_annarbortees_theme.css )
+      Rails.application.config.assets.precompile += %w( spree/backend/spree_annarbortees_theme.css )
+      Rails.application.config.assets.precompile += %w( spree/backend/spree_annarbortees_theme.js )
+      Rails.application.config.assets.precompile += %w( spree/frontend/spree_annarbortees_theme.js )
+      Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+      Rails.application.config.assets.precompile += %w(*.otf *.eot *.svg *.ttf)
+    end
+
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)

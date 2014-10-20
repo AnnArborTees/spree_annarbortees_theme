@@ -37,4 +37,10 @@ Simply add this require statement to your spec_helper:
 require 'spree_annarbortees_theme/factories'
 ```
 
+Additional Credits
+-------
+
+Bootstrap code based off of
+https://github.com/200Creative/spree_bootstrap_frontend/tree/2-2-stable
+
 Copyright (c) 2014 [name of extension creator], released under the New BSD License

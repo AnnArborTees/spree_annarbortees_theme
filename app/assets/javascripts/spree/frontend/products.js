@@ -35,30 +35,32 @@ $( document).ready(function(){
   }
 
   $('#variantTabs .btn-group input').hover(function(e) {
-        $(this).siblings().css( {
-          "background-color": "#ffffff",
-          "color": "#000000"
-        } );
-      }, function() {
-        $(this).siblings().removeAttr( 'style' );
-      }
-    );
+      $(this).siblings().css( {
+        "background-color": "#ffffff",
+        "color": "#000000"
+      } );
+    }, function() {
+      $(this).siblings().removeAttr( 'style' );
+    }
+  );
 
-    /*
-        When loading the page or when changing a tab,
-        select the first option, set the price, set variant_id
-     */
+  /*
+      When loading the page or when changing a tab,
+      select the first option, set the price, set variant_id
+   */
   function initSelectedVariant(){
-    $(".variants input").removeClass('active');
-    $('.tab-pane.active input:first').addClass('active');
+    if(parseInt($('#variant_id').attr('data-variant-count')) > 1) {
+      $(".variants input").removeClass('active');
+      $('.tab-pane.active input:first').addClass('active');
       updatePrice($('.tab-pane.active input:first'));
-    $('#variant_id').val($('.tab-pane.active input:first').attr('id'))
+      $('#variant_id').val($('.tab-pane.active input:first').attr('id'))
+    }
   }
 
-    /*
-        When clicking a variant, highlight it,
-        set the price, and update the variant_id
-     */
+  /*
+      When clicking a variant, highlight it,
+      set the price, and update the variant_id
+   */
   $('.variant-button').click(function(e){
     updatePrice(this);
     $(".variants input").removeClass('active');
