@@ -38,7 +38,7 @@ Spree::Product.class_eval do
 
   def expire_cache
     stores.all.each do |store|
-      expire_fragment [self.id, store.id]
+      expire_fragment [self, store]
     end
   end
 
