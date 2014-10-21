@@ -6,3 +6,5 @@
 //= require jquery
 //= require jquery-mobile
 //= require_tree .
+
+$('input[name=authenticity_token]').val($('meta[name=csrf-token]').attr('content'))

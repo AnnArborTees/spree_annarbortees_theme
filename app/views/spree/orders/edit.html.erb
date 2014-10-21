@@ -1,3 +1,5 @@
+
+<% cache [@order, current_store] do %>
 <% @body_id = 'cart' %>
 <div data-hook="cart_container" class="container">
   <h1><%= Spree.t(:shopping_cart) %></h1>
@@ -45,3 +47,4 @@
 
 <% end %>
 </div>
+<% end %>
