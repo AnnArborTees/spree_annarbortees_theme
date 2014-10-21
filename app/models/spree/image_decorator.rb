@@ -1,4 +1,6 @@
 Spree::Image.class_eval do
+  belongs_to :option_value
+
   attachment_definitions[:attachment][:styles] = {
       :mini => '48x48>', # thumbs under image
       :small => '400x400>', # images on category view

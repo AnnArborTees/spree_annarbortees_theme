@@ -6,7 +6,9 @@
   <% else %>
       <div class="carousel-inner">
         <% @product.images.each_with_index do |image, index| %>
-            <div class="item <% if index == 0 %>active<% end %>">
+            <div class="item <% if index == 0 %>active<% end %>"
+                 data-index="<%= index %>"
+                 data-option-value-id="<%= image.option_value_id || -1 %>">
               <%= image_tag image.attachment.url(:product) %>
             </div>
         <% end %>

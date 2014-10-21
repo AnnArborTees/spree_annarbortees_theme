@@ -86,4 +86,7 @@ Spree::BaseHelper.class_eval do
     nil
   end
 
+  def sanitize_id(value)
+    value.gsub(/[^a-zA-Z0-9\-_]/, '-')
+  end
 end

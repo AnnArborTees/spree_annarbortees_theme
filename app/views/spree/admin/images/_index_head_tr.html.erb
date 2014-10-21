@@ -1,0 +1,9 @@
+<tr data-hook="images_header">
+  <th colspan="2"><%= Spree.t(:thumbnail) %></th>
+  <% if @product.has_variants? %>
+    <th><%= Spree::Variant.model_name.human %></th>
+  <% end %>
+  <th>Option Value</th>
+  <th><%= Spree.t(:alt_text) %></th>
+  <th class="actions"></th>
+</tr>

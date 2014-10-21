@@ -3,7 +3,9 @@
       <ul class="nav nav-tabs">
         <% @styles.each_with_index do |option_value, index| %>
             <li <% if index == 0 %>class="active"<% end %>>
-              <a href="#<%= option_value.presentation.gsub(' ', '-')%>">
+              <a href="#<%= sanitize_id(option_value.presentation) %>"
+                 class='nav-tab-button'
+                 data-option-value-id='<%= option_value.id %>'>
                 <%= option_value.presentation %>
               </a>
             </li>
@@ -11,13 +13,13 @@
       </ul>
 
       <div class="tab-content imprinted-product-layout">
-        <%@styles.each_with_index do |option_value, index| %>
-            <div class="tab-pane clearfix  <% if index == 0 %>active<% end %>" id="<%= option_value.presentation.gsub(' ', '-')%>">
+        <% @styles.each_with_index do |option_value, index| %>
+            <div class="tab-pane clearfix  <% if index == 0 %>active<% end %>" id="<%= sanitize_id(option_value.presentation) %>">
               <p class="clearfix text-right" style="margin: 0.5em 2.5em">
                 <a href="#">Sizing Guide</a>
               </p>
               <ul class="variants">
-                <% @product.variants_with_option_value(option_value).each do |variant| %>
+                <% @product.variants_with_option_value(option_value).find_each do |variant| %>
                     <li>
                       <input id="<%= variant.id %>" class="btn btn-default variant-button" type="button" value="<%= variant.option_value('apparel-size') %>" data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" >
                     </li>
