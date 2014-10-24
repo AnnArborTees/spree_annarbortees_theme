@@ -28,6 +28,14 @@ $( document).ready(function(){
     $("#carousel-product").carousel('next');
   });
 
+    $(".icon-prev").click(function() {
+        $("#carousel-product").carousel('prev');
+    });
+
+  $(".icon-next").click(function() {
+     $("#carousel-product").carousel('next');
+  });
+
 
 
   function updatePrice(e){

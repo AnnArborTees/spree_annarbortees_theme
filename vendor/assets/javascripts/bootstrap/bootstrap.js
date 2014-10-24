@@ -433,7 +433,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     // CAROUSEL DATA-API
     // =================
 
-    $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+    $(document).on('click.bs.carousel.data-api', '[data-slide-to]', function (e) {
         var $this   = $(this), href
         var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
         var options = $.extend({}, $target.data(), $this.data())
