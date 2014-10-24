@@ -1,0 +1,18 @@
+<div class="modal fade bs-example-modal-sm" id="sizingModal" tabindex="-1" role="dialog" aria-labelledby="sizingModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><span id="sizing-guide-style"></span> Sizing Guide</h4>
+      </div>
+      <div class="modal-body">
+        <% sizing_guides.each do |style_id, sizing_guide| %>
+            <div class="sizing-guide" data-style-id="<%= style_id %>" style="display: none">
+              <%= image_tag sizing_guide.sizing_guide_image.attachment(:large) %>
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

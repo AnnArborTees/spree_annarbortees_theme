@@ -6,7 +6,7 @@ $( document).ready(function(){
   $('#variantTabs > .nav-tabs a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
-    
+
     /*
       Switch to appropriate picture when selecting a tab for a certain
       style.
@@ -84,6 +84,15 @@ $( document).ready(function(){
       }, 1);
     }
   }
+
+    $("[data-target='#sizingModal'").on('click', function(e) {
+        $(".sizing-guide[data-style-id='"+$(this).attr('data-style-id')+"']").show();
+        $('#sizing-guide-style').text( $(this).attr('data-style-name') );
+    });
+
+    $('#sizingModal').on('hidden.bs.modal', function (e) {
+        $('.sizing-guide').hide();
+    });
 
   scrollToProductBody();
 
