@@ -85,7 +85,7 @@ $( document).ready(function(){
     }
   }
 
-    $("[data-target='#sizingModal'").on('click', function(e) {
+    $("[data-target='#sizingModal']").on('click', function(e) {
         $(".sizing-guide[data-style-id='"+$(this).attr('data-style-id')+"']").show();
         $('#sizing-guide-style').text( $(this).attr('data-style-name') );
     });
