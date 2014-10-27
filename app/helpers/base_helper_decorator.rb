@@ -89,4 +89,20 @@ Spree::BaseHelper.class_eval do
   def sanitize_id(value)
     value.gsub(/[^a-zA-Z0-9\-_]/, '-')
   end
+
+  def thumbnail_image(product, options = {}, option_value = nil, style = :small)
+    if option_value
+      image = product.images.where(thumbnail: true, option_value_id: option_value.id).first
+    else
+      image = product.images.where(thumbnail: true).shuffle[0]
+    end
+
+    if !image
+      image = product.images.first
+    end
+
+    create_product_image_tag(image, product, options, style)
+
+  end
+
 end

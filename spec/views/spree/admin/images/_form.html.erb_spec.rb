@@ -18,8 +18,17 @@ describe 'spree/admin/images/_form.html.erb', image_spec: true, story_142: true 
     assign(:variants, [])
     f = nil
     form_for(image, url: spree.admin_product_images_path(product)) { |builder| f = builder }
-    
+
     render partial: 'spree/admin/images/form', locals: { f: f }
     expect(rendered).to have_css 'select.select2.fullwidth[name="image[option_value_id]"]'
+  end
+
+  it 'displays a radio button field for thumbnail' do
+    assign(:variants, [])
+    f = nil
+    form_for(image, url: spree.admin_product_images_path(product)) { |builder| f = builder }
+
+    render partial: 'spree/admin/images/form', locals: { f: f }
+    expect(rendered).to have_css "[name='image[thumbnail]'][type='radio']"
   end
 end

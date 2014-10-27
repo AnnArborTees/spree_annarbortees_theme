@@ -17,7 +17,7 @@ describe 'spree/admin/images/index.html.erb', image_spec: true, story_142: true 
 
     allow(view).to receive(:render)
       .with(hash_including(template), anything)
-      .and_call_original    
+      .and_call_original
 
     allow(view).to receive(:new_admin_product_image_url)
       .and_return 'http://duhhhh.com'
@@ -51,6 +51,16 @@ describe 'spree/admin/images/index.html.erb', image_spec: true, story_142: true 
         .and_return 'THAT VALUE'
       render
       expect(rendered).to have_css 'td', text: 'THAT VALUE'
+    end
+  end
+
+  context 'when the image is a thumbnail' do
+    it 'should have an option value column with "Yes" in its cel' do
+      allow(image).to receive(:thumbnail?)
+                      .and_return true
+      render
+      expect(rendered).to have_css 'th', text: 'Thumbnail?'
+      expect(rendered).to have_css 'td', text: 'Yes'
     end
   end
 end

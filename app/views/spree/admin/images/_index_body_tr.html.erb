@@ -9,6 +9,7 @@
     <td><%= options_text_for(image) %></td>
   <% end %>
   <td><%= image.option_value.try(:presentation) || 'None' %></td>
+  <td><%= 'Yes' if image.thumbnail? %></td>
   <td><%= image.alt %></td>
   <td class="actions">
     <%= link_to_with_icon 'icon-edit', Spree.t(:edit), edit_admin_product_image_url(@product, image), :no_text => true, :data => {:action => 'edit'} %>
