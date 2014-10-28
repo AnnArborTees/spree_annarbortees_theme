@@ -1,5 +1,8 @@
 en:
+  spree:
+    digital_preview: Digital Download Preview Link
   activerecord:
     attributes:
       spree/product:
         layout: Layout
+        digital_preview: Digital Download Preview

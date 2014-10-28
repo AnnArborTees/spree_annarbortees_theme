@@ -297,3 +297,19 @@ ul.variants .active {
   }
 }
 
+#digital-download-preview {
+ border-bottom: solid 1px $black;
+  width: 90%;
+  margin: auto;
+
+  .btn {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 10px inherit;
+  }
+
+}

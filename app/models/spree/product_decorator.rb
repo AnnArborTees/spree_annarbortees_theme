@@ -5,7 +5,8 @@ Spree::Product.class_eval do
 
   LAYOUTS = {
       'Default' => 'default',
-      'Imprinted Apparel' => 'imprinted_apparel'
+      'Imprinted Apparel' => 'imprinted_apparel',
+      'Digital Download w/Preview' => 'digital_download'
   }
 
   def option_values_for_option_type(option_type)

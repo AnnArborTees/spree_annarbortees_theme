@@ -5,3 +5,11 @@
       <%= f.error_message_on :layout %>
   <% end %>
 </div>
+
+<div data-hook="admin_product_digital_preview" <% if @product.layout != 'digital_download'%>style="display: none" <% end %>>
+  <%= f.field_container :digital_preview do %>
+      <%= f.label :digital_preview, Spree.t(:digital_preview) %>
+      <%= f.text_field :digital_preview, :class => 'fullwidth title' %>
+      <%= f.error_message_on :layout %>
+  <% end %>
+</div>
