@@ -203,6 +203,45 @@ ul.variants .active {
   background-color: $orange-rgb;
 }
 
+/*
+/*  Digital Variant buttons
+/****************************/
+
+ul.digital-variants {
+  margin: 0 auto;
+  padding: 0 25px;
+  text-align: center;
+}
+
+
+ul.digital-variants li {
+  list-style: none;
+  float: none;
+  display: inline;
+}
+
+ul.digital-variants .btn {
+//  width: 65px;
+  height: 65px;
+  margin: 5px;
+  padding: 5px 10px 0 10px;
+
+  color: #fff;
+  font-size: 16px;
+  border-radius: 0;
+  border: solid 3px $orange-rgb;
+  background: none;
+  box-shadow: none;
+
+
+}
+
+ul.digital-variants .active {
+  color: #fff;
+  background-color: $orange-rgb;
+}
+
+
 #variantTabs .btn-group {
   margin: 1em auto;
 }

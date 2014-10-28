@@ -11,15 +11,20 @@
               <%= link_to  @product.digital_preview,  'data-toggle' => 'modal',
                            class: 'btn youtube' do %>
                   <i class="glyphicon glyphicon-play"></i> Play Preview
-             <% end %>
+              <% end %>
             </div>
         <% end %>
+
         <% if @product.variants_and_option_values(current_currency).any? %>
             <div class="tab-pane clearfix active" id="product-options">
-              <ul class="variants full-width">
+              <ul class="digital-variants full-width">
                 <% @product.variants.each do |variant| %>
                     <li>
-                      <input id="<%= variant.id %>" class="btn btn-default variant-button" type="button" value="<%= variant_options variant %>" data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" >
+                      <input id="<%= variant.id %>"
+                             class="btn btn-default variant-button <%= variant.option_values.detect { |o| o.option_type.name == 'media-version' }.try(:name) %>"
+                             type="button"
+                             value="<%= variant.option_value('media-version') %>"
+                             data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" >
                     </li>
                 <% end %>
               </ul>

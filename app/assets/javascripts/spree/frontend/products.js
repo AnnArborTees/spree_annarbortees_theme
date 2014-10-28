@@ -71,7 +71,7 @@ $( document).ready(function(){
    */
   $('.variant-button').click(function(e){
     updatePrice(this);
-    $(".variants input").removeClass('active');
+    $(".variants input, .digital-variants input").removeClass('active');
     $(this).addClass('active');
     $('#variant_id').val($(this).attr('id'))
   });
