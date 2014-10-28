@@ -105,6 +105,19 @@ $( document).ready(function(){
   scrollToProductBody();
 
 
-  $(".youtube").YouTubeModal({autoplay:0, width:640, height:480});
+  $(".youtube").YouTubeModal(youTubeModalOptions());
+
+  function youTubeModalOptions() {
+      var width;
+      var w = window.innerWidth;
+
+      if(w < 640) {
+          width = w - 40;
+      } else {
+          width = 640;
+      }
+      var height = 480.0 / 640.0 * width;
+      return({autoplay:1, width:width, height:height});
+  }
 
 });
