@@ -86,7 +86,7 @@ $( document).ready(function(){
      When loading the page, if the user is in a view less than 768, scroll down to product budy
      */
   function scrollToProductBody(){
-    if( $(window).width() < 767) {
+    if( $(window).width() < 767 && $('#product-images-and-options').length != 0) {
       $('html, body').animate({
         scrollTop: $("#product-images-and-options").offset().top
       }, 1);
