@@ -1,18 +1,26 @@
 <%= order_form.fields_for :line_items, line_item do |item_form| -%>
     <% variant = line_item.variant -%>
     <div class="cart-row row clear line-item">
-      <div class="cart-item-title col-xs-12">
+      <div class="small-cart-item-title col-xs-12">
         <h4><%= line_item.name %></h4>
         <p><%= variant.options_text %></p>
       </div>
-      <div class="col-xs-4 cart-item-image" data-hook="cart_item_image">
+      <div class="col-xs-4 col-sm-3 cart-item-image" data-hook="cart_item_image">
         <% option_value = variant.option_values.detect { |o| o.option_type.name == 'apparel-style' } %>
         <%= thumbnail_image(variant.product, {alt: variant.product.name}, option_value) %>
       </div>
-      <div class="col-xs-4 cart-item-title">
+      <div class="large-cart-item-title col-sm-4">
+        <h4><%= line_item.name %></h4>
+        <p><%= variant.options_text %></p>
+        <%= line_item_description_text(line_item.description) %>
+      </div>
+      <div class="large-cart-item-unit-price col-sm-1">
+        <%= line_item.single_money.to_html %>
+      </div>
+      <div class="col-xs-4 col-sm-2 cart-item-quantity">
         <%= item_form.number_field :quantity, :min => 0, :class => "form-control line_item_quantity", :size => 5 %>
       </div>
-      <div class="col-xs-4 cart-item-total">
+      <div class="col-xs-4 col-sm-2 cart-item-total">
         <%= line_item.display_amount.to_html unless line_item.quantity.nil? %><br />
         <%= link_to 'Remove', '#', :class => 'delete', :id => "delete_#{dom_id(line_item)}" %>
       </div>
