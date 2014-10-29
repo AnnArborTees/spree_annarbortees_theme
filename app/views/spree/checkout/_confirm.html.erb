@@ -8,6 +8,8 @@
 </div>
 
 <div class="well text-right form-buttons" data-hook="buttons">
-  <%= submit_tag Spree.t(:place_order), :class => 'btn btn-lg btn-success' %>
+  <%= button_tag :class => 'btn btn-lg btn-success' do %>
+      <%= Spree.t(:place_order) %> <i class="glyphicon glyphicon-circle-arrow-right"></i>
+  <% end %>
   <script>Spree.disableSaveOnClick();</script>
 </div>
