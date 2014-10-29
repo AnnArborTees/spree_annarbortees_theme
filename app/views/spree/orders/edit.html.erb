@@ -2,7 +2,6 @@
 <% cache [@order, current_store] do %>
 <% @body_id = 'cart' %>
 <div data-hook="cart_container" class="container">
-  <h1><%= Spree.t(:shopping_cart) %></h1>
 
   <% if @order.line_items.empty? %>
 
@@ -14,37 +13,47 @@
   <% else %>
 
   <div data-hook="outside_cart_form">
+    <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+
     <%= form_for @order, :url => update_cart_path, :html => {:id => 'update-cart'} do |order_form| %>
-      <div data-hook="inside_cart_form">
 
-        <div data-hook="cart_items">
-          <%= render :partial => 'form', :locals => { :order_form => order_form } %>
+        <div class="row cart-checkout-button">
+         <%= button_tag :class => 'btn btn-lg', :id => 'checkout-link', :name => 'checkout' do %>
+              <i class="glyphicon glyphicon-lock"></i> <%= Spree.t(:secure_checkout) %> <i class="glyphicon glyphicon-arrow-right"></i>
+         <% end %>
+       </div>
+
+      <div id="new_cart_form">
+
+        <%= render partial: 'line_item', collection: order_form.object.line_items, locals: {order_form: order_form} %>
+
+        <div class="cart-quantities-update">
+          <%= link_to "#", class:'btn btn-sm btn-empty-cart', id: 'empty-cart' do %>
+              <%= Spree.t(:empty_cart) %>
+          <% end %>
+
+          <%= link_to "#", :class => 'btn btn-sm', id: 'update-quantities-link' do %>
+              <%= Spree.t(:update_quantities) %>
+          <% end %>
         </div>
 
-        <div class="links col-md-6 navbar-form pull-right text-right" data-hook="cart_buttons">
-          <div class="form-group">
-          <%= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code), class: "form-control form-control-inline" %></div>
-          <%= button_tag :class => 'btn btn-primary', :id => 'update-button' do %>
-            <%= Spree.t(:update) %>
-          <% end %>
-          <%= button_tag :class => 'btn btn-lg btn-success', :id => 'checkout-link', :name => 'checkout' do %>
-            <%= Spree.t(:checkout) %>
+        <%= render 'adjustments', order_form: order_form %>
+        <%= render 'coupon_form', order_form: order_form %>
+
+
+        <div class="row cart-checkout-button">
+          <%= button_tag :class => 'btn btn-lg', :id => 'checkout-link', :name => 'checkout' do %>
+              <i class="glyphicon glyphicon-lock"></i> <%= Spree.t(:secure_checkout) %> <i class="glyphicon glyphicon-arrow-right"></i>
           <% end %>
         </div>
-      </div>
-    <% end %>
+    <% end # end cart form %>
+    </div>
   </div>
-
-  <div id="empty-cart" class="col-md-6 pull-left" data-hook>
-    <%= form_tag empty_cart_path, :method => :put do %>
-      <p id="clear_cart_link" data-hook>
-        <%= submit_tag Spree.t(:empty_cart), :class => 'btn btn-default' %>
-        <%= Spree.t(:or) %>
-        <%= link_to Spree.t(:continue_shopping), products_path, :class => 'continue' %>
-      </p>
-    <% end %>
+    <% end # end if line items not empty %>
+  <div class="cart-secure-seal">
+    <span id="siteseal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=C3aOudlOQqx1s1P3FS6gsYEYaF3pWDwAx97MgounipehtjLfJi7OESI"></script></span>
+    <script type="text/javascript" language="javascript">var ANS_customer_id="c0a25aca-6881-4b9c-bc56-9d53b1a9208a";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script>
   </div>
-
-<% end %>
 </div>
-<% end %>
+<% end # end caching %>
+

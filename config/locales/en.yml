@@ -1,6 +1,9 @@
 en:
   spree:
     digital_preview: Digital Download Preview Link
+    secure_checkout: Secure Checkout
+    estimated_total: Estimated total
+    update_quantities: Update Cart Quantities
   activerecord:
     attributes:
       spree/product:

@@ -1,0 +1,10 @@
+<div class="row clear cart-coupon-form">
+  <div class="col-xs-8">
+    <%= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code), class: "form-control form-control-inline" %>
+  </div>
+  <div class="col-xs-4">
+    <%= button_tag :class => 'btn', :id => 'add-coupon-button' do %>
+        <%= Spree.t(:apply) %>
+    <% end %>
+  </div>
+</div>
