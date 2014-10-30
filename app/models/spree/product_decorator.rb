@@ -6,6 +6,7 @@ Spree::Product.class_eval do
   LAYOUTS = {
       'Default' => 'default',
       'Imprinted Apparel' => 'imprinted_apparel',
+      'Premade Apparel' => 'premade_apparel',
       'Digital Download w/Preview' => 'digital_download'
   }
 
@@ -25,7 +26,7 @@ Spree::Product.class_eval do
   private
 
   def product_configured_properly_for_layout
-    if self.layout == 'imprinted_apparel'
+    if self.layout == 'imprinted_apparel' || self.layout == 'premade_apparel'
      style = Spree::OptionType.find_by(name: 'apparel-style')
      size = Spree::OptionType.find_by(name: 'apparel-size')
       # errors.add(:layout, 'Must define apparel-style in order to use this layout') unless self.option_types.include? style
