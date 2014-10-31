@@ -7,6 +7,7 @@ Spree::Product.class_eval do
       'Default' => 'default',
       'Imprinted Apparel' => 'imprinted_apparel',
       'Premade Apparel' => 'premade_apparel',
+      'Imprinted Shoes' => 'imprinted_shoes',
       'Digital Download w/Preview' => 'digital_download'
   }
 

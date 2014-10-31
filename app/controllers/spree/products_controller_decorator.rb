@@ -4,7 +4,7 @@ Spree::ProductsController.class_eval do
   private
 
   def load_option_data
-      if @product.layout == 'imprinted_apparel' || @product.layout == 'premade_apparel'
+      if @product.layout == 'imprinted_apparel' || @product.layout == 'premade_apparel' || @product.layout == 'imprinted_shoes'
         @styles = @product.option_values_for_option_type(Spree::OptionType.find_by(name: 'apparel-style'))
         @sizing_guides = find_sizing_guides_for_styles(@styles)
       end

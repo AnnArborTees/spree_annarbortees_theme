@@ -204,12 +204,19 @@ ul.variants .btn {
 
 .variant-default-button{
   width: 100px;
-  font-size: 16px;
+  font-size: 16px !important;
+}
+
+
+.variant-shoe-button{
+  width: 45%;
+  font-size: 14px !important;
+  height: 40px !important;
 }
 
 .variant-apparel-button {
   width: 65px;
-  font-size: 24px;
+  font-size: 24px !important;
 }
 
 ul.variants .active {
