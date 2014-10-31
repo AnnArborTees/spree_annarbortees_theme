@@ -46,17 +46,8 @@
       <% if params[:search].blank? %>
           <% %w(media apparel accessories).each do |category| %>
           <h2 class="header"><%= category.capitalize %></h2>
-            <%
-                if category == 'media'
-                    limit = 4
-                elsif category == 'apparel'
-                    limit = 36
-                else
-                    limit = 24
-                end
-               %>
 
-            <%= render :partial => 'spree/shared/products', :locals => { :products => @products[category][:searcher].retrieve_products.limit(limit) } %>
+            <%= render :partial => 'spree/shared/products', :locals => { :products => @products[category][:products] } %>
             <p class='browse-all text-right'><%= link_to "Browse All #{category.capitalize}", seo_url(@products[category][:taxon]) %></p>
 
           <% end %>

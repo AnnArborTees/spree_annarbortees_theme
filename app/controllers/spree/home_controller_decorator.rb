@@ -12,10 +12,18 @@ Spree::HomeController.class_eval do
 
       @products = {}
       %w(media apparel accessories).each do |category|
+        if category == 'media'
+          limit = 4
+        elsif category == 'apparel'
+          limit = 36
+        else
+          limit = 24
+        end
+
         @products[category] = {
-          taxon: @taxonomies.find_by(name: 'collection').taxons.find_by(name: 'media')
+          taxon: @taxonomies.find_by(name: 'collection').taxons.find_by(name: category)
         }
-        @products[category][:searcher] = build_searcher(params.merge(taxon: @products[category][:taxon].id, include_images: true))
+        @products[category][:products] = build_searcher(params.merge(taxon: @products[category][:taxon].id, include_images: true)).retrieve_products.limit(limit)
       end
 
       # @media = {
