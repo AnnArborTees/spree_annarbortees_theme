@@ -2,7 +2,13 @@
     <div id="variantTabs">
           <ul class="nav nav-tabs">
             <li class="active">
-              <a href="#product-options">Options</a>
+              <a href="#product-options">
+                <% if @product.option_types.count == 1 %>
+                    <%= @product.option_types.first.presentation %>
+                 <% else %>
+                    Option
+                 <% end %>
+              </a>
             </li>
           </ul>
           <div class="tab-content default-product-layout">
@@ -12,7 +18,12 @@
                   <ul class="variants full-width">
                     <% @product.variants.each do |variant| %>
                         <li>
-                          <input id="<%= variant.id %>" class="btn btn-default variant-button" type="button" value="<%= variant_options variant %>" data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" >
+                          <% if @product.option_types.count == 1 %>
+                            <% option_type = @product.option_types.first.name %>
+                          <input id="<%= variant.id %>" class="btn btn-default variant-button variant-button-wide" type="button" value="<%= variant.option_value(option_type) %>" data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" >
+                          <% else %>
+                          <input id="<%= variant.id %>" class="btn btn-default variant-button variant-button-default" type="button" value="<%= variant_options variant %>" data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" >
+                            <% end %>
                         </li>
                     <% end %>
                   </ul>

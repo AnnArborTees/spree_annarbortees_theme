@@ -185,7 +185,6 @@ ul.variants li {
 }
 
 ul.variants .btn {
-  width: 65px;
   height: 65px;
   margin: 5px;
   padding: 5px 5px 0 5px;
@@ -196,6 +195,21 @@ ul.variants .btn {
   border: solid 3px $orange-rgb;
   background: none;
   box-shadow: none;
+}
+
+.variant-button-wide{
+  width: 100px;
+  font-size: 16px;
+}
+
+.variant-default-button{
+  width: 100px;
+  font-size: 16px;
+}
+
+.variant-apparel-button {
+  width: 65px;
+  font-size: 24px;
 }
 
 ul.variants .active {
@@ -353,6 +367,6 @@ ul.digital-variants .active {
 
 }
 
-#products img.imprinted_apparel {
+#products img.imprinted_apparel, #products img.premade_apparel  {
   min-height: 225px;
 }
