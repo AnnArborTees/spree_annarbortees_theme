@@ -44,15 +44,22 @@
 
     <div id="products">
       <% if params[:search].blank? %>
-            <h2 class="header">Media</h2>
-               <%= render :partial => 'spree/shared/products', :locals => { :products => @media.products.limit(4) } %>
-               <p class='browse-all text-right'><%= link_to "Browse All Media", seo_url(@media) %></p>
-            <h2 class="header">Apparel</h2>
-               <%= render :partial => 'spree/shared/products', :locals => { :products => @apparel.products.limit(48) } %>
-          <p class='browse-all text-right '><%= link_to "Browse All Apparel", seo_url(@apparel) %></p>
-            <h2 class="header">Accessories</h2>
-               <%= render :partial => 'spree/shared/products', :locals => { :products => @accessories.products.limit(24) } %>
-          <p class='browse-all text-right'><%= link_to "Browse All Accessories", seo_url(@accessories) %></p>
+          <% %w(media apparel accessories).each do |category| %>
+          <h2 class="header"><%= category.capitalize %></h2>
+            <%
+                if category == 'media'
+                    limit = 4
+                elsif category == 'apparel'
+                    limit = 36
+                else
+                    limit = 24
+                end
+               %>
+
+            <%= render :partial => 'spree/shared/products', :locals => { :products => @products[category][:searcher].retrieve_products.limit(limit) } %>
+            <p class='browse-all text-right'><%= link_to "Browse All #{category.capitalize}", seo_url(@products[category][:taxon]) %></p>
+
+          <% end %>
 
         <% else %>
           <% cache(cache_key_for_products) do %>

@@ -35,6 +35,6 @@
     </ul>
 <% end %>
 
-<% if paginated_products.respond_to?(:num_pages) %>
+<% if paginated_products.respond_to?(:num_pages) && current_store.homepage_layout != 'starkid_homepage' %>
     <%= paginate paginated_products %>
 <% end %>
