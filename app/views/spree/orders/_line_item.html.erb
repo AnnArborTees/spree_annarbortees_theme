@@ -7,7 +7,7 @@
       </div>
       <div class="col-xs-4 col-sm-3 cart-item-image" data-hook="cart_item_image">
         <% option_value = variant.option_values.detect { |o| o.option_type.name == 'apparel-style' } %>
-        <%= thumbnail_image(variant.product, {alt: variant.product.name}, option_value) %>
+        <%= thumbnail_image(variant.product, {alt: variant.product.name}, option_value) rescue link_to(small_image(variant.product), variant.product) %>
       </div>
       <div class="large-cart-item-title col-sm-4">
         <h4><%= line_item.name %></h4>
