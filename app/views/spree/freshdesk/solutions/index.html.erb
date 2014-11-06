@@ -1,0 +1,35 @@
+<div class="container support">
+  <div class="row">
+      <h1 class="page-header">Help</h1>
+        <div class="col-md-3">
+          <div class="list-group navbar" id="sidebar">
+            <ul class="nav" id="help-nav" data-spy="affix" data-offset-top="100">
+              <% @categories.each do |category| %>
+              <% category.folders.each do |folder| %>
+                  <li><%= link_to folder['name'], "##{folder['id']}", class: 'list-group-item', contenteditable: 'false' %></li>
+              <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" id="mycontent">
+
+        <% @categories.each do |category| %>
+            <div class="help-section" data-spy="scroll" data-target=".navbar-example">
+              <h2 class="header"><%= category.name %></h2>
+                <% category.folders.each do |folder| %>
+                  <% if folder['visibility'] == 1 %>
+                      <div id="<%= folder['id'] %>" class="slide scroll-area" data-spy="scroll">
+                        <h3 class="page-header"><%= folder['name'] %></h3>
+                        <% @articles[folder['id']].each do |article| %>
+                            <h4 clss="header"><%= article.title %></h4>
+                            <%= article.description.html_safe %>
+                        <% end %>
+                      </div>
+                  <% end %>
+                <% end %>
+            </div>
+        <% end %>
+        </div>
+    </div>
+</div>

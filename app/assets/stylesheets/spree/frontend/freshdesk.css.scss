@@ -1,0 +1,21 @@
+@import 'variables';
+
+.nav.affix {
+  margin-top: -100px;
+}
+
+.help-section {
+
+  h3 {
+    color: $orange-rgb;
+  }
+
+  h4 {
+    color: $dark-green-rgb;
+  }
+
+  p {
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
