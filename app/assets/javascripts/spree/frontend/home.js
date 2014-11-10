@@ -7,4 +7,8 @@ $(document).ready(function(){
             return $('.cart-count').html(data);
         }
     });
+
+    $('.products').masonry({
+        itemSelector: '.product'
+    });
 });
