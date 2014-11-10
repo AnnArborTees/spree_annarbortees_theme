@@ -5,6 +5,7 @@
 //= require holder
 //= require jquery
 //= require jquery-mobile
+//= require imagesloaded
 //= require masonry
 //= require spree/frontend/bootstrap/youtubepopup
 //= require_tree .
