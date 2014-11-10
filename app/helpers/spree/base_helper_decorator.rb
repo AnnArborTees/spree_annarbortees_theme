@@ -105,17 +105,13 @@ Spree::BaseHelper.class_eval do
         image = product.images.first
       end
 
-      options[:style] = "min-height: #{thumbnail_min_height(image, 176)}px;"
+      # options[:style] = "min-height: #{thumbnail_min_height(image, 176)}px;"
 
       create_product_image_tag(image, product, options, style)
 
     rescue
-      link_to( small_image(product, {itemprop: "image", style: "min-height: #{thumbnail_min_height(image, 176)}px;"}), url, :itemprop => 'url')
+      link_to( small_image(product, {itemprop: "image"}), url, :itemprop => 'url')
     end
-  end
-
-  def thumbnail_min_height(image, max_width)
-    ((image.attachment_height / (image.attachment_width * 1.0) * (max_width * 1.0))).to_i
   end
 
 end

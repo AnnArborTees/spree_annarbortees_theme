@@ -8,7 +8,10 @@ $(document).ready(function(){
         }
     });
 
-    $('.products').masonry({
-        itemSelector: '.product'
+    $('.products').imagesLoaded(function(){
+        $('.products').masonry({
+            itemSelector: '.product'
+        });
     });
+
 });
