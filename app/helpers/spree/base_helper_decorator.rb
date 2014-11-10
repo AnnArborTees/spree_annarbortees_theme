@@ -91,18 +91,31 @@ Spree::BaseHelper.class_eval do
   end
 
   def thumbnail_image(product, options = {}, option_value = nil, style = :small)
-    if option_value
-      image = product.images.where(thumbnail: true, option_value_id: option_value.id).first
-    else
-      image = product.images.where(thumbnail: true).shuffle[0]
+    # TODO: This is a complete hack to get masonry working
+    # Solves the problem addressed https://github.com/passy/angular-masonry/issues/4
+
+    begin
+      if option_value
+        image = product.images.where(thumbnail: true, option_value_id: option_value.id).first
+      else
+        image = product.images.where(thumbnail: true).shuffle[0]
+      end
+
+      if !image
+        image = product.images.first
+      end
+
+      options[:style] = "min-height: #{thumbnail_min_height(image, 176)}px;"
+
+      create_product_image_tag(image, product, options, style)
+
+    rescue
+      link_to( small_image(product, {itemprop: "image", style: "min-height: #{thumbnail_min_height(image, 176)}px;"}), url, :itemprop => 'url')
     end
+  end
 
-    if !image
-      image = product.images.first
-    end
-
-    create_product_image_tag(image, product, options, style)
-
+  def thumbnail_min_height(image, max_width)
+    ((image.attachment_height / (image.attachment_width * 1.0) * (max_width * 1.0))).to_i
   end
 
 end
