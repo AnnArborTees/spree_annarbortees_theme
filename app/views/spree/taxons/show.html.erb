@@ -5,6 +5,8 @@
         <%= render :partial => 'spree/shared/filters' if @taxon.children.empty? %>
   </div>
 
+  <%= render partial: 'spree/shared/pagination', locals: { products: @products}  %>
+
   <div id="homepage-right-column" class="col-md-10">
     <div data-hook="taxon_products">
       <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
@@ -18,6 +20,9 @@
         </div>
     <% end %>
   </div>
+
+
+  <%= render partial: 'spree/shared/pagination', locals: { products: @products}  %>
 </div>
 
 

@@ -1,0 +1,10 @@
+<%
+   paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+   paginated_products ||= products
+%>
+
+<% if paginated_products.respond_to?(:num_pages) %>
+<div class="text-right">
+  <%= paginate paginated_products %>
+</div>
+<% end %>
