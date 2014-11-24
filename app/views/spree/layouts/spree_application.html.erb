@@ -4,6 +4,9 @@
 <!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+
+  <% trusted_store = (extend Spree::GoogleTrustedStoreHelper) && true rescue false %>
+
     <head data-hook="inside_head">
       <%= render :partial => 'spree/shared/head' %>
     </head>
@@ -44,7 +47,7 @@
         </script>
     <% end %>
 
-    <%= google_trusted_store_badge %>
+    <%= google_trusted_store_badge if trusted_store %>
 
-    </body>
+  </body>
 </html>
