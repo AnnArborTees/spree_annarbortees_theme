@@ -13,7 +13,7 @@ Spree::HomeController.class_eval do
       @products = {}
       %w(media apparel accessories).each do |category|
         if category == 'media'
-          limit = 4
+          limit = 12
         elsif category == 'apparel'
           limit = 36
         else
