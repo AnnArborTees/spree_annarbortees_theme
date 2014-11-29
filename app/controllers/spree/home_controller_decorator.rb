@@ -5,7 +5,9 @@ Spree::HomeController.class_eval do
     add_current_store_ids_to_params
     @taxonomies = get_taxonomies
 
-    if current_store.homepage_layout == 'default'
+    layout = current_store.try(:homepage_layout)
+
+    if layout.nil? || layout == 'default'
       @searcher = build_searcher(params)
       @products = @searcher.retrieve_products
     else

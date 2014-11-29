@@ -110,7 +110,10 @@ Spree::BaseHelper.class_eval do
       create_product_image_tag(image, product, options, style)
 
     rescue
-      link_to( small_image(product, {itemprop: "image"}), url, :itemprop => 'url')
+      begin
+        link_to( small_image(product, {itemprop: "image"}), url, :itemprop => 'url')
+      rescue NameError
+      end
     end
   end
 

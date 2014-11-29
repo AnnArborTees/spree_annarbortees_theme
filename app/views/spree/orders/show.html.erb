@@ -23,3 +23,7 @@
       </div>
     </fieldset>
 </div>
+
+<% if params.has_key?(:checkout_complete) && respond_to?(:google_trusted_store_order_confirmation) %>
+  google_trusted_store_order_confirmation(order)
+<% end %>
