@@ -6,7 +6,6 @@
       <div id="order" data-hook>
         <% if params.has_key? :checkout_complete %>
             <h1><%= Spree.t(:thank_you_for_your_order) %></h1>
-            <%= google_trusted_store_order_confirmation(@order) if Rails.env.production? %>
         <% end %>
         <%= render :partial => 'spree/shared/order_details', :locals => { :order => @order } %>
 
@@ -23,7 +22,3 @@
       </div>
     </fieldset>
 </div>
-
-<% if params.has_key?(:checkout_complete) && respond_to?(:google_trusted_store_order_confirmation) %>
-  google_trusted_store_order_confirmation(order)
-<% end %>
