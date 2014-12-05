@@ -23,13 +23,56 @@
     <div class="container">
       <footer>
         <div class="row">
-          <div class="col-lg-12">
-            Copyright &copy; Ann Arbor T-shirt Company LLC 2008-2014
+          <div class="col-lg-4">
+            <h3>Get Social With Us</h3>
+            <ul class="social-footer">
+            <li>
+              <%= link_to 'http://www.pinterest.com/annarbortees/', target: '_blank' do %>
+                  <i class="fa fa-pinterest fa-3x"></i><br />Pin
+              <% end %>
+            </li>
+            <li>
+              <%= link_to 'http://www.facebook.com/annarbortshirtcompany', target: '_blank' do %>
+                  <i class="fa fa-facebook fa-3x"></i><br />Like
+              <% end %>
+            </li>
+            <li>
+              <%= link_to 'http://twitter.com/annarbortees', target: '_blank' do %>
+                  <i class="fa fa-twitter fa-3x"></i><br />Tweet
+              <% end %>
+            </li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h3>Shop Securely</h3>
+            <span id="siteseal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=C3aOudlOQqx1s1P3FS6gsYEYaF3pWDwAx97MgounipehtjLfJi7OESI"></script></span>
+            <script type="text/javascript" language="javascript">var ANS_customer_id="c0a25aca-6881-4b9c-bc56-9d53b1a9208a";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script>
+          </div>
+          <div class="col-lg-4">
+            <h3>Quick Links</h3>
+            <ul class="quick-links">
+              <li>
+                <%= link_to 'Help', help_path %>
+              </li>
+              <li>
+                <%= link_to 'Account', account_path %>
+              </li>
+              <li>
+                <%= link_to 'The Company', 'http://www.annarbortees.com/about-the-company/', target: '_blank' %>
+              </li>
+            </ul>
           </div>
         </div>
-      </footer>
-    </div>
 
+        <div class="row">
+        <div class="col-lg-12">
+          <p class="text-center">
+            The Ann Arbor T-shirt Company and Logo is Trademark of the The Ann Arbor T-shirt Company LLC<br />
+            All Content is Copyright &copy; 2008-<%= Time.now.strftime('%Y') %>
+          </p>
+        </div>
+        </div>
+      </footer>
     </div>
     <!-- /container -->
 

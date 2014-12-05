@@ -206,3 +206,32 @@ ul.products {
 
 
 }
+
+.social-footer ul {
+  margin: 0;
+  padding: 0;
+}
+
+.social-footer li {
+  float: left;
+  list-style: none;
+  text-align: center;
+  padding-right: 5px;
+  margin: 0;
+
+}
+
+.social-footer i {
+  font-size: 30px;
+  color: $white;
+  background-color: $dark-green-rgb;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.quick-links {
+  li {
+    list-style: none;
+  }
+}
