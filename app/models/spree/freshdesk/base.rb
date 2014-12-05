@@ -7,6 +7,7 @@ module Spree
       base_uri  Rails.configuration.freshdesk_base_uri
       @@username = Rails.configuration.freshdesk_api_key
       @@password = 'X'
+      # debug_output $stderr
 
       def initialize
         @options = options

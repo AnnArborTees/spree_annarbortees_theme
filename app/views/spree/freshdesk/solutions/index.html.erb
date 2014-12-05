@@ -9,6 +9,7 @@
                   <li><%= link_to folder['name'], "##{folder['id']}", class: 'list-group-item', contenteditable: 'false' %></li>
               <% end %>
               <% end %>
+              <li><%= link_to "Contact Us", "#contact-us", class: 'list-group-item', contenteditable: 'false' %></li>
             </ul>
           </div>
         </div>
@@ -30,6 +31,53 @@
                 <% end %>
             </div>
         <% end %>
+
+          <div class="help-section" data-spy="scroll" data-target=".navbar-example">
+                <h2 class="header">Contact Us</h2>
+                <div id="contact-us" class="slide scroll-area" data-spy="scroll">
+                    <h3 class="page-header">Contact Our Support Staff</h3>
+                    <%= form_tag '/contact', method: :post do %>
+                      <div class="form-group">
+                        <p class="field" id='support_name'>
+                          <%= label_tag :name, Spree.t(:name) %><span class="required">*</span><br />
+                          <%= text_field_tag 'ticket[name]', '', {:class => 'form-control required', placeholder: 'Please Enter Your Name'} %>
+                        </p>
+                        <p class="field" id='support_name'>
+                          <%= label_tag :email, Spree.t(:email) %><span class="required">*</span><br />
+                          <%= text_field_tag 'ticket[email]', '', {:class => 'form-control required', placeholder: 'Please Enter Your E-mail Address'} %>
+                        </p>
+                        <p class="field" id='support_name'>
+                          <%= label_tag :subject, Spree.t(:subject) %><span class="required">*</span><br />
+                          <%= select_tag 'ticket[subject]', options_for_select(@support_subjects, include_blank: true), class: 'form-control' %>
+                        </p>
+                        <p class="field" id='support_name'>
+                          <%= label_tag :order, Spree.t(:order) %><br />
+                          <%= text_field_tag 'ticket[subject]', '', {:class => 'form-control required', placeholder: 'Please Enter Your Order Number'} %>
+                        </p>
+                        <p class="field" id='support_name'>
+                          <%= label_tag :body, Spree.t(:body) %><span class="required">*</span><br />
+                          <%= text_area_tag 'ticket[body]', '', {:class => 'form-control required', placeholder: 'How can we help you?'} %>
+                        </p>
+                        <%= button_tag 'Contact Support', class: 'btn btn-success' %>
+                      </div>
+                    <% end %>
+                </div>
+
+                <div id="contact-us" class="slide scroll-area" data-spy="scroll">
+                  <h3 class="page-header">Visit Our Office</h3>
+                  <p>
+                    The Ann Arbor T-shirt Company offices are open Monday through Friday, 10am through 6pm, and additionally upon request.
+                    If you'd like to visit, we'd love to see you!
+                  </p>
+                  <address>
+                    2275 S. Industrial Hwy<br />
+                    Ann Arbor, MI 48104<br />
+                    United States of America
+                  </address>
+
+                  <iframe width="600" height="450" frameborder="0" style="border:0;margin: 0 auto;" src="https://www.google.com/maps/embed/v1/search?q=2275%20S%20Industrial%20Hwy%2C%20Ann%20Arbor%2C%20MI%2C%20United%20States&key=AIzaSyC0pZheUKG5cAYpWaCcE6G43nr22LJrYTI"></iframe>
+                </div>
+          </div>
         </div>
     </div>
 </div>
