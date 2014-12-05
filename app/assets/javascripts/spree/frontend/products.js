@@ -57,7 +57,7 @@ $( document).ready(function(){
       select the first option, set the price, set variant_id
    */
   function initSelectedVariant(){
-    if(parseInt($('#variant_id').attr('data-variant-count')) > 0) {
+    if(parseInt($('#variant_id').attr('data-variant-count')) > 1) {
       $(".variants input").removeClass('active');
       $('.tab-pane.active input:first').addClass('active');
       updatePrice($('.tab-pane.active input:first'));
