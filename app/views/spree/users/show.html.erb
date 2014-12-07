@@ -5,6 +5,8 @@
       <dl id="user-info">
         <dt><%= Spree.t(:email) %></dt>
         <dd><%= @user.email %> (<%= link_to Spree.t(:edit), spree.edit_account_path %>)</dd>
+        <dt>Actions</dt>
+        <dd><%= link_to Spree.t(:logout), spree.logout_path %></dd>
       </dl>
     </div>
 

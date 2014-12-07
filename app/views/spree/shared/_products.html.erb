@@ -3,13 +3,6 @@
    paginated_products ||= products
 %>
 
-<%= content_for :pagination do %>
-    <h1>PAGINATION!</h1>
-    <% if paginated_products.respond_to?(:num_pages) %>
-        <%= paginate paginated_products %>
-    <% end %>
-<% end %>
-
 <% if products.empty? %>
     <%= Spree.t(:no_products_found) %>
 <% elsif params.key?(:keywords) %>

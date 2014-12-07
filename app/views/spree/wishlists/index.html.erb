@@ -1,0 +1,14 @@
+<div data-hook="wishlist_container" class="container">
+<h1 class="heading"><%= Spree.t(:wishlists) %></h1>
+  <p>
+    Wishlists are a way for you to share what you want with your friends,
+    family, or whoever you think you can convince to purchase your favorite items for you!
+  </p>
+<%= content_tag :ul do %>
+    <% @wishlists.each do |wishlist| %>
+        <%= content_tag :li do %>
+            <%=  link_to(wishlist.name, wishlist) %>  - <%= wishlist.is_private ? Spree.t(:private) : Spree.t(:public)%>
+        <% end %>
+    <% end %>
+<% end %>
+</div>

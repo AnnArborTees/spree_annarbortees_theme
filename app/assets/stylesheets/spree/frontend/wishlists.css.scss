@@ -1,0 +1,24 @@
+@import 'variables';
+
+.wishlists {
+  .btn {
+    background-color: $orange-rgb;
+    color: $black;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .btn-primary {
+    background-color: $dark-green-rgb;
+    color: $white;
+  }
+
+  .btn-danger {
+    background-color: $deep-red;
+    color: $white;
+  }
+}

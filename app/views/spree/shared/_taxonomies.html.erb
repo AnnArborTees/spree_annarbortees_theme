@@ -7,4 +7,9 @@
           <%= taxons_tree(taxonomy.root, @taxon, max_level) %>
       <% end %>
   <% end %>
+  <ul>
+    <li><%= link_to "Browse All", products_path %></li>
+    <li><%= link_to "Account", account_path %></li>
+  </ul>
+
 </nav>

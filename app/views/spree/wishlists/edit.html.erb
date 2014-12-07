@@ -1,0 +1,27 @@
+<div class="container wishlists">
+  <div class="row">
+    <h1 class="header pull-left"><%= Spree.t(:editing_wishlist) %></h1>
+    <div id="manage_wishlist_links" class="pull-right">
+      <%= link_to "Wishlists List", wishlists_path, :class => 'btn' %>
+    </div>
+  </div>
+
+  <%= form_for @wishlist do |f| %>
+
+      <p class="field" id="wishlist_name" %>
+        <%= f.label :name, Spree.t(:name) %> <span class="required">*</span><br />
+        <%= f.text_field :name, :class => 'form-control' %>
+      </p>
+      <p class="field" id="wishlist_name" %>
+          <%= f.label :is_private, "Is this list private?" %> &nbsp;
+          <%= f.check_box :is_private %>
+      </p>
+      <p class="field" id="wishlist_name" %>
+      <%= f.label :is_default, "Is this list your default wishlist?" %> &nbsp;
+      <%= f.check_box :is_default %>
+      </p>
+      <%= f.submit Spree.t(:update), class: 'btn btn-primary' %>
+      <%= Spree.t(:or) %>
+      <%= link_to Spree.t(:delete_wishlist), @wishlist, method: :delete, data: { confirm: Spree.t(:are_you_sure_wishlist) }, class: 'btn btn-danger' %>
+  <% end -%>
+</div>

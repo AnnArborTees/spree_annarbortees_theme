@@ -306,9 +306,10 @@ ul.digital-variants .active {
 
 
 /*
-/*  Social Media
+/*  Social Media  & Wishlist
 /****************************/
 #product_share_with_friends,
+#product_wishlist_form,
 #product_customer_photos{
   margin: 1em 15%;
   background-color: $light-grey;
@@ -316,11 +317,27 @@ ul.digital-variants .active {
 }
 
 
-#product_also_like h2 {
+#product_also_like h2,
+#product_wishlist_form h2 {
   text-transform: uppercase;
 }
 
+#product_wishlist_form .btn {
+  background-color: $orange-rgb;
+  color: $black;
+  border-radius: 0;
+  height: 65px;
+  margin: 5px auto;
+  padding: inherit 10px;
+  font-size: 16px;
+}
+
+#product_wishlist_form {
+  text-align: center;
+}
+
 #product_share_with_friends h2,
+#product_wishlist_form h2,
 #product_customer_photos h2{
   margin: 0;
   font-size: 1.5em;

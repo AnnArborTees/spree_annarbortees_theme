@@ -30,6 +30,15 @@
     </div>
 
     <div class="col-sm-5">
+      <% if spree_current_user %>
+          <div id="product_wishlist_form">
+            <h2 class="section-heading">Your Wishlist</h2>
+            <%= form_for Spree::WishedProduct.new do |f| %>
+                <%= f.hidden_field :variant_id, :value => @product.master.id %>
+                <%= button_tag 'Add to Wishlist', class: 'btn' %>
+            <% end %>
+          </div>
+      <% end %>
 
       <div id="product_share_with_friends">
         <h2 class="section-heading">Share With Friends</h2>
