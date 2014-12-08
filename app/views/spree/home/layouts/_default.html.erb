@@ -42,9 +42,13 @@
 
   <div id="homepage-right-column" class="col-sm-8 col-md-9">
     <div id="products">
-      <% cache(cache_key_for_products) do %>
+      <%
+         # cache(cache_key_for_products) do
+      %>
           <%= render :partial => 'spree/shared/products', :locals => { :products => @products } %>
-      <% end %>
+      <%
+         #end
+      %>
     </div>
   </div>
 

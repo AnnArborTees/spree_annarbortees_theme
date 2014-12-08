@@ -25,7 +25,8 @@ Spree::HomeController.class_eval do
         @products[category] = {
           taxon: @taxonomies.find_by(name: 'collection').taxons.find_by(name: category)
         }
-        @products[category][:products] = build_searcher(params.merge(taxon: @products[category][:taxon].id, include_images: true)).retrieve_products.limit(limit)
+        @products[category][:products] = build_searcher(params.merge(taxon: @products[category][:taxon].id, include_images: true)).retrieve_products
+        # .limit(limit)
       end
 
       # @media = {
