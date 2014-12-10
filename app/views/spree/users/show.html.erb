@@ -10,6 +10,20 @@
       </dl>
     </div>
 
+  <% begin %>
+    <% if @user.spree_roles.map{|x| x.name }.include? 'commission agent' %>
+    <div data-hook="account_comission" class="account-summary">
+      <h3>Comission Sales</h3>
+      <ul>
+        <li>
+            <%= link_to 'Commission Reports', commission_path %>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+  <% rescue %>
+  <% end %>
+
     <div data-hook="account_my_orders" class="account-my-orders">
 
       <h3><%= Spree.t(:my_orders) %></h3>
