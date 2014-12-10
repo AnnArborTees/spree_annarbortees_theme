@@ -20,11 +20,11 @@ Gem::Specification.new do |s|
   # s.add_dependency 'spree_core', version
   # s.add_dependency 'spree_backend', version
   # s.add_dependency 'spree_frontend', version
-  s.add_dependency 'spree_multi_domain'
-  s.add_dependency 'spree_sizing_guides'
-  s.add_dependency 'spree_digital'
-  s.add_dependency 'spree_google_trusted_store'
-  s.add_dependency 'spree_wishlist'
+  # s.add_dependency 'spree_multi_domain'
+  # s.add_dependency 'spree_sizing_guides'
+  # s.add_dependency 'spree_digital'
+  # s.add_dependency 'spree_google_trusted_store'
+  # s.add_dependency 'spree_wishlist'
 
   s.add_development_dependency 'capybara', '~> 2.1'
   s.add_development_dependency 'coffee-rails'
