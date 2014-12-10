@@ -17,9 +17,9 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   version = '~> 2.2.0'
-  s.add_dependency 'spree_core', version
-  s.add_dependency 'spree_backend', version
-  s.add_dependency 'spree_frontend', version
+  # s.add_dependency 'spree_core', version
+  # s.add_dependency 'spree_backend', version
+  # s.add_dependency 'spree_frontend', version
   s.add_dependency 'spree_multi_domain'
   s.add_dependency 'spree_sizing_guides'
   s.add_dependency 'spree_digital'
