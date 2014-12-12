@@ -235,3 +235,21 @@ ul.products {
     list-style: none;
   }
 }
+
+
+.footer-story {
+  border-top: solid 1px $light-grey;
+  border-bottom: solid 1px $light-grey;
+  margin: 10px inherit;
+
+  h5 {
+    font-weight: bold;
+    padding: inherit 10px;
+  }
+
+  p {
+    padding: inherit 10px;
+    font-weight: narrow;
+    font-size: 11px;
+  }
+}
