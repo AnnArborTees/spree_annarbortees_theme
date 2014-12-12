@@ -80,8 +80,10 @@ $( document).ready(function(){
     initSelectedVariant();
   });
 
-  if ($(".variants input.active").length <= 0)
+  if ($(".variants input.active").length <= 0) {
+    console.log("initting selected variant");
     initSelectedVariant();
+  }
 
     /*
      When loading the page, if the user is in a view less than 768, scroll down to product budy
