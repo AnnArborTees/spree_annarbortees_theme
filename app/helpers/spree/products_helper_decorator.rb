@@ -10,4 +10,10 @@ Spree::ProductsHelper.class_eval do
       raw(product.description.gsub(/(.*?)\r?\n\r?\n/m, '<p>\1</p>'))
     end
   end
+
+  def should_be_active?(style, index)
+    return index == 0 unless @variant
+
+    @variant.option_values.include?(style)
+  end
 end
