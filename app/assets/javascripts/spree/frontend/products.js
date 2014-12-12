@@ -80,7 +80,8 @@ $( document).ready(function(){
     initSelectedVariant();
   });
 
-  // initSelectedVariant();
+  if ($(".variants input.active").length <= 0)
+    initSelectedVariant();
 
     /*
      When loading the page, if the user is in a view less than 768, scroll down to product budy
