@@ -81,7 +81,7 @@ $( document).ready(function(){
   });
 
   if ($(".variants input.active").length <= 0) {
-    console.log("initting selected variant");
+    // console.log("initting selected variant");
     initSelectedVariant();
   }
 
