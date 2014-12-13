@@ -309,6 +309,7 @@ ul.digital-variants .active {
 /*  Social Media  & Wishlist
 /****************************/
 #product_share_with_friends,
+#product_talk_about,
 #product_wishlist_form,
 #product_customer_photos{
   margin: 1em 15%;
@@ -318,6 +319,7 @@ ul.digital-variants .active {
 
 
 #product_also_like h2,
+#product_talk_about h2,
 #product_wishlist_form h2 {
   text-transform: uppercase;
 }
@@ -338,9 +340,10 @@ ul.digital-variants .active {
 
 #product_share_with_friends h2,
 #product_wishlist_form h2,
+#product_talk_about h2,
 #product_customer_photos h2{
   margin: 0;
-  font-size: 1.5em;
+  font-size: 19px;
   text-align: center;
   text-transform: uppercase;
   border-bottom: solid 1px $black;
@@ -393,4 +396,12 @@ ul.digital-variants .active {
 
 #products img.imprinted_apparel, #products img.premade_apparel  {
   min-height: 225px;
+}
+
+#product_talk_about p.description {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  padding: 4px;
+  margin: 2px;
+  text-align: center;
 }

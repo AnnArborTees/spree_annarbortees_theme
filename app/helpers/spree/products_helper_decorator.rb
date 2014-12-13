@@ -16,4 +16,12 @@ Spree::ProductsHelper.class_eval do
 
     @variant.option_values.include?(style)
   end
+
+  def tweet_headline(product)
+    if product.tweets.empty?
+      'Start the conversation'
+    else
+      'Join the conversation'
+    end
+  end
 end

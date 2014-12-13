@@ -1,0 +1,57 @@
+@import 'variables';
+
+
+div.twitter-feed {
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+
+  height: 200px;
+  overflow: scroll;
+
+  ul {
+    list-style: none;
+  }
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .tweet {
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    background-color: #fff;
+
+    .avatar {
+      img {
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+      }
+    }
+
+    .tweet-content {}
+
+    .tweet-header {
+      font-size: 12px;
+
+      .name {
+        font-weight: bold;
+        font-color: $black
+      }
+      .nickname {
+
+      }
+    }
+
+    .mention {
+      font-weight: bold;
+    }
+
+    .hashtag {
+      font-weight: bold;
+    }
+  }
+
+}

@@ -4,6 +4,7 @@ the installer will append this file to the app vendored assets here: 'vendor/ass
 
 
 *= require bootstrap/bootstrap
+*= require spree/frontend/spree_annarbortees_twitter
 *= require_tree .
 
 */
