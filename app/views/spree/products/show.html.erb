@@ -30,15 +30,6 @@
     </div>
 
     <div class="col-sm-5">
-      <% if spree_current_user %>
-          <div id="product_wishlist_form">
-            <h2 class="section-heading">Your Wishlist</h2>
-            <%= form_for Spree::WishedProduct.new do |f| %>
-                <%= f.hidden_field :variant_id, :value => @product.master.id %>
-                <%= button_tag 'Add to Wishlist', class: 'btn' %>
-            <% end %>
-          </div>
-      <% end %>
 
       <div id="product_share_with_friends">
         <h2 class="section-heading">Share With Friends</h2>
@@ -67,6 +58,27 @@
             </li>
           </ul>
       </div>
+
+      <% unless @product.hashtag.blank? %>
+      <div id="product_talk_about">
+        <h2 class="section-heading"><%= tweet_headline(@product) %></h2>
+        <p class="description">
+          Mention @annarbortees and use the hashtag #<%= @product.hashtag %> to participate!
+        </p>
+        <%= render 'spree/shared/product_twitter_feed' %>
+      </div>
+
+
+      <% if spree_current_user %>
+          <div id="product_wishlist_form">
+            <h2 class="section-heading">Your Wishlist</h2>
+            <%= form_for Spree::WishedProduct.new do |f| %>
+                <%= f.hidden_field :variant_id, :value => @product.master.id %>
+                <%= button_tag 'Add to Wishlist', class: 'btn' %>
+            <% end %>
+          </div>
+      <% end %>
+      <% end %>
 
       <!--<div id="product_customer_photos">-->
         <!--<h2 class="section-heading">Customer Photos</h2>-->

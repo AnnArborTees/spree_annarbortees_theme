@@ -10,4 +10,12 @@ Spree::ProductsHelper.class_eval do
       raw(product.description.gsub(/(.*?)\r?\n\r?\n/m, '<p>\1</p>'))
     end
   end
+
+  def tweet_headline(product)
+    if product.tweets.empty?
+      'Start the conversation'
+    else
+      'Join the conversation'
+    end
+  end
 end

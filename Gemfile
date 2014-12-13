@@ -8,6 +8,7 @@ gem 'spree_sizing_guides', github: 'annarbortees/spree_sizing_guides', branch: b
 gem 'spree_google_trusted_store', github: 'annarbortees/spree_google_trusted_store', branch: branch
 gem 'spree_digital', github: 'annarbortees/spree_digital', branch: branch
 gem 'spree_wishlist', github: 'spree-contrib/spree_wishlist', branch: branch
+gem 'spree_annarbortees_twitter', github: 'annarbortees/spree_annarbortees_twitter', branch: branch
 
 group :test do
   gem 'shoulda-matchers', require: false
