@@ -87,6 +87,11 @@
     </div>
     <!-- /container -->
 
+    <%= try(:google_trusted_store_badge) if @google_badge %>
+    <% if @google_order && @google_order.is_a?(Spree::Order) %>
+      <%= try(:google_trusted_store_order_confirmation, @google_order) %>
+    <% end %>
+
     <%= render :partial => 'spree/shared/google_analytics' %>
     <% if Rails.env.production? %>
         <script>
