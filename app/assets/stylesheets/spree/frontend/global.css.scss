@@ -203,8 +203,6 @@ ul.products {
 
     }
   }
-
-
 }
 
 .social-footer ul {
@@ -251,5 +249,16 @@ ul.products {
     padding: inherit 10px;
     font-weight: narrow;
     font-size: 11px;
+  }
+}
+
+.browse-all-button {
+  .btn {
+    border-radius: 0;
+    box-shadow: none;
+    color: $white;
+    background-color: $dark-green-rgb;
+    padding: 10px;
+    margin: 5px;
   }
 }

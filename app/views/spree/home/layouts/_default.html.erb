@@ -42,13 +42,11 @@
 
   <div id="homepage-right-column" class="col-sm-8 col-md-9">
     <div id="products">
-      <%
-         # cache(cache_key_for_products) do
-      %>
-          <%= render :partial => 'spree/shared/products', :locals => { :products => @products } %>
-      <%
-         #end
-      %>
+      <% if current_store.homepage.blank? %>
+        <%= render :partial => 'spree/shared/products', :locals => { :products => @products } %>
+      <% else %>
+        <%= render :partial => 'spree/shared/products', :locals => { products: current_store.homepage.products, pagination: nil } %>
+      <% end %>
     </div>
   </div>
 
