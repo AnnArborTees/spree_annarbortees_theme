@@ -21,6 +21,14 @@ Spree::BaseHelper.class_eval do
     "http://www.tumblr.com/share/link?url=#{URI.encode(url)}&name=#{URI.encode(name)}&description=#{URI.encode(description)}"
   end
 
+  def variant_button_width(text)
+    if text.length > 7
+      '45%'
+    else
+      'inherit'
+    end
+  end
+
   def breadcrumbs(taxon = nil, product = nil)
     if String === product
       sep = product
