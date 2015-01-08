@@ -1,9 +1,10 @@
 Spree::HomeController.class_eval do
+
   def index
     session[:store] = nil
 
-    add_current_store_ids_to_params
-    @taxonomies = get_taxonomies
+    add_current_store_id_to_params
+    @taxonomies = current_store.taxonomies.includes(root: :children)
 
     layout = current_store.try(:homepage_layout)
 

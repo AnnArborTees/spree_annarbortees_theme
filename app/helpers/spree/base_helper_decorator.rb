@@ -26,12 +26,12 @@ Spree::BaseHelper.class_eval do
       sep = product
       product = nil
     end
-    crumbs = [content_tag(:li, link_to(current_store.name , root_path))]
+    crumbs = [content_tag(:li, link_to(current_store.name , store_home_path))]
 
     if(taxon || product || current_page?(products_path))
 
       session['last_crumb'] = taxon ? taxon.permalink : nil
-      crumbs = [content_tag(:li, link_to(current_store.name , root_path))]
+      crumbs = [content_tag(:li, link_to(current_store.name , store_home_path))]
 
       if taxon
         crumbs << taxon.ancestors.collect { |ancestor| content_tag(:li, link_to(ancestor.name , seo_url(ancestor))) } unless taxon.ancestors.empty?
