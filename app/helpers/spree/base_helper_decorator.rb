@@ -21,17 +21,25 @@ Spree::BaseHelper.class_eval do
     "http://www.tumblr.com/share/link?url=#{URI.encode(url)}&name=#{URI.encode(name)}&description=#{URI.encode(description)}"
   end
 
+  def variant_button_width(text)
+    if text.length > 7
+      '45%'
+    else
+      'inherit'
+    end
+  end
+
   def breadcrumbs(taxon = nil, product = nil)
     if String === product
       sep = product
       product = nil
     end
-    crumbs = [content_tag(:li, link_to(current_store.name , root_path))]
+    crumbs = [content_tag(:li, link_to(current_store.name , store_home_path))]
 
     if(taxon || product || current_page?(products_path))
 
       session['last_crumb'] = taxon ? taxon.permalink : nil
-      crumbs = [content_tag(:li, link_to(current_store.name , root_path))]
+      crumbs = [content_tag(:li, link_to(current_store.name , store_home_path))]
 
       if taxon
         crumbs << taxon.ancestors.collect { |ancestor| content_tag(:li, link_to(ancestor.name , seo_url(ancestor))) } unless taxon.ancestors.empty?

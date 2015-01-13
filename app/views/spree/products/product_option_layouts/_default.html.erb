@@ -20,9 +20,11 @@
                         <li>
                           <% if @product.option_types.count == 1 %>
                             <% option_type = @product.option_types.first.name %>
-                          <input id="<%= variant.id %>" class="btn btn-default variant-button variant-button-wide" type="button" value="<%= variant.option_value(option_type) %>" data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" >
+                            <% text = variant.option_value(option_type) %>
+                            <input id="<%= variant.id %>" class="btn btn-default variant-button variant-button-wide" type="button" value="<%= text %>" data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" style="width: <%= variant_button_width(text) %>;" >
                           <% else %>
-                          <input id="<%= variant.id %>" class="btn btn-default variant-button variant-button-default" type="button" value="<%= variant_options variant %>" data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" >
+                            <% text = variant_options variant %>
+                            <input id="<%= variant.id %>" class="btn btn-default variant-button variant-button-default" type="button" value="<%= text %>" data-price="<%= Spree::Money.new(variant.price, currency: current_currency, with_currency: false).to_s %>" style="width: <%= variant_button_width(text) %>;" >
                             <% end %>
                         </li>
                     <% end %>
