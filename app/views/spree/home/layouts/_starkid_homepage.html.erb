@@ -43,7 +43,7 @@
   <div id="homepage-right-column" class="col-sm-8 col-md-9">
 
     <div id="products">
-      <% if params[:search].blank? %>
+      <% if params[:search].blank? && false %>
           <% %w(media apparel accessories).each do |category| %>
           <h2 class="header"><%= category.capitalize %></h2>
 
