@@ -41,6 +41,20 @@
 #large-nav .help  a { color: $white;}
 #large-nav .help {text-transform: uppercase; padding: 8px 15px; font-size: 1em; margin-bottom: 0; }
 
+.store-search-selection {
+  background-color: $light-grey;
+  margin-top:    0px;
+  margin-bottom: 0px;
+  margin-left:   1px;
+  margin-right:  1px;
+  padding: 3px;
+  font-weight: bold;
+}
+.search-selected {
+  background-color: $white;
+  border: 1px solid $light-grey;
+}
+
 
 /*
 /* small-nav where width < 768px
