@@ -30,6 +30,24 @@ $(function() {
       $('#search-dropdown').show();
     });
 
+    $('#search-keywords').keyup(function(){
+        $('.search-text').html($(this).val());
+    });
+
+
+    var timer;
+
+    $('#search-keywords, #search-dropdown-wrapper, #large-search').mouseleave(function(){
+        timer = setTimeout(hideAndDeselect, 2000);
+    }).mouseenter(function() {
+        clearTimeout(timer);
+    });
+
+    function hideAndDeselect(){
+        $('#search-dropdown').hide()
+        $('#search-keywords').blur()
+    }
+
     var store_index = 0;
     function move_search_store_to(new_index) {
       var $selection = $('.store-search-selection[data-index='+new_index+']');

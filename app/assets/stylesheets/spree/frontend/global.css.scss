@@ -19,9 +19,12 @@
 /*  Big Screens
 /****************************/
 @media (min-width:  $screen-md-min) {
-  body { margin-top: 86px;}
-  #large-nav { display: block; }
+  #large-nav {
+    display: block;
+    margin: 0; padding: 0; border: none;
+  }
   #small-nav { display: none; }
+
 }
 
 /*
@@ -34,6 +37,17 @@
 .search .input-group input { margin: 10px inherit inherit inherit; border-radius: 0; border-color: $white; height: 30px; padding: 0 0 0 10px; font-weight: 200; font-size: 0.9em}
 .search .input-group input:focus { border-color: $dark-green-rgb; }
 .search .input-group button{ border: none; background: none; color: $dark-green-rgb;  margin: 4px inherit inherit inherit; }
+#search-dropdown-wrapper {
+  position: relative;
+}
+
+#search-dropdown {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 .cart .badge{background-color: $deep-red; position: absolute; top: 5px; right: 0px; font-size: 11px; width: 18px; height: 18px; padding: 4px;}
 .cart .fa-shopping-cart{ color: $dark-green-rgb; position: absolute; top: 0px; right: 0px;}
 
@@ -48,11 +62,14 @@
   margin-left:   1px;
   margin-right:  1px;
   padding: 3px;
-  font-weight: bold;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 11px;
 }
 .search-selected {
-  background-color: $white;
-  border: 1px solid $light-grey;
+  background-color: $medium-grey;
+  border: 1px solid $medium-grey;
+
 }
 
 

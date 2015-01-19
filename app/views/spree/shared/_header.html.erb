@@ -1,4 +1,4 @@
-<nav  id="large-nav" class="navbar navbar-fixed-top" role="navigation">
+<nav id="large-nav" class="navbar" role="navigation">
   <div class="container-fluid clearfix navbar-top">
     <div class="container">
       <div class="col-sm-5">
@@ -6,28 +6,32 @@
       </div>
 
       <div class="col-sm-6 search">
-        <%= form_tag spree.products_path, :method => :get do %>
+        <%= form_tag spree.products_path, :method => :get, id: 'large-search' do %>
           <div class="input-group">
             <%= search_field_tag :keywords, params[:keywords], type: 'search', class: 'form-control input-lg', placeholder: 'Search Ann Arbor Tees', id: 'search-keywords' %>
             <%= hidden_field_tag :store, current_store.slug, disabled: current_store == domain_store, id: 'search-store' %>
-            <div id="search-dropdown" style="display: none;">
-              <% stores = current_store.up_to(domain_store) %>
-              <% unless stores.size == 1 %>
-                <% stores.each_with_index do |store, i| %>
-                  <div class="store-search-selection <%= 'search-selected' if i == 0 %>"
-                    data-index="<%= i %>"
-                    data-store="<%= store == domain_store ? '' : store.slug %>">
-                    <% if store == current_store %>
-                      Search only in 
-                    <% elsif store == domain_store %>
-                      Search in all of 
-                    <% else %>
-                      Search in
+            <div id="search-dropdown-wrapper">
+                <div id="search-dropdown" style="display: none;">
+                  <% stores = current_store.up_to(domain_store) %>
+                  <% unless stores.size == 1 %>
+                    <% stores.each_with_index do |store, i| %>
+                      <div class="store-search-selection <%= 'search-selected' if i == 0 %>"
+                        data-index="<%= i %>"
+                        data-store="<%= store == domain_store ? '' : store.slug %>">
+                        <% if store == current_store %>
+                          Search only in
+                        <% elsif store == domain_store %>
+                          Search in all of
+                        <% else %>
+                          Search in
+                        <% end %>
+                        <%= store.name %>
+                        for "<span class="search-text"><%= params[:keywords] %></span>"
+
+                      </div>
                     <% end %>
-                    <%= store.name %>
-                  </div>
-                <% end %>
-              <% end %>
+                  <% end %>
+                </div>
             </div>
 
             <span class="input-group-btn">
