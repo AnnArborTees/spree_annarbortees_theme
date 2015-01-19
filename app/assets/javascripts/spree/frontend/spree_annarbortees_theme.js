@@ -90,4 +90,6 @@ $(function() {
         move_search_store_to(index);
       }
     });
+
+    $('[data-toggle="tooltip"]').tooltip();
 });

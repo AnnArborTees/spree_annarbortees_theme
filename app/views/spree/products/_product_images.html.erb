@@ -9,7 +9,7 @@
             <div class="item <% if index == 0 %>active<% end %>"
                  data-index="<%= index %>"
                  data-option-value-id="<%= image.option_value_id || -1 %>">
-              <%= image_tag image.attachment.url(:product) %>
+              <%= image_tag image.attachment.url(:product), alt: image.alt %>
             </div>
         <% end %>
       </div>

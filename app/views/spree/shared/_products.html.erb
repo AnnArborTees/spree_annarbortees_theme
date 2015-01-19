@@ -17,7 +17,12 @@
               data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
             <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
                 <div class="product-image-and-price-wrapper">
-                    <%= link_to(thumbnail_image(product, :itemprop => "image", class: product.layout), url, :itemprop => 'url') %>
+                    <%= link_to(
+                                thumbnail_image(product,
+                                                itemprop: "image",
+                                                class: product.layout, alt: product.name,
+                                                'data-toggle' => 'tooltip', 'data-placement' => 'bottom',
+                                                title: product.name), url, :itemprop => 'url') %>
                     <span class="price" itemprop="price">
                         <%= display_price(product) %>
                     </span>
