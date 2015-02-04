@@ -55,7 +55,9 @@
                 <%= link_to 'Help', help_path %>
               </li>
               <li>
-                <%= link_to 'Account', account_path %>
+                <% if respond_to? :account_path %>
+                    <%= link_to 'Account', account_path %>
+                <% end %>
               </li>
               <li>
                 <%= link_to 'The Company', 'http://www.annarbortees.com/about-the-company/', target: '_blank' %>

@@ -38,6 +38,7 @@ require 'shoulda-matchers'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include SunspotMatchers
 
   # == URL Helpers
   #
@@ -48,6 +49,10 @@ RSpec.configure do |config|
   config.include Spree::TestingSupport::UrlHelpers
 
   config.infer_spec_type_from_file_location!
+
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
 
   # == Mock Framework
   #
@@ -75,6 +80,8 @@ RSpec.configure do |config|
 
   # Before each spec check if it is a Javascript test and switch between using database transactions or not where necessary.
   config.before :each do |example|
+    Sunspot.session = SunspotMatchers::SunspotSessionSpy.new(Sunspot.session)
+
     DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
   end
