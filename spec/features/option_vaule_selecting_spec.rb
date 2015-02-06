@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Selects option value by default' do
+feature 'Selects option value by default', story_438: true do
 
   let!(:store) {create :store, domains: '127.0.0.1', default: true}
 
@@ -28,9 +28,9 @@ feature 'Selects option value by default' do
     expect(page).to have_css "input.active[id='#{variant1.id}']"
   end
 
-  scenario 'I can add a product without variants to the cart', wip: true, js: true do
+  scenario 'I can add a product without variants to the cart', js: true do
     visit  spree.product_path(product_with_no_variants)
     first("input[name = commit]").click
-    expect(page).to have_css "h4", text: product.name
+    expect(page).to have_css "h4", text: product_with_no_variants.name
   end
 end

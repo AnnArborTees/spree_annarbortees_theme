@@ -57,11 +57,12 @@ $( document).ready(function(){
       select the first option, set the price, set variant_id
    */
   function initSelectedVariant(){
-    if(parseInt($('#variant_id').attr('data-variant-count')) >= 1) {
+    if(parseInt($('#variant_id').data('variant-count')) > 0) {
       $(".variants input").removeClass('active');
       $('.tab-pane.active input:first').addClass('active');
       updatePrice($('.tab-pane.active input:first'));
-      $('#variant_id').val($('.tab-pane.active input:first').attr('id'))
+      if (!$('#variant_id').data('no-variants'))
+        $('#variant_id').val($('.tab-pane.active input:first').attr('id'));
     }
   }
 
