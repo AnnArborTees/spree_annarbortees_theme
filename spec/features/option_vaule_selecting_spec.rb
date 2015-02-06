@@ -6,6 +6,8 @@ feature 'Selects option value by default' do
 
   let!(:product_with_multiple_options) {create :product, stores: [store]}
   let!(:product_with_one_option) {create :product, stores: [store]}
+  let!(:product_with_no_variants) {create :product, stores: [store]}
+
   let!(:variant1) {create :variant, product: product_with_one_option, option_values: [option_value1]}
   let!(:variant2) {create :variant, product: product_with_multiple_options, option_values: [option_value1, option_value2]}
   let!(:variant3) {create :variant, product: product_with_multiple_options, option_values: [option_value3, option_value4]}
@@ -24,5 +26,11 @@ feature 'Selects option value by default' do
 
     visit spree.product_path(product_with_one_option)
     expect(page).to have_css "input.active[id='#{variant1.id}']"
+  end
+
+  scenario 'I can add a product without variants to the cart', wip: true, js: true do
+    visit  spree.product_path(product_with_no_variants)
+    first("input[name = commit]").click
+    expect(page).to have_css "h4", text: product.name
   end
 end
