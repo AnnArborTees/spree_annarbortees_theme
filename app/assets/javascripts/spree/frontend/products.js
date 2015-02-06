@@ -52,6 +52,13 @@ $( document).ready(function(){
     }
   );
 
+  $('#buy-button input[type=submit]').click(function() {
+    if ($('.variants input.active').length <= 0) {
+      alert("Please select a variant to add to your cart!");
+      return false;
+    }
+  });
+
   /*
       When loading the page or when changing a tab,
       select the first option, set the price, set variant_id
