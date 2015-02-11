@@ -3,6 +3,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
 <%== meta_data_tags %>
+<%= rich_pin_tags @product if @product %>
 <%= canonical_tag(Spree::Config.site_url) %>
 <%= favicon_link_tag image_path('favicon.ico') %>
 <%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>

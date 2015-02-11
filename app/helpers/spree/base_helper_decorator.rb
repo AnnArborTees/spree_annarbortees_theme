@@ -21,6 +21,17 @@ Spree::BaseHelper.class_eval do
     "http://www.tumblr.com/share/link?url=#{URI.encode(url)}&name=#{URI.encode(name)}&description=#{URI.encode(description)}"
   end
 
+  def rich_pin_tags(product)
+    tag("meta", property: 'og:title', content: product.name) +
+        tag("meta", property: 'og:type', content: 'product') +
+        tag("meta", property: 'og:price:amount', content: product.price) +
+        tag("meta", property: 'og:price:currency', content: current_currency) +
+        tag("meta", property: 'og:url', content: product_url) +
+        tag("meta", property: 'og:description', content: product.description)+
+        tag("meta", property: 'og:site_name', content: 'Ann Arbor T-Shirt Company')+
+        tag("meta", property: 'og:availability', content: 'instock')
+  end
+
   def variant_button_width(text)
     if text.length > 7
       '45%'
