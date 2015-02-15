@@ -8,7 +8,7 @@ Spree::BaseHelper.class_eval do
 
   def facebook_link_url(url)
     url =  url || ''
-    "https://www.facebook.com/sharer/sharer.php?#{URI.encode(url)}"
+    "https://www.rfacebook.com/sharer/sharer.php?#{URI.encode(url)}"
   end
 
   def twitter_link_url(url, text, hashtag)
