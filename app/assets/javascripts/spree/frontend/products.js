@@ -53,9 +53,11 @@ $( document).ready(function(){
   );
 
   $('#buy-button input[type=submit]').click(function() {
-    if ($('.variants input.active').length <= 0) {
-      alert("Please select a variant to add to your cart!");
-      return false;
+    if (!$('.variants').length == 0) {
+      if ($('.variants input.active').length <= 0) {
+        alert("Please select a variant to add to your cart!");
+        return false;
+      }
     }
   });
 
