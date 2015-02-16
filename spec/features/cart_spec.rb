@@ -57,7 +57,7 @@ describe "Cart" do
     end
   end
 
-  context "product contains variants but no option values", js: true, pending: 'Chris this should work' do
+  context "product contains variants but no option values", js: true do
     # let(:variant) { create(:variant) }
     let(:product) { create(:product, variants: [create(:variant)], stores: [ @default_store ]) }
 
