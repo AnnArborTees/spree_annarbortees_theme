@@ -28,7 +28,7 @@
         <%= render partial: 'line_item', collection: order_form.object.line_items, locals: {order_form: order_form} %>
 
         <div class="cart-quantities-update">
-          <%= link_to "#", class:'btn btn-sm btn-empty-cart', id: 'empty-cart' do %>
+          <%= link_to "#", class:'btn btn-sm btn-empty-cart remove-from-cart', id: 'empty-cart' do %>
               <%= Spree.t(:empty_cart) %>
           <% end %>
 

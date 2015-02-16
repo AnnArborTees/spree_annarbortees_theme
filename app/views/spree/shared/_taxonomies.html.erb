@@ -20,7 +20,9 @@
   <% end %>
   <ul>
     <li><%= link_to "Browse All", products_path %></li>
-    <li><%= link_to "Account", account_path %></li>
+    <% if respond_to? :account_path %>
+        <li><%= link_to 'Account', account_path %></li>
+    <% end %>
   </ul>
 
 </nav>

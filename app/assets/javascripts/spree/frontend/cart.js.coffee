@@ -13,3 +13,8 @@ $(document).ready ->
   ($ '#update-quantities-link, #add-coupon-button').click ->
     ($ this).parents('form').first().submit()
     false
+
+  $('a.remove-from-cart').one 'click', ->
+    $(this).click ->
+      false
+    return
