@@ -22,7 +22,7 @@
       </div>
       <div class="col-xs-4 col-sm-2 cart-item-total">
         <%= line_item.display_amount.to_html unless line_item.quantity.nil? %><br />
-        <%= link_to 'Remove', '#', :class => 'delete', :id => "delete_#{dom_id(line_item)}" %>
+        <%= link_to 'Remove', '#', :class => 'delete remove-from-cart', :id => "delete_#{dom_id(line_item)}" %>
       </div>
     </div>
 <% end %> <!-- end fields_for :line_items -->

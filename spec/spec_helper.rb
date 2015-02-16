@@ -96,4 +96,9 @@ RSpec.configure do |config|
   end
 
   config.fail_fast = ENV['FAIL_FAST'] || false
+
+  config.before(:type => :feature) do
+    @default_store = create(:default_store_for_theme_testing)
+  end
+
 end

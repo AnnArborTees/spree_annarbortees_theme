@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'products', caching: true do
 
-  let!(:store) { create(:default_store) }
+  let!(:store) { @default_store }
   let!(:store2) { create(:alternative_store) }
   let!(:product) { create(:product, stores: [store, store2]) }
 

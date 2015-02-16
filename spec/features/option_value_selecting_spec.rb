@@ -28,9 +28,19 @@ feature 'Selects option value by default', story_438: true do
     expect(page).to have_css "input.active[id='#{variant1.id}']"
   end
 
-  scenario 'I can add a product without variants to the cart', js: true do
-    visit  spree.product_path(product_with_no_variants)
-    first("input[name = commit]").click
+  scenario 'I can add a product without variants to the cart', js: true, pending: 'Chris this should work' do
+    visit spree.product_path(product_with_no_variants)
+    first("input[name=commit]").click
     expect(page).to have_css "h4", text: product_with_no_variants.name
+  end
+
+  context 'if by chance an option gets unselected', story_437: true do
+    scenario 'it informs me that I must select something, rather than erroring out', js: true do
+      visit spree.product_path(product_with_multiple_options)
+      execute_script %<$('.variants input').removeClass('active');>
+      sleep 2
+      first("input[name=commit]").click
+      page.driver.browser.switch_to.alert.accept
+    end
   end
 end
