@@ -13,7 +13,7 @@ feature 'ProductLayout' do
     end
   end
 
-  context 'as a site visitor viewing a product', js: true, story_142: true, pending: 'Nigel this should work' do
+  context 'as a site visitor viewing a product', js: true, story_142: true do
     let!(:store) { @default_store }
     let!(:image_path) { "#{Rails.root}/../fixtures/images/" }
     let!(:product) { create(:product) }
@@ -41,7 +41,7 @@ feature 'ProductLayout' do
       ]
 
       product.layout = 'imprinted_apparel'
-      product.save
+      product.save!
 
       styles = [
         double('style', id: 1, presentation: 'Unisex'),
@@ -67,14 +67,14 @@ feature 'ProductLayout' do
     end
 
     scenario 'when I click on a style option, the image changes to one that represents that style' do
-      expect(page).to have_css 'li.active > a[href="#Unisex"]'
-      expect(page).to have_css "div.item.active > img[alt='Bestshirt']"
+      expect(page).to have_css 'li.active a[href="#Unisex"]'
+      expect(page).to have_css "div.item.active > img[src*='bestshirt.png']"
 
       sleep 0.5
-      find('li > a[href="#Ladies"]').click
+      find('li a[href="#Ladies"]').click
       sleep 0.5
 
-      expect(page).to have_css "div.item.active > img[alt='Bestshirt2']"
+      expect(page).to have_css "div.item.active > img[src*='bestshirt2.png']"
     end
   end
 
