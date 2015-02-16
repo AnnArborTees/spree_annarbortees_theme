@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'spree/products/product_option_layouts/_imprinted_apparel.html.erb', image_spec: true, story_142: true, pending: 'Nigel this should work' do
+describe 'spree/products/product_option_layouts/_imprinted_apparel.html.erb', image_spec: true, story_142: true do
   let!(:product) { create :product }
 
   before(:each) do

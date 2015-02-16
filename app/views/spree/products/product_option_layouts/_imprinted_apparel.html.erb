@@ -17,7 +17,7 @@
             <div class="tab-pane clearfix  <% if should_be_active?(option_value, index) %>active<% end %>" id="<%= sanitize_id(option_value.presentation) %>">
 
               <p class="clearfix text-right" style="margin: 0.5em 2.5em">
-                <% if !@sizing_guides[option_value.id].nil? %>
+                <% unless @sizing_guides && @sizing_guides[option_value.id].nil? %>
                     <%= link_to 'Sizing Guide', "##{option_value.id}",  'data-toggle' => 'modal',
                                                                         'data-target' => '#sizingModal',
                                                                         'data-style-id' => option_value.id,
@@ -46,4 +46,4 @@
     </div>
 <% end %>
 
-<%= render 'spree/products/sizing_guide_modal', sizing_guides: @sizing_guides %>
+<%= render 'spree/products/sizing_guide_modal', sizing_guides: @sizing_guides if @sizing_guides %>
