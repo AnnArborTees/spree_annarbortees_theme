@@ -25,3 +25,10 @@
 
 <% @google_order = @order %>
 <% @google_badge = true %>
+
+<% if params.has_key? :checkout_complete %>
+    <% begin %>
+    <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6020625984047&amp;cd[value]=<%= @order.total.to_f %>&amp;cd[currency]=USD&amp;noscript=1" />
+    <% rescue %>
+    <% end %>
+<% end %>
