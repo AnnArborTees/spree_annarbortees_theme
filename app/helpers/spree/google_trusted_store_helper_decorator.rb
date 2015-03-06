@@ -1,9 +1,11 @@
-Spree::GoogleTrustedStoreHelper.class_eval do
+if defined? Spree::GoogleTrustedStoreHelper
+  Spree::GoogleTrustedStoreHelper.class_eval do
 
-  private
+    private
 
-  def digital_in?(order)
-    order.some_digital?
+    def digital_in?(order)
+      order.some_digital?
+    end
+
   end
-
 end
