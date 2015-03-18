@@ -1,0 +1,282 @@
+@import 'spree/frontend/variables';
+@import 'spree/frontend/xxs_media';
+
+.default-theme {
+
+  #banner-slides {
+    background: image_url('annarbor-cityscape.png') no-repeat center center;
+  }
+
+  .navbar-top {
+    background-color: $light-blue;
+  }
+
+  .navbar-bottom {
+    background-color: $dark-green-rgb;
+  }
+
+  .search .input-group input {
+    border-color: $white;
+  }
+
+  .search .input-group input:focus {
+    border-color: $dark-green-rgb;
+  }
+
+  .search .input-group button {
+    color: $dark-green-rgb;
+  }
+
+  .cart .fa-shopping-cart {
+    color: $dark-green-rgb;
+  }
+
+  .cart .badge {
+    background-color: $deep-red;
+  }
+
+  #large-nav .help a {
+    color: $white;
+  }
+
+  .store-search-selection {
+    background-color: $light-grey;
+  }
+
+  .search-selected {
+    background-color: $medium-grey;
+    border: 1px solid $medium-grey;
+
+  }
+
+  .breadcrumb a {
+    color: $white;
+  }
+
+  .breadcrumb > li + li:before {
+    color: $white;
+  }
+
+  .breadcrumb > .active {
+    color: $orange-rgb;
+  }
+
+  #taxonomies {
+    background-color: $light-grey;
+
+    .subtaxon {
+      border: solid $orange-rgb 2px;
+      background-color: $light-grey
+    }
+
+    li.active {
+      background-color: $orange-rgb;
+      color: $white;
+    }
+
+    h4 {
+      color: $orange-rgb;
+      border-bottom: solid 1px $black;
+    }
+
+  }
+
+  /*
+  /* Products List (All Sizes)
+  /****************************/
+
+  ul.products {
+
+    li {
+
+      .product-image-and-price-wrapper {
+        background-color: $creme-grey;
+
+        .price {
+          background-color: $orange-rgb;
+          color: $white;
+        }
+      }
+
+      img {
+        -webkit-filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, .5));
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+      }
+    }
+
+  }
+
+  .pagination {
+    a {
+      color: $dark-green-rgb;
+    }
+
+    .active {
+      a {
+        color: $white;
+        background-color: $dark-green-rgb;
+        border-color: $orange-rgb;
+      }
+
+      a:hover {
+        color: $white;
+        background-color: $orange-rgb;
+        border-color: $orange-rgb;
+
+      }
+    }
+  }
+
+  .social-footer i {
+    color: $white;
+    background-color: $dark-green-rgb;
+
+  }
+
+  .footer-story {
+    border-top: solid 1px $light-grey;
+    border-bottom: solid 1px $light-grey;
+  }
+
+  .browse-all-button {
+    .btn {
+      box-shadow: none;
+      color: $white;
+      background-color: $dark-green-rgb;
+    }
+  }
+
+  .cart-item-total, .large-cart-item-unit-price {
+    color: $dark-green-rgb;
+
+    .delete {
+      color: $deep-red
+    }
+  }
+
+  .cart-checkout-button {
+
+    button {
+      color: $dark-green-rgb;
+      background-color: $orange-rgb;
+      border: 2px solid $dark-green-rgb;
+    }
+  }
+
+  .cart-quantities-update {
+
+    .btn {
+      color: $white;
+      background-color: $dark-green-rgb;
+      border: 2px solid $dark-green-rgb;
+    }
+
+    .btn-empty-cart {
+      background-color: $deep-red;
+      border: 2px solid $deep-red;
+    }
+  }
+
+  .cart-coupon-form {
+    .btn {
+      color: $white;
+      background-color: $dark-green-rgb;
+      border: 2px solid $dark-green-rgb;
+    }
+  }
+
+  .cart-headers {
+    div {
+      background-color: $dark-green-rgb;
+      color: $white;
+    }
+  }
+
+  #checkout {
+    .panel-heading {
+      background-color: $dark-green-rgb;
+      color: $white;
+    }
+
+    .btn-success {
+      color: $dark-green-rgb;
+      border: solid 2px $dark-green-rgb;
+      background-color: $orange-rgb;
+    }
+  }
+
+  ol.progress-steps {
+
+    background-color: $light-grey;
+
+    li.completed {
+      background-color: $dark-green-rgb;
+      color: $white;
+
+      a:link, a:visited, a:hover {
+        color: $white;
+      }
+    }
+
+    li.current {
+      background-color: $orange-rgb;
+      color: $dark-green-rgb
+    }
+
+  }
+
+  .help-section {
+
+    h3 {
+      color: $orange-rgb;
+    }
+
+    h4 {
+      color: $dark-green-rgb;
+    }
+
+  }
+
+  /*--------------------------------------*/
+  /* Flash notices & errors
+  /*--------------------------------------*/
+  .flash {
+    color: #FFFFFF;
+
+    &.notice {
+      background-color: #00ADEE;
+    }
+    &.success {
+      background-color: #8dba53;
+    }
+    &.error {
+      background-color: #e45353;
+    }
+  }
+
+  .tweet {
+    background-color: #fff;
+
+    .name {
+      font-color: $black
+    }
+  }
+
+
+  .wishlists {
+    .btn {
+      background-color: $orange-rgb;
+      color: $black;
+    }
+
+    .btn-primary {
+      background-color: $dark-green-rgb;
+      color: $white;
+    }
+
+    .btn-danger {
+      background-color: $deep-red;
+      color: $white;
+    }
+  }
+}

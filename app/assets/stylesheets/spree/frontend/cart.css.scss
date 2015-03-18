@@ -55,7 +55,6 @@
 }
 
 .cart-row {
-  border-bottom: solid 1px $dark-green-rgb;
   padding-bottom: 10px;
 }
 
@@ -69,11 +68,6 @@
 .cart-item-total, .large-cart-item-unit-price {
   padding-top: 5px;
   font-size: 16px;
-  color: $dark-green-rgb;
-
-  .delete {
-    color: $deep-red
-  }
 }
 
 .cart-coupon-form {
@@ -95,9 +89,6 @@
   button {
     width: 95%;
     margin: 5px auto;
-    color: $dark-green-rgb;
-    background-color: $orange-rgb;
-    border: 2px solid $dark-green-rgb;
   }
 }
 
@@ -106,14 +97,6 @@
 
   .btn {
     margin: 5px auto;
-    color: $white;
-    background-color: $dark-green-rgb;
-    border: 2px solid $dark-green-rgb;
-  }
-
-  .btn-empty-cart {
-    background-color: $deep-red;
-    border: 2px solid $deep-red;
   }
 }
 
@@ -123,18 +106,8 @@
   text-align: center;
 }
 
-.cart-coupon-form {
-  .btn {
-    color: $white;
-    background-color: $dark-green-rgb;
-    border: 2px solid $dark-green-rgb;
-  }
-}
-
 .cart-headers {
   div {
-    background-color: $dark-green-rgb;
-    color: $white;
     text-align: center;
   }
 }

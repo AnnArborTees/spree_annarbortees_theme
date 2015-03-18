@@ -1,15 +1,8 @@
 @import 'variables';
 
 #checkout {
-  .panel-heading {
-    background-color: $dark-green-rgb;
-    color: $white;
-  }
 
   .btn-success {
-    color: $dark-green-rgb;
-    border: solid 2px $dark-green-rgb;
-    background-color: $orange-rgb;
     box-shadow: none;
     -moz-box-shadow: none;
     text-shadow: none;
@@ -21,7 +14,6 @@ ol.progress-steps {
   margin: 10px 0;
   padding: 0;
   overflow: hidden;
-  background-color: $light-grey;
 
   li {
     list-style: none;
@@ -29,28 +21,6 @@ ol.progress-steps {
     padding: 11px 0;
     width: 24%;
     text-align: center;
-  }
-
-  li.completed {
-    background-color: $dark-green-rgb;
-    color: $white;
-
-    a:link, a:visited, a:hover {
-      color: $white;
-    }
-  }
-
-  li.current {
-    background-color: $orange-rgb;
-    color: $dark-green-rgb
-  }
-
-  li.next {
-
-  }
-
-  li.last {
-
   }
 
 }

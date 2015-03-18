@@ -5,7 +5,6 @@
 /****************************/
 
 #banner-slides{
-  background: image_url('annarbor-cityscape.png') no-repeat center center;
   background-size: cover;
   text-align: center;
 }
@@ -59,32 +58,6 @@
     p {
       font-size: 24px;
     }
-  }
-}
-
-
-
-
-
-
-
-/*--------------------------------------*/
-/* Flash notices & errors
-/*--------------------------------------*/
-.flash {
-  padding: 10px;
-  color: #FFFFFF;
-  font-weight: bold;
-  margin-bottom: 10px;
-
-  &.notice {
-    background-color: #00ADEE;
-  }
-  &.success {
-    background-color: #8dba53;
-  }
-  &.error {
-    background-color: #e45353;
   }
 }
 

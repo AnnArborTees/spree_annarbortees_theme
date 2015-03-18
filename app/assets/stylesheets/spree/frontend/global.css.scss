@@ -30,13 +30,10 @@
 /*
 /*  Header
 /****************************/
-
-.navbar-top { background-color: $light-blue; }
-.navbar-bottom { background-color: $dark-green-rgb; }
 .search .input-group { margin: 2px inherit;}
-.search .input-group input { margin: 10px inherit inherit inherit; border-radius: 0; border-color: $white; height: 30px; padding: 0 0 0 10px; font-weight: 200; font-size: 0.9em}
-.search .input-group input:focus { border-color: $dark-green-rgb; }
-.search .input-group button{ border: none; background: none; color: $dark-green-rgb;  margin: 4px inherit inherit inherit; }
+.search .input-group input { margin: 10px inherit inherit inherit; border-radius: 0; height: 30px; padding: 0 0 0 10px; font-weight: 200; font-size: 0.9em}
+
+.search .input-group button{ border: none; background: none;  margin: 4px inherit inherit inherit; }
 #search-dropdown-wrapper {
   position: relative;
 }
@@ -48,15 +45,14 @@
   left: 0;
   width: 100%;
 }
-.cart .badge{background-color: $deep-red; position: absolute; top: 5px; right: 0px; font-size: 11px; width: 18px; height: 18px; padding: 4px;}
-.cart .fa-shopping-cart{ color: $dark-green-rgb; position: absolute; top: 0px; right: 0px;}
+.cart .badge{ position: absolute; top: 5px; right: 0px; font-size: 11px; width: 18px; height: 18px; padding: 4px;}
+.cart .fa-shopping-cart { position: absolute; top: 0px; right: 0px;}
 
 #large-nav img.logo { height: 50px; }
-#large-nav .help  a { color: $white;}
+
 #large-nav .help {text-transform: uppercase; padding: 8px 15px; font-size: 1em; margin-bottom: 0; }
 
 .store-search-selection {
-  background-color: $light-grey;
   margin-top:    0px;
   margin-bottom: 0px;
   margin-left:   1px;
@@ -66,11 +62,8 @@
   font-style: italic;
   font-size: 11px;
 }
-.search-selected {
-  background-color: $medium-grey;
-  border: 1px solid $medium-grey;
 
-}
+
 
 
 /*
@@ -79,7 +72,7 @@
 #small-nav .cart, #small-nav .help  { font-size: 1.2em; padding: 3px 0;}
 
 
-.annarbortees .breadcrumb {
+.breadcrumb {
   padding: 8px 15px;
   font-size: 1em;
   margin-bottom: 0;
@@ -89,22 +82,17 @@
 
 }
 
-.annarbortees .breadcrumb a { color: #FFFFFF;}
 
-.annarbortees .breadcrumb > li {
+.breadcrumb > li {
   display: inline-block;
 }
 
-.annarbortees .breadcrumb > li + li:before {
+.breadcrumb > li + li:before {
   content: ">";
   padding: 0 5px;
-  color: $white;
   font-weight: bolder;
 }
 
-.breadcrumb > .active {
-  color: $orange-rgb;
-}
 
 footer {
   margin: 50px 0;
@@ -115,7 +103,6 @@ footer {
  */
 
 #taxonomies {
-  background-color: $light-grey;
   margin: 10px 5px;
   padding: 10px 0;
 
@@ -123,7 +110,6 @@ footer {
     padding: 0;
   }
 
-  .subtaxon {border: solid $orange-rgb 2px; background-color: $light-grey}
 
   li {
     list-style: none;
@@ -132,8 +118,6 @@ footer {
   }
 
   li.active {
-    background-color: $orange-rgb;
-    color: $white;
   }
 
   h4, h5 {
@@ -143,8 +127,6 @@ footer {
   }
 
   h4 {
-    color: $orange-rgb;
-    border-bottom: solid 1px $black;
     padding: 0 0 0.5em 0;
   }
 
@@ -193,15 +175,12 @@ ul.products {
 
     .product-image-and-price-wrapper {
       position: relative;
-      background-color: $creme-grey;
 
       .price {
         position: absolute;
         right: 0;
         bottom: 0;
         padding: 10px 10px 5px 10px;
-        background-color: $orange-rgb;
-        color: $white;
       }
     }
 
@@ -213,27 +192,6 @@ ul.products {
     }
   }
 
-}
-
-.pagination {
-   a {
-    color: $dark-green-rgb;
-   }
-
-  .active {
-    a {
-      color: $white;
-      background-color: $dark-green-rgb;
-      border-color: $orange-rgb;
-    }
-
-    a:hover {
-      color: $white;
-      background-color: $orange-rgb;
-      border-color: $orange-rgb;
-
-    }
-  }
 }
 
 .social-footer ul {
@@ -252,8 +210,6 @@ ul.products {
 
 .social-footer i {
   font-size: 30px;
-  color: $white;
-  background-color: $dark-green-rgb;
   padding: 10px;
   width: 50px;
   height: 50px;
@@ -267,8 +223,6 @@ ul.products {
 
 
 .footer-story {
-  border-top: solid 1px $light-grey;
-  border-bottom: solid 1px $light-grey;
   margin: 10px inherit;
 
   h5 {
@@ -287,8 +241,6 @@ ul.products {
   .btn {
     border-radius: 0;
     box-shadow: none;
-    color: $white;
-    background-color: $dark-green-rgb;
     padding: 10px;
     margin: 5px;
   }

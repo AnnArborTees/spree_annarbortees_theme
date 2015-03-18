@@ -1,6 +1,11 @@
 require 'uri'
 
 Spree::BaseHelper.class_eval do
+
+  def theme_class
+    'default-theme'
+  end
+
   def pinterest_link_url(url, description)
     url =  url || ''; description = description || ''
     "http://pinterest.com/pin/create/button/?url=#{URI.encode(url)}&description=#{URI.encode(description)}"
