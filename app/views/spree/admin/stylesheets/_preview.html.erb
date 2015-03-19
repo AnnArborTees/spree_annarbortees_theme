@@ -1,99 +1,103 @@
 <style>
   .header-1 {
-      background-color: #<%= @stylesheet.header_1_background_color %>;
-      color: #<%= @stylesheet.header_1_color %>;
-
+      background-color: <%= @stylesheet.header_1_background_color %>;
+      color: <%= @stylesheet.header_1_color %>;
   }
 
     .header-2 {
-        background-color: #<%= @stylesheet.header_2_background_color %>;
-        color: #<%= @stylesheet.header_2_color %>;
+        background-color: <%= @stylesheet.header_2_background_color %>;
+        color: <%= @stylesheet.header_2_color %>;
 
     }
-  .header-2 a:link{
-      color: #<%= @stylesheet.header_2_link_color %>;
+    .header-2 a:link, .header-2 a:visited, .header-2 a:active{
+      color: <%= @stylesheet.header_2_link_color %>;
   }
 
     .homepage-banner {
-        background-color: #<%= @stylesheet.banner_bg %>;
+        background-color: <%= @stylesheet.banner_bg %>;
+        <% unless @stylesheet.banner.blank? %>
+            background: url('<%= @stylesheet.banner.url %>') no-repeat center center;
+            background-size: cover;
+            text-align: center;
+        <% end %>
 
     }
 
     .product-image {
-        background-color: #<%= @stylesheet.product_background_color %>;
+        background-color: <%= @stylesheet.product_background_color %>;
     }
 
 
     .product-price {
-        background-color: #<%= @stylesheet.product_price_label_background_color %>;
-        color: #<%= @stylesheet.product_price_label_color %>;
+        background-color: <%= @stylesheet.product_price_label_background_color %>;
+        color: <%= @stylesheet.product_price_label_color %>;
 
     }
 
-    .product-option-tab li{
-        background-color: #<%= @stylesheet.product_options_background_color %>;
-        color: #<%= @stylesheet.product_options_option_color %>;
+    .product-option-tab li.active{
+        background-color: <%= @stylesheet.product_options_background_color %>;
+        color: <%= @stylesheet.product_options_option_color %>;
 
     }
 
     .product-option-tab li.inactive {
-        background-color: #<%= @stylesheet.product_options_option_background_color %>;
+        background-color: <%= @stylesheet.product_options_option_background_color %>;
         color: #000000;
     }
 
     .btn-active {
-        border-color: #<%= @stylesheet.product_options_option_background_color %>;
-        background-color: #<%= @stylesheet.product_options_option_background_color %>;
+        border-color: <%= @stylesheet.product_options_option_background_color %>;
+        background-color: <%= @stylesheet.product_options_option_background_color %>;
 
     }
 
     .btn-inactive {
-      border-color: #<%= @stylesheet.product_options_option_background_color %>;
-      background-color: #<%= @stylesheet.product_options_background_color %>;
+      border-color: <%= @stylesheet.product_options_option_background_color %>;
+      background-color: <%= @stylesheet.product_options_background_color %>;
   }
 
     .btn a:link, .btn a:visited, .btn a:active {
-        color: #<%= @stylesheet.product_options_option_color %>;
+        color: <%= @stylesheet.product_options_option_color %>;
     }
 
     .product-option-box {
-        background-color: #<%= @stylesheet.product_options_background_color %>;
+        background-color: <%= @stylesheet.product_options_background_color %>;
 
     }
 
     .btn-buy {
-        border-color: #<%= @stylesheet.product_options_option_background_color %>;
-        background-color: #<%= @stylesheet.product_options_option_background_color %>;
+        border-color: <%= @stylesheet.product_options_option_background_color %>;
+        background-color: <%= @stylesheet.product_options_option_background_color %>;
         color: #000000;
     }
 
     .layout-body h3 {
-        color: #<%= @stylesheet.layout_color_1 %>;
+        color: <%= @stylesheet.layout_color_1 %>;
     }
 
     .layout-body p {
-        color: #<%= @stylesheet.layout_color_2 %>;
+        color: <%= @stylesheet.layout_color_2 %>;
     }
 
     .layout-body a:link {
-        color: #<%= @stylesheet.layout_color_3 %>;
+        color: <%= @stylesheet.layout_color_3 %>;
     }
 
-        .left-nav {
-            background-color: #EDEDED;
-        }
+    .left-nav {
+        background-color: <%= @stylesheet.leftnav_background_color %>;
+    }
 
-        .left-nav h2 {
-            color: #FFA509;
-        }
+    .left-nav h2 {
+        color: <%= @stylesheet.leftnav_color_1 %>;
+    }
 
-        .left-nav h3 {
-            color: #000;
-        }
+    .left-nav h3 {
+        color: <%= @stylesheet.leftnav_color_2 %>;
+    }
 
-        .left-nav li {
-            color: #0c9378;
-        }
+    .left-nav li {
+        color: <%= @stylesheet.leftnav_color_3 %>;
+    }
 
 
 </style>
@@ -101,7 +105,13 @@
 
 <div class="theme-preview">
     <div class="header-1 fullwidth">
-        This is header one, where your logo goes.
+        <% if @stylesheet.logo.blank? %>
+          This is header one, where your logo goes
+          <% else %>
+        <div class="logo">
+          <%= image_tag @stylesheet.logo.url %>
+        </div>
+      <% end %>
     </div>
     <div class="header-2 fullwidth">
       <%= link_to "This is header two", "#" %> >  where breadcrumbing goes
@@ -148,7 +158,7 @@
         </div>
         <div class="product-options six columns">
           <ul class="product-option-tab">
-            <li>
+            <li class="active">
               Unisex
             </li>
             <li class="inactive">

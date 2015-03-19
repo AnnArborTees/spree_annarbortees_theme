@@ -16,6 +16,9 @@ class CreateSpreeStylesheets < ActiveRecord::Migration
       t.string :product_options_background_color
       t.string :product_options_option_background_color
       t.string :product_options_option_color
+      t.string :product_options_option_inactive_background_color
+      t.string :product_options_option_inactive_color
+      t.string :leftnav_background_color
       t.string :leftnav_color_1
       t.string :leftnav_color_2
       t.string :leftnav_color_3

@@ -16,6 +16,7 @@ gem 'spree_digital', github: 'annarbortees/spree_digital', branch: branch
 gem 'spree_wishlist', github: 'spree-contrib/spree_wishlist', branch: branch
 gem 'spree_annarbortees_twitter', github: 'annarbortees/spree_annarbortees_twitter', branch: branch
 
+
 group :test do
   gem 'shoulda-matchers', require: false
   gem 'byebug'
