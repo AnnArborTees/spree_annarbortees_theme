@@ -2,4 +2,11 @@ Spree::Core::Engine.routes.draw do
   get '/cart_count', :to => 'store#cart_count', :as => :cart_count
   get '/help', :to => 'freshdesk/solutions#index', as: :help
   post '/contact', to: 'freshdesk/solutions#contact'
+
+  resources :stylesheets, only: :show
+
+  namespace :admin do
+    resources :stylesheets
+  end
+
 end

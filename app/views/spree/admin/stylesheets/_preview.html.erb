@@ -1,0 +1,190 @@
+<style>
+  .header-1 {
+      background-color: #<%= @stylesheet.header_1_background_color %>;
+      color: #<%= @stylesheet.header_1_color %>;
+
+  }
+
+    .header-2 {
+        background-color: #<%= @stylesheet.header_2_background_color %>;
+        color: #<%= @stylesheet.header_2_color %>;
+
+    }
+  .header-2 a:link{
+      color: #<%= @stylesheet.header_2_link_color %>;
+  }
+
+    .homepage-banner {
+        background-color: #<%= @stylesheet.banner_bg %>;
+
+    }
+
+    .product-image {
+        background-color: #<%= @stylesheet.product_background_color %>;
+    }
+
+
+    .product-price {
+        background-color: #<%= @stylesheet.product_price_label_background_color %>;
+        color: #<%= @stylesheet.product_price_label_color %>;
+
+    }
+
+    .product-option-tab li{
+        background-color: #<%= @stylesheet.product_options_background_color %>;
+        color: #<%= @stylesheet.product_options_option_color %>;
+
+    }
+
+    .product-option-tab li.inactive {
+        background-color: #<%= @stylesheet.product_options_option_background_color %>;
+        color: #000000;
+    }
+
+    .btn-active {
+        border-color: #<%= @stylesheet.product_options_option_background_color %>;
+        background-color: #<%= @stylesheet.product_options_option_background_color %>;
+
+    }
+
+    .btn-inactive {
+      border-color: #<%= @stylesheet.product_options_option_background_color %>;
+      background-color: #<%= @stylesheet.product_options_background_color %>;
+  }
+
+    .btn a:link, .btn a:visited, .btn a:active {
+        color: #<%= @stylesheet.product_options_option_color %>;
+    }
+
+    .product-option-box {
+        background-color: #<%= @stylesheet.product_options_background_color %>;
+
+    }
+
+    .btn-buy {
+        border-color: #<%= @stylesheet.product_options_option_background_color %>;
+        background-color: #<%= @stylesheet.product_options_option_background_color %>;
+        color: #000000;
+    }
+
+    .layout-body h3 {
+        color: #<%= @stylesheet.layout_color_1 %>;
+    }
+
+    .layout-body p {
+        color: #<%= @stylesheet.layout_color_2 %>;
+    }
+
+    .layout-body a:link {
+        color: #<%= @stylesheet.layout_color_3 %>;
+    }
+
+        .left-nav {
+            background-color: #EDEDED;
+        }
+
+        .left-nav h2 {
+            color: #FFA509;
+        }
+
+        .left-nav h3 {
+            color: #000;
+        }
+
+        .left-nav li {
+            color: #0c9378;
+        }
+
+
+</style>
+
+
+<div class="theme-preview">
+    <div class="header-1 fullwidth">
+        This is header one, where your logo goes.
+    </div>
+    <div class="header-2 fullwidth">
+      <%= link_to "This is header two", "#" %> >  where breadcrumbing goes
+    </div>
+    <div class="homepage-banner">
+      This is what your homepage banner will look like
+    </div>
+    <div class="body">
+      <div class="three columns">
+        <br clear="all" />
+        <div class="left-nav">
+          <h2>SHOP BY</h2>
+
+          <h3>STORE</h3>
+          <ul>
+            <li>SUBSTORE</li>
+            <li>SUBSTORE B</li>
+          </ul>
+
+          <h3>TAXONOMY</h3>
+          <ul>
+            <li>TAXON A</li>
+            <li>TAXON B</li>
+          </ul>
+        </div>
+      </div>
+      <div class="seven columns">
+
+        <ul>
+          <% 4.times do %>
+              <li class="product-image">
+                <%= image_tag 'product_image_preview.png', width: 175, height: 225 %>
+                <span class="product-price">$19.99</span>
+              </li>
+          <% end %>
+        </ul>
+
+      </div>
+    </div>
+    <br clear="all"/>
+      <div class="homepage-banner">
+        <div class="product-page-image four columns">
+          <%= image_tag 'product_image_preview.png', width: 175, height: 225 %>
+        </div>
+        <div class="product-options six columns">
+          <ul class="product-option-tab">
+            <li>
+              Unisex
+            </li>
+            <li class="inactive">
+              Ladies
+            </li>
+          </ul>
+          <br clear="all"/>
+          <div class="product-option-box">
+            <ul>
+              <li class="btn btn-active">
+                <%= link_to "S", '#' %>
+              </li>
+              <li class="btn btn-inactive">
+                <%= link_to "M", '#' %>
+              </li>
+              <li class="btn btn-inactive">
+                <%= link_to "L", '#' %>
+              </li>
+              <li class="btn btn-inactive">
+                <%= link_to "XL", '#' %>
+              </li>
+            </ul>
+            <br clear="all" />
+            <br clear="all" />
+            <p style="text-align: center;">
+              <%= link_to "Buy T-shirt $19.99", '#', class: 'btn btn-buy' %>
+            </p>
+          </div>
+
+          <br clear="all" />
+        </div>
+      </div>
+  <div class="layout-body">
+
+    <h3>Product Title Color</h3>
+    <p>Product Description Color. <%= link_to "Links look like this.", '#' %> <%= ipsum %></p>
+  </div>
+
+</div>

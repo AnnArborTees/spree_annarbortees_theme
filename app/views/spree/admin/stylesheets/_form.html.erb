@@ -1,0 +1,102 @@
+<div class="alpha four columns">
+  <%= f.field_container :name do %>
+      <%= f.label :name, Spree.t(:stylesheet_name) %><br />
+      <%= f.text_field :name, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :name %>
+  <% end %>
+
+  <%= f.field_container :banner_bg do %>
+      <%= f.label :banner_bg, Spree.t(:banner_bg) %><br />
+      <%= f.text_field :banner_bg, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :banner_bg %>
+  <% end %>
+
+  <%= f.field_container :header_1_background_color do %>
+      <%= f.label :header_1_background_color, Spree.t(:header_1_background_color) %><br />
+      <%= f.text_field :header_1_background_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :header_1_background_color %>
+  <% end %>
+
+  <%= f.field_container :header_1_color do %>
+      <%= f.label :banner_bg, Spree.t(:header_1_color) %><br />
+      <%= f.text_field :header_1_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :header_1_color %>
+  <% end %>
+
+  <%= f.field_container :header_2_background_color do %>
+      <%= f.label :header_2_background_color, Spree.t(:header_2_background_color) %><br />
+      <%= f.text_field :header_2_background_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :header_2_background_color %>
+  <% end %>
+
+  <%= f.field_container :header_2_color do %>
+      <%= f.label :header_2_color, Spree.t(:header_2_color) %><br />
+      <%= f.text_field :header_2_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :header_2_color %>
+  <% end %>
+
+  <%= f.field_container :header_2_link_color do %>
+      <%= f.label :header_2_link_color, Spree.t(:header_2_link_color) %><br />
+      <%= f.text_field :header_2_link_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :header_2_link_color %>
+  <% end %>
+
+  <%= f.field_container :product_background_color do %>
+      <%= f.label :product_background_color, Spree.t(:product_background_color) %><br />
+      <%= f.text_field :product_background_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :product_background_color %>
+  <% end %>
+
+  <%= f.field_container :product_price_label_background_color do %>
+      <%= f.label :product_price_label_background_color, Spree.t(:product_price_label_background_color) %><br />
+      <%= f.text_field :product_price_label_background_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :product_price_label_background_color %>
+  <% end %>
+
+  <%= f.field_container :product_price_label_color do %>
+      <%= f.label :product_price_label_color, Spree.t(:product_price_label_color) %><br />
+      <%= f.text_field :product_price_label_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :product_price_label_color %>
+  <% end %>
+
+  <%= f.field_container :product_options_background_color do %>
+      <%= f.label :product_options_background_color, Spree.t(:product_options_background_color) %><br />
+      <%= f.text_field :product_options_background_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :product_options_background_color %>
+  <% end %>
+
+  <%= f.field_container :product_options_option_background_color do %>
+      <%= f.label :product_options_option_background_color, Spree.t(:product_options_option_background_color) %><br />
+      <%= f.text_field :product_options_option_background_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :product_options_option_background_color %>
+  <% end %>
+
+  <%= f.field_container :product_options_option_color do %>
+      <%= f.label :product_options_option_color, Spree.t(:product_options_option_color) %><br />
+      <%= f.text_field :product_options_option_color, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :product_options_option_color %>
+  <% end %>
+
+  <%= f.field_container :layout_color_1 do %>
+      <%= f.label :layout_color_1, Spree.t(:layout_color_1) %><br />
+      <%= f.text_field :layout_color_1, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :layout_color_1 %>
+  <% end %>
+
+  <%= f.field_container :layout_color_2 do %>
+      <%= f.label :layout_color_2, Spree.t(:banner_bg) %><br />
+      <%= f.text_field :layout_color_2, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :layout_color_2 %>
+  <% end %>
+
+  <%= f.field_container :layout_color_3 do %>
+      <%= f.label :layout_color_3, Spree.t(:layout_color_3) %><br />
+      <%= f.text_field :layout_color_3, :class => 'fullwidth' %>
+      <%= error_message_on :stylesheet, :layout_color_3 %>
+  <% end %>
+
+</div>
+
+<div class="eleven columns">
+  <%= render 'preview' %>
+</div>
