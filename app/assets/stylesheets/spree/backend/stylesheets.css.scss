@@ -1,0 +1,138 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.theme-preview {
+  .header-1 {
+    margin: 0px;
+    padding: 10px;
+  }
+
+  .header-2 {
+    font-weight: bold;
+    margin: 0px;
+    padding: 10px;
+  }
+
+  .homepage-banner {
+
+  }
+
+  .product-image {
+    width: 175px;
+    height: 225px;
+    text-align: center;
+    position: relative;
+    float: left;
+    margin: 10px;
+    list-style: none;
+
+    li {
+      list-style: none;
+    }
+
+  }
+
+
+
+  .product-image img {
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, .5));
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  .product-price {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1.2em;
+
+  }
+
+  .product-option-tab {
+
+    li {
+      list-style: none;
+      float: left;
+      margin-right: 2px;
+      font-size: 1.1em;
+      padding: 0.7em 1em ;
+    }
+
+    .inactive {
+
+    }
+
+    .active {
+
+    }
+  }
+
+  .product-option-box {
+    width: 100%;
+    padding: 40px 10px 20px 10px;
+
+    li {
+      float: left;
+      margin: 5px;
+      list-style-type: none;
+      text-align: center;
+    }
+
+    .btn {
+        border-radius: 0;
+        padding: 5px;
+        margin: 5px;
+        border-width: 3px;
+        border-style: solid;
+        font-size: 2em;
+        font-weight: bold;
+        width: 70px;
+        height: 55px;
+      }
+
+    .btn-buy {
+      font-size: 1.5em;
+      width: 90%;
+      padding: 10px;
+      text-transform: uppercase;
+    }
+  }
+
+  .layout-body {
+    h3 {
+      text-align: left;
+    }
+
+    a:link {
+
+    }
+  }
+
+  .left-nav {
+    h2, h3 {
+      text-align: center;
+    }
+
+    h2 {
+      border-bottom: solid 1px #000;
+      padding-bottom: .5em;
+      margin-bottom: .5em;
+    }
+
+    ul {
+      margin: 1em 0;
+    }
+    li {
+      text-align: Center;
+      width: 100%;
+      list-style: none;
+      font-size: 1.2em;
+    }
+    padding: 5px 2px 10px 2px;
+    font-weight: bolder;
+  }
+
+}
