@@ -70,6 +70,12 @@ $(document).ready(function(){
         } else if ( $(this).attr('id') == 'stylesheet_layout_links_color' ) {
             $('.layout-body a:link, .layout-body a:active').css('color', $(this).val());
 
+        } else if ( $(this).attr('id') == 'stylesheet_destroy_logo' ) {
+            $('.logo').toggle();
+
+        } else if ( $(this).attr('id') == 'stylesheet_destroy_banner' ) {
+            $('.homepage-banner').css('background-image', 'none');
+
         }
     })
 });

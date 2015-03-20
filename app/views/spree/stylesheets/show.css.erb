@@ -1,0 +1,334 @@
+.<%= @stylesheet.style_class %> {
+/*
+/* Products List (All Sizes)
+/****************************/
+/*--------------------------------------*/
+/* Flash notices & errors
+/*--------------------------------------*/
+}
+.<%= @stylesheet.style_class %> a:link, .<%= @stylesheet.style_class %> a:visited, .<%= @stylesheet.style_class %> a:active {
+    color: <%= @stylesheet.layout_links_color %>;
+}
+.<%= @stylesheet.style_class %> body {
+/*background-color: #000;*/
+}
+.<%= @stylesheet.style_class %> #banner-slides {
+background: <%= @stylesheet.banner_bg %>;
+background: url('<%= @stylesheet.banner.url %>') no-repeat center center;
+background-size: cover;
+text-align: center;
+}
+.<%= @stylesheet.style_class %> .navbar-top {
+background-color:  <%= @stylesheet.header_1_background_color %>;
+color:  <%= @stylesheet.header_1_color %>;
+}
+.<%= @stylesheet.style_class %> .navbar-bottom {
+background-color:  <%= @stylesheet.header_2_background_color %>;
+color:  <%= @stylesheet.header_1_color %>;
+}
+.<%= @stylesheet.style_class %> .search .input-group input {
+border-color:  <%= @stylesheet.header_1_color %>;
+}
+.<%= @stylesheet.style_class %> .search .input-group input:focus {
+border-color:  <%= @stylesheet.header_1_color %>;
+}
+.<%= @stylesheet.style_class %> .search .input-group button {
+color:  <%= @stylesheet.header_1_color %>;
+}
+.<%= @stylesheet.style_class %> .cart .fa-shopping-cart {
+color:  <%= @stylesheet.header_1_color %>;
+}
+.<%= @stylesheet.style_class %> .cart .badge {
+background-color: #CC0000;
+}
+.<%= @stylesheet.style_class %> #large-nav .help a {
+    color:  <%= @stylesheet.header_2_link_color %>;
+}
+.<%= @stylesheet.style_class %> .store-search-selection {
+background-color: #ededed;
+}
+.<%= @stylesheet.style_class %> .search-selected {
+background-color: #b7b7b7;
+border: 1px solid #b7b7b7;
+}
+.<%= @stylesheet.style_class %> .breadcrumb a {
+    color:  <%= @stylesheet.header_2_link_color %>;
+}
+.<%= @stylesheet.style_class %> .breadcrumb > li + li:before {
+    color:  <%= @stylesheet.header_2_link_color %>;
+}
+.<%= @stylesheet.style_class %> .breadcrumb > .active {
+    color:  <%= @stylesheet.header_2_color %>;
+}
+.<%= @stylesheet.style_class %> #taxonomies {
+    background-color:  <%= @stylesheet.leftnav_background_color %>;
+}
+.<%= @stylesheet.style_class %> #taxonomies .subtaxon {
+    border: solid <%= @stylesheet.leftnav_color_1 %> 2px;
+    background-color:  <%= @stylesheet.leftnav_background_color %>;
+}
+.<%= @stylesheet.style_class %> #taxonomies li.active {
+background-color: <%= @stylesheet.leftnav_color_1 %>;
+color: #FFFFFF;
+}
+.<%= @stylesheet.style_class %> #taxonomies h4 {
+color:  <%= @stylesheet.leftnav_color_1 %>;
+border-bottom: solid 1px #<%= @stylesheet.leftnav_color_2 %>;
+}
+
+.<%= @stylesheet.style_class %> #taxonomies a:link, .<%= @stylesheet.style_class %> #taxonomies a:visited, .<%= @stylesheet.style_class %> #taxonomies a:active  {
+    color:  <%= @stylesheet.leftnav_color_3 %>;
+}
+
+.<%= @stylesheet.style_class %> ul.products a:link, .<%= @stylesheet.style_class %> ul.products a:visited, .<%= @stylesheet.style_class %> ul.products a:active {
+    color: <%= @stylesheet.layout_links_color %>;
+}
+
+.<%= @stylesheet.style_class %> ul.products li .product-image-and-price-wrapper {
+background-color:  <%= @stylesheet.product_background_color %>;
+}
+.<%= @stylesheet.style_class %> ul.products li .product-image-and-price-wrapper .price {
+    background-color:  <%= @stylesheet.product_price_label_background_color %>;
+color: <%= @stylesheet.product_price_label_color %>;
+}
+.<%= @stylesheet.style_class %> ul.products li img {
+-webkit-filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+}
+.<%= @stylesheet.style_class %> .pagination a {
+color: ;
+}
+.<%= @stylesheet.style_class %> .pagination .active a {
+color: <%= @stylesheet.header_2_color %>;
+background-color: <%= @stylesheet.header_2_background_color %>;
+border-color: <%= @stylesheet.header_2_link_color %>;
+}
+.<%= @stylesheet.style_class %> .pagination .active a:hover {
+color: <%= @stylesheet.header_2_color %>;
+background-color: <%= @stylesheet.header_2_link_color %>;
+border-color: <%= @stylesheet.header_2_link_color %>;
+}
+.<%= @stylesheet.style_class %> .social-footer i {
+color: #FFFFFF;
+background-color: <%= @stylesheet.layout_color_1 %>;
+}
+.<%= @stylesheet.style_class %> .footer-story {
+border-top: solid 1px #ededed;
+border-bottom: solid 1px #ededed;
+}
+.<%= @stylesheet.style_class %> .browse-all-button .btn {
+box-shadow: none;
+color: #FFFFFF;
+background-color: <%= @stylesheet.layout_color_1 %>;
+}
+.<%= @stylesheet.style_class %> .cart-item-total, .<%= @stylesheet.style_class %> .large-cart-item-unit-price {
+color: <%= @stylesheet.layout_color_1 %>;
+}
+.<%= @stylesheet.style_class %> .cart-item-total .delete, .<%= @stylesheet.style_class %> .large-cart-item-unit-price .delete {
+color: #CC0000;
+}
+.<%= @stylesheet.style_class %> .cart-checkout-button button {
+color: <%= @stylesheet.header_2_color %>;
+background-color: <%= @stylesheet.header_2_background_color %>;
+border: 2px solid <%= @stylesheet.header_2_color %>;
+}
+.<%= @stylesheet.style_class %> .cart-quantities-update .btn {
+color: #FFFFFF;
+background-color: <%= @stylesheet.layout_color_1 %>;
+border: 2px solid <%= @stylesheet.layout_color_1 %>;
+}
+.<%= @stylesheet.style_class %> .cart-quantities-update .btn-empty-cart {
+background-color: #CC0000;
+border: 2px solid #CC0000;
+}
+.<%= @stylesheet.style_class %> .cart-coupon-form .btn {
+color: #FFFFFF;
+background-color: <%= @stylesheet.layout_color_1 %>;
+border: 2px solid <%= @stylesheet.layout_color_1 %>;
+}
+.<%= @stylesheet.style_class %> .cart-headers div {
+background-color: <%= @stylesheet.layout_color_1 %>;
+color: #FFFFFF;
+}
+.<%= @stylesheet.style_class %> #checkout .panel-heading {
+background-color: <%= @stylesheet.layout_color_1 %>;
+color: #FFFFFF;
+}
+.<%= @stylesheet.style_class %> #checkout .btn-success {
+color: <%= @stylesheet.layout_color_1 %>;
+border: solid 2px <%= @stylesheet.layout_color_1 %>;
+background-color: <%= @stylesheet.layout_links_color %>;
+}
+.<%= @stylesheet.style_class %> ol.progress-steps {
+background-color: <%= @stylesheet.leftnav_background_color %>;
+}
+.<%= @stylesheet.style_class %> ol.progress-steps li.completed {
+background-color: <%= @stylesheet.layout_color_1 %>;
+color: #FFFFFF;
+}
+.<%= @stylesheet.style_class %> ol.progress-steps li.completed a:link, .<%= @stylesheet.style_class %> ol.progress-steps li.completed a:visited, .<%= @stylesheet.style_class %> ol.progress-steps li.completed a:hover {
+color: #FFFFFF;
+}
+.<%= @stylesheet.style_class %> ol.progress-steps li.current {
+background-color: <%= @stylesheet.layout_color_2 %>;
+color: <%= @stylesheet.layout_color_1 %>;
+}
+.<%= @stylesheet.style_class %> .help-section h3 {
+color: <%= @stylesheet.layout_color_3 %>;
+}
+.<%= @stylesheet.style_class %> .help-section h4 {
+color: <%= @stylesheet.layout_color_1 %>;
+}
+.<%= @stylesheet.style_class %> .flash {
+color: #FFFFFF;
+}
+.<%= @stylesheet.style_class %> .flash.notice {
+background-color: #00ADEE;
+}
+.<%= @stylesheet.style_class %> .flash.success {
+background-color: #8dba53;
+}
+.<%= @stylesheet.style_class %> .flash.error {
+background-color: #e45353;
+}
+.<%= @stylesheet.style_class %> .tweet {
+background-color: #fff;
+}
+.<%= @stylesheet.style_class %> .tweet .name {
+font-color: #000000;
+}
+.<%= @stylesheet.style_class %> .wishlists .btn {
+background-color: <%= @stylesheet.layout_color_2 %>;
+color: #000000;
+}
+.<%= @stylesheet.style_class %> .wishlists .btn-primary {
+background-color: <%= @stylesheet.layout_color_1 %>;
+color: #FFFFFF;
+}
+.<%= @stylesheet.style_class %> .wishlists .btn-danger {
+background-color: #CC0000;
+color: #FFFFFF;
+}
+
+
+
+
+
+
+@media (max-width: 767px) {
+    .<%= @stylesheet.style_class %> #variantTabs .tab-content {
+        background: <%= @stylesheet.product_options_background_color %>;
+    }
+    .<%= @stylesheet.style_class %>  .nav-tabs > li > a {
+        background: <%= @stylesheet.product_options_option_background_color %>;
+    }
+
+    .<%= @stylesheet.style_class %>  .nav-tabs > li.active > a,
+    .<%= @stylesheet.style_class %>  .nav-tabs > li.active > a:hover,
+    .<%= @stylesheet.style_class %>  .nav-tabs > li.active > a:focus {
+        background: <%= @stylesheet.product_options_background_color %>;
+    }
+}
+
+@media (min-width: 768px) {
+    .<%= @stylesheet.style_class %> #product-images-and-options {
+        background: url('<%= @stylesheet.banner.url %>') no-repeat center center;
+        background-size: cover;
+        text-align: center;
+    }
+    .<%= @stylesheet.style_class %> #variantTabs .tab-content {
+        background-color: <%= @stylesheet.product_options_background_color %>;
+    }
+    .<%= @stylesheet.style_class %>  .nav-tabs > li > a {
+        background-color: <%= @stylesheet.product_options_option_background_color %>;
+    }
+    .<%= @stylesheet.style_class %>  .nav-tabs > li.active > a,
+    .<%= @stylesheet.style_class %>  .nav-tabs > li.active > a:hover,
+    .<%= @stylesheet.style_class %>  .nav-tabs > li.active > a:focus {
+        background-color: <%= @stylesheet.product_options_background_color %>;
+    }
+}
+
+.<%= @stylesheet.style_class %> #variantTabs .tab-content a {
+    color: <%= @stylesheet.product_options_option_background_color %>;
+}
+
+.<%= @stylesheet.style_class %>  .nav-tabs > li > a {
+
+    color: #000000;
+}
+.<%= @stylesheet.style_class %>  .nav-tabs > li > a:hover {
+    border: none;
+}
+.<%= @stylesheet.style_class %>  .nav-tabs > li.active > a,
+.<%= @stylesheet.style_class %>  .nav-tabs > li.active > a:hover,
+.<%= @stylesheet.style_class %>  .nav-tabs > li.active > a:focus {
+    color: #FFFFFF;
+
+}
+
+.<%= @stylesheet.style_class %> ul.variants .btn {
+    color: #fff;
+    border: solid 3px <%= @stylesheet.product_options_option_background_color %>;
+}
+.<%= @stylesheet.style_class %> ul.variants .active {
+    color: #fff;
+    background-color: <%= @stylesheet.product_options_option_background_color %>;
+}
+
+.<%= @stylesheet.style_class %> ul.digital-variants .btn {
+    color: #fff;
+    border: solid 3px <%= @stylesheet.product_options_option_background_color %>;
+}
+.<%= @stylesheet.style_class %> ul.digital-variants .active {
+    color: #fff;
+    background-color: <%= @stylesheet.product_options_option_background_color %>;
+}
+
+.<%= @stylesheet.style_class %> #variantTabs .btn-group input:last-of-type {
+    border-left: solid 1px #ededed;
+}
+
+.<%= @stylesheet.style_class %> .buy-button input {
+    color: #000000;
+    background-color: <%= @stylesheet.product_options_option_background_color %>;
+}
+.<%= @stylesheet.style_class %> .buy-button input:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+.<%= @stylesheet.style_class %> #product_description .product-title {
+    color: <%= @stylesheet.product_options_background_color %>;
+}
+.<%= @stylesheet.style_class %> #product_share_with_friends,
+.<%= @stylesheet.style_class %> #product_talk_about,
+.<%= @stylesheet.style_class %> #product_wishlist_form,
+.<%= @stylesheet.style_class %> #product_customer_photos {
+    background-color: #ededed;
+}
+.<%= @stylesheet.style_class %> #product_wishlist_form .btn {
+    background-color: <%= @stylesheet.product_options_option_background_color %>;
+    color: #000000;
+}
+.<%= @stylesheet.style_class %> #product_wishlist_form {
+    text-align: center;
+}
+.<%= @stylesheet.style_class %> #product_share_with_friends h2,
+.<%= @stylesheet.style_class %> #product_wishlist_form h2,
+.<%= @stylesheet.style_class %> #product_talk_about h2,
+.<%= @stylesheet.style_class %> #product_customer_photos h2 {
+    border-bottom: solid 1px #000000;
+}
+
+.<%= @stylesheet.style_class %> #product_share_with_friends i {
+    color: #ededed;
+    background-color: <%= @stylesheet.product_options_option_background_color %>;
+}
+.<%= @stylesheet.style_class %> #digital-download-preview {
+    border-bottom: solid 1px #000000;
+}
+.<%= @stylesheet.style_class %> #digital-download-preview .btn {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+

@@ -16,31 +16,56 @@ module Spree
 
     validates :name, uniqueness: true
 
+    before_save :delete_images
     after_initialize :initialize_colors
+
+    attr_accessor :destroy_banner, :destroy_logo
+
+    def destroy_banner=(val)
+      @destroy_banner=val
+    end
+
+    def destroy_logo(val)
+      @destroy_logo=val
+    end
+
+    def rgb_for(attr)
+      vals = send(attr).match /#(..)(..)(..)/
+      {r: vals[1].hex, g: vals[2].hex, b: vals[2].hex}
+    end
+
+    def style_class
+      name.downcase.gsub(' ', '-')
+    end
 
     private
 
+    def delete_images
+      self.banner = nil if @destroy_banner
+      self.logo = nil if @destroy_logo
+    end
+
     def initialize_colors
-      self.banner_bg = '#000000'
-      self.header_1_background_color = '#CBEAFC'
-      self.header_1_color = '#125e1d'
-      self.header_2_background_color = '#125e1d'
-      self.header_2_color = '#FFA509'
-      self.header_2_link_color = '#ffffff'
-      self.product_background_color = '#e1d9d6'
-      self.product_price_label_background_color = '#FFA509'
-      self.product_price_label_color = '#ffffff'
-      self.product_options_background_color = '#125e1d'
-      self.product_options_option_background_color = '#FFA509'
-      self.product_options_option_color = '#ffffff'
-      self.layout_color_1 = '#125e1d'
-      self.layout_color_2 = '#000000'
-      self.layout_color_3 =  'FFA509'
-      self.layout_links_color = '#0c9378'
-      self.leftnav_color_1 = '#FFA509'
-      self.leftnav_color_2 = '#000000'
-      self.leftnav_color_3 = '#125e1d'
-      self.leftnav_background_color = '#EDEDEF'
+      self.banner_bg = '#000000' unless self.banner_bg
+      self.header_1_background_color = '#CBEAFC' unless self.header_1_background_color
+      self.header_1_color = '#125e1d' unless self.header_1_color
+      self.header_2_background_color = '#125e1d' unless self.header_2_background_color
+      self.header_2_color = '#FFA509' unless self.header_2_color
+      self.header_2_link_color = '#ffffff' unless self.header_2_link_color
+      self.product_background_color = '#e1d9d6' unless self.product_background_color
+      self.product_price_label_background_color = '#FFA509' unless self.product_price_label_background_color
+      self.product_price_label_color = '#ffffff' unless self.product_price_label_color
+      self.product_options_background_color = '#125e1d' unless self.product_options_background_color
+      self.product_options_option_background_color = '#FFA509' unless self.product_options_option_background_color
+      self.product_options_option_color = '#ffffff' unless self.product_options_option_color
+      self.layout_color_1 = '#125e1d' unless self.layout_color_1
+      self.layout_color_2 = '#000000' unless self.layout_color_2
+      self.layout_color_3 =  'FFA509' unless self.layout_color_3
+      self.layout_links_color = '#0c9378' unless self.layout_links_color
+      self.leftnav_color_1 = '#FFA509' unless self.leftnav_color_1
+      self.leftnav_color_2 = '#000000' unless self.leftnav_color_2
+      self.leftnav_color_3 = '#125e1d' unless self.leftnav_color_3
+      self.leftnav_background_color = '#EDEDEF' unless self.leftnav_background_color
     end
 
 

@@ -5,10 +5,18 @@
       <%= error_message_on :stylesheet, :name %>
   <% end %>
 
+
+  <%= f.field_container :stores do %>
+      <%= f.label :stores, Spree.t(:stores)%><br />
+      <%= f.collection_select :store_ids, Spree::Store.all, :id, :name, {}, {:multiple => true, class: 'select2 fullwidth'} %>
+      <%= error_message_on :stylesheet, :store_ids %>
+  <% end %>
+
   <%= f.field_container :logo do %>
       <%= f.label :logo, Spree.t(:logo) %><br />
       <%= f.file_field :logo  %>
       <%= error_message_on :stylesheet, :logo %>
+
   <% end %>
 
   <%= f.field_container :banner do %>

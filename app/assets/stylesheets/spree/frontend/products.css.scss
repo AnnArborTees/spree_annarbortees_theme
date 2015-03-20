@@ -13,12 +13,9 @@
     text-align: center;
   }
 
-  #variantTabs .tab-content { background: $dark-green-rgb; }
-  .annarbortees .nav-tabs > li > a { background: $orange-rgb;}
-  .annarbortees .nav-tabs > li.active > a,
-  .annarbortees .nav-tabs > li.active > a:hover,
-  .annarbortees .nav-tabs > li.active > a:focus {  background: $dark-green-rgb; }
-  .annarbortees .nav-tabs > li { float: none; display: inline-block;}
+   .nav-tabs > li.active > a,
+   .nav-tabs > li.active > a:hover,
+   .nav-tabs > li { float: none; display: inline-block;}
 }
 
 
@@ -34,12 +31,9 @@
     text-align: center;
   }
 
-  #variantTabs .tab-content { background: $dark-green-rgb-70-opacity; }
-  .annarbortees .nav-tabs > li > a { background: $orange-rgb-70-opacity;}
-  .annarbortees .nav-tabs > li.active > a,
-  .annarbortees .nav-tabs > li.active > a:hover,
-  .annarbortees .nav-tabs > li.active > a:focus {  background: $dark-green-rgb-70-opacity; }
-  .annarbortees .nav-tabs > li { float: left;}
+   .nav-tabs > li.active > a,
+   .nav-tabs > li.active > a:hover,
+   .nav-tabs > li { float: left;}
 }
 
 /*
@@ -90,79 +84,79 @@
 /*  Product Tabs
 /****************************/
 
-#variantTabs .tab-content a {
-  color: $orange-rgb;
+
+.nav-tabs > li > a {
+  border-radius: 0 0 0 0;
 }
+
 
 #variantTabs .tab-content {
 }
 
-.annarbortees .nav-tabs {
+ .nav-tabs {
   border-bottom: none;
   text-transform: uppercase;
 }
-.annarbortees .nav-tabs > li {
+ .nav-tabs > li {
   margin-bottom: 0px;
   font-weight: 200;
 }
-.annarbortees .nav-tabs > li > a {
+ .nav-tabs > li > a {
   margin-right: 2px;
   line-height: 1.428571429;
   border: none;
   border-radius: 0;
-  color: #000000;
 }
-.annarbortees .nav-tabs > li > a:hover {
+ .nav-tabs > li > a:hover {
   border: none;
 }
-.annarbortees .nav-tabs > li.active > a,
-.annarbortees .nav-tabs > li.active > a:hover,
-.annarbortees .nav-tabs > li.active > a:focus {
-  color: #FFFFFF;
+ .nav-tabs > li.active > a,
+ .nav-tabs > li.active > a:hover,
+ .nav-tabs > li.active > a:focus {
   border-bottom: none;
   cursor: default;
 }
-.annarbortees .nav-tabs.nav-justified {
+ .nav-tabs.nav-justified {
   width: 100%;
   border-bottom: none;
 }
-.annarbortees .nav-tabs.nav-justified > li {
+ .nav-tabs.nav-justified > li {
   float: none;
 }
-.annarbortees .nav-tabs.nav-justified > li > a {
+ .nav-tabs.nav-justified > li > a {
   text-align: center;
   margin-bottom: 5px;
 }
-.annarbortees .nav-tabs.nav-justified > .dropdown .dropdown-menu {
+ .nav-tabs.nav-justified > .dropdown .dropdown-menu {
   top: auto;
   left: auto;
 }
 @media (min-width: 768px) {
-  .annarbortees .nav-tabs.nav-justified > li {
+   .nav-tabs.nav-justified > li {
     display: table-cell;
     width: 1%;
   }
-  .annarbortees .nav-tabs.nav-justified > li > a {
+   .nav-tabs.nav-justified > li > a {
     margin-bottom: 0;
   }
 }
-.annarbortees .nav-tabs.nav-justified > li > a {
+ .nav-tabs.nav-justified > li > a {
   margin-right: 0;
   border-radius: 0;
 }
-.annarbortees .nav-tabs.nav-justified > .active > a,
-.annarbortees .nav-tabs.nav-justified > .active > a:hover,
-.annarbortees .nav-tabs.nav-justified > .active > a:focus {
+ .nav-tabs.nav-justified > .active > a,
+ .nav-tabs.nav-justified > .active > a:hover,
+ .nav-tabs.nav-justified > .active > a:focus {
   border: none;
 }
 @media (min-width: 768px) {
-  .annarbortees .nav-tabs.nav-justified > li > a {
+   .nav-tabs.nav-justified > li > a {
     border-bottom: none;
     border-radius: 0;
   }
-  .annarbortees .nav-tabs.nav-justified > .active > a,
-  .annarbortees .nav-tabs.nav-justified > .active > a:hover,
-  .annarbortees .nav-tabs.nav-justified > .active > a:focus {
+   .nav-tabs.nav-justified > .active > a,
+   .nav-tabs.nav-justified > .active > a:hover,
+   .nav-tabs.nav-justified > .active > a:focus {
     border-bottom: none;
   }
 }
@@ -188,11 +182,8 @@ ul.variants .btn {
   height: 65px;
   margin: 5px;
   padding: 5px 5px 0 5px;
-
-  color: #fff;
   font-size: 24px;
   border-radius: 0;
-  border: solid 3px $orange-rgb;
   background: none;
   box-shadow: none;
 }
@@ -219,11 +210,6 @@ ul.variants .btn {
   font-size: 24px !important;
 }
 
-ul.variants .active {
-  color: #fff;
-  background-color: $orange-rgb;
-}
-
 /*
 /*  Digital Variant buttons
 /****************************/
@@ -247,28 +233,16 @@ ul.digital-variants .btn {
   margin: 5px;
   padding: 5px 10px 0 10px;
 
-  color: #fff;
   font-size: 16px;
   border-radius: 0;
-  border: solid 3px $orange-rgb;
   background: none;
   box-shadow: none;
 
 
 }
 
-ul.digital-variants .active {
-  color: #fff;
-  background-color: $orange-rgb;
-}
-
-
 #variantTabs .btn-group {
   margin: 1em auto;
-}
-
-#variantTabs .btn-group input:last-of-type{
-  border-left: solid 1px $light-grey;
 }
 
 #variant-price {
@@ -280,17 +254,10 @@ ul.digital-variants .active {
 /****************************/
 
 .buy-button input {
-  color: $black;
-  background-color: $orange-rgb;
   font-size: 16px;
   height: 65px;
   box-shadow: none;
   border-radius: 0;
-}
-
-.buy-button input:hover{
-  background-color: $white;
-  color: $black;
 }
 
 
@@ -300,7 +267,6 @@ ul.digital-variants .active {
 
 #product_description .product-title {
   text-transform: uppercase;
-  color: $dark-green-rgb;
   font-weight: bold;
 }
 
@@ -313,7 +279,6 @@ ul.digital-variants .active {
 #product_wishlist_form,
 #product_customer_photos{
   margin: 1em 15%;
-  background-color: $light-grey;
   padding: 1em;
 }
 
@@ -325,8 +290,6 @@ ul.digital-variants .active {
 }
 
 #product_wishlist_form .btn {
-  background-color: $orange-rgb;
-  color: $black;
   border-radius: 0;
   height: 65px;
   margin: 5px auto;
@@ -346,7 +309,6 @@ ul.digital-variants .active {
   font-size: 19px;
   text-align: center;
   text-transform: uppercase;
-  border-bottom: solid 1px $black;
 }
 
 #product_share_with_friends ul {
@@ -364,8 +326,6 @@ ul.digital-variants .active {
 
 #product_share_with_friends i {
   font-size: 60px;
-  color: $light-grey;
-  background-color: $orange-rgb;
   padding: 10px;
   width: 80px;
   height: 80px;
@@ -378,14 +338,12 @@ ul.digital-variants .active {
 }
 
 #digital-download-preview {
- border-bottom: solid 1px $black;
   width: 90%;
   margin: auto;
 
   .btn {
     background-color: transparent;
     border: none;
-    color: $white;
     text-transform: uppercase;
     font-size: 20px;
     font-weight: normal;

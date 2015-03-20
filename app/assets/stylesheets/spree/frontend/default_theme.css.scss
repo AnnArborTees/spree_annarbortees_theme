@@ -1,7 +1,8 @@
 @import 'spree/frontend/variables';
 @import 'spree/frontend/xxs_media';
 
-.default-theme {
+
+.default {
 
   #banner-slides {
     background: image_url('annarbor-cityscape.png') no-repeat center center;
@@ -243,7 +244,10 @@
   /* Flash notices & errors
   /*--------------------------------------*/
   .flash {
+    padding: 10px;
     color: #FFFFFF;
+    font-weight: bold;
+    margin-bottom: 10px;
 
     &.notice {
       background-color: #00ADEE;
@@ -269,6 +273,7 @@
     .btn {
       background-color: $orange-rgb;
       color: $black;
+
     }
 
     .btn-primary {
@@ -281,4 +286,144 @@
       color: $white;
     }
   }
+
+  /*
+  /*  Small Screens
+  /****************************/
+
+  @media (max-width: 767px) {
+    #variantTabs { margin-top: 10px;}
+    #product-options { margin: 0; padding: 0;}
+    #product-images {
+      background: image_url('annarbor-cityscape.png') no-repeat center center;
+    }
+
+    #variantTabs .tab-content { background: $dark-green-rgb; }
+     .nav-tabs > li > a { background: $orange-rgb;}
+     .nav-tabs > li.active > a,
+     .nav-tabs > li.active > a:hover,
+     .nav-tabs > li.active > a:focus {  background: $dark-green-rgb; }
+  }
+
+
+  /*
+  /*  Big Screens
+  /****************************/
+  @media (min-width: 768px) {
+
+    #product-images-and-options{
+      background: image_url('annarbor-cityscape.png') no-repeat center center;
+    }
+
+    #variantTabs .tab-content { background: $dark-green-rgb-70-opacity; }
+     .nav-tabs > li > a { background: $orange-rgb-70-opacity;}
+     .nav-tabs > li.active > a,
+     .nav-tabs > li.active > a:hover,
+     .nav-tabs > li.active > a:focus {  background: $dark-green-rgb-70-opacity; }
+     .nav-tabs > li { float: left;}
+  }
+
+
+  /*
+  /*  Product Tabs
+  /****************************/
+
+  #variantTabs .tab-content a {
+    color: $orange-rgb;
+  }
+
+   .nav-tabs > li.active > a,
+   .nav-tabs > li.active > a:hover,
+   .nav-tabs > li.active > a:focus {
+    color: #FFFFFF;
+    border-bottom: none;
+    cursor: default;
+  }
+
+
+  ul.variants .btn {
+    color: #fff;
+    border: solid 3px $orange-rgb;
+  }
+
+  ul.variants .active {
+    color: #fff;
+    background-color: $orange-rgb;
+  }
+
+  ul.digital-variants .btn {
+
+    color: #fff;
+    border: solid 3px $orange-rgb;
+  }
+
+  ul.digital-variants .active {
+    color: #fff;
+    background-color: $orange-rgb;
+  }
+
+  #variantTabs .btn-group input:last-of-type{
+    border-left: solid 1px $light-grey;
+  }
+
+  #variant-price {
+    width: 110px;
+  }
+
+  /*
+  /*  Buy Buttons
+  /****************************/
+
+  .buy-button input {
+    color: $black;
+    background-color: $orange-rgb;
+  }
+
+  .buy-button input:hover{
+    background-color: $white;
+    color: $black;
+  }
+
+
+  /*
+  /*  Product Page
+  /****************************/
+
+  #product_description .product-title {
+    color: $dark-green-rgb;
+  }
+
+
+  /*
+  /*  Social Media  & Wishlist
+  /****************************/
+  #product_share_with_friends,
+  #product_talk_about,
+  #product_wishlist_form,
+  #product_customer_photos{
+    background-color: $light-grey;
+  }
+
+
+  #product_wishlist_form .btn {
+    background-color: $orange-rgb;
+    color: $black;
+  }
+
+  #product_share_with_friends i {
+    color: $light-grey;
+    background-color: $orange-rgb;
+
+  }
+
+
+  #digital-download-preview {
+    border-bottom: solid 1px $black;
+
+    .btn {
+      color: $white;
+    }
+
+  }
+
 }

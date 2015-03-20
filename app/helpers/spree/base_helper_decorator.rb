@@ -2,8 +2,9 @@ require 'uri'
 
 Spree::BaseHelper.class_eval do
 
-  def theme_class
-    'starkid-theme'
+  def theme_class(store)
+    return 'default' if store.stylesheets.empty?
+    return store.stylesheets.first.style_class unless store.stylesheets.empty?
   end
 
   def pinterest_link_url(url, description)
