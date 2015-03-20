@@ -7,6 +7,11 @@ Spree::BaseHelper.class_eval do
     return store.stylesheets.first.style_class unless store.stylesheets.empty?
   end
 
+  def theme_logo_path(store)
+    return store.stylesheets.first.logo.url unless store.stylesheets.empty? || store.stylesheets.first.logo.blank?
+    return 'logo.png'
+  end
+
   def pinterest_link_url(url, description)
     url =  url || ''; description = description || ''
     "http://pinterest.com/pin/create/button/?url=#{URI.encode(url)}&description=#{URI.encode(description)}"
