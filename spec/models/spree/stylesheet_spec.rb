@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Spree::Stylesheet, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Spree::Stylesheet, type: :model do
+  describe '#style_class' do
+    it 'returns a valid string for use in the stylesheet'
+  end
 end

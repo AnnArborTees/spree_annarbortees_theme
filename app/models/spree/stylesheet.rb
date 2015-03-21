@@ -29,10 +29,6 @@ module Spree
       @destroy_logo=val
     end
 
-    def rgb_for(attr)
-      vals = send(attr).match /#(..)(..)(..)/
-      {r: vals[1].hex, g: vals[2].hex, b: vals[2].hex}
-    end
 
     def style_class
       name.downcase.gsub(' ', '-')
