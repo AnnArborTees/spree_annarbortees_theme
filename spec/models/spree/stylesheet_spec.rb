@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 describe Spree::Stylesheet, type: :model do
   describe '#style_class' do
