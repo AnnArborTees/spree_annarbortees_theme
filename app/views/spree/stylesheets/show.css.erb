@@ -1,3 +1,5 @@
+<%= cache(stylesheet_cache_key(@stylesheet)) do %>
+
 .<%= @stylesheet.style_class %> {
 /*
 /* Products List (All Sizes)
@@ -332,3 +334,4 @@ color: #FFFFFF;
     color: #FFFFFF;
 }
 
+<% end %>

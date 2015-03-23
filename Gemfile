@@ -6,6 +6,7 @@ gem 'sunspot', '~> 2.1.1'
 gem 'spree', github: 'spree/spree', branch: branch
 # gem 'sunspot_solr'
 
+
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'spree_solr', github: 'annarbortees/spree_solr', branch: branch

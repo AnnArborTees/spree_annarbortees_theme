@@ -1,5 +1,6 @@
 module Spree
   class StylesheetsController < Spree::StoreController
+    layout nil
     before_filter :load_stylesheet, :only => :show
 
 
