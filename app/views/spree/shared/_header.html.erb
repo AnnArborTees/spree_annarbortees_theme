@@ -64,7 +64,7 @@
   <div class="container-fluid clearfix navbar-top">
     <div class="container">
       <div class="row logo">
-        <%= link_to image_tag('logo.png'), spree.root_path %>
+        <%= link_to theme_logo_path(current_store), spree.root_path %>
       </div>
       <div class="search clearfix" class="row">
         <%= form_tag spree.products_path, :method => :get do %>
