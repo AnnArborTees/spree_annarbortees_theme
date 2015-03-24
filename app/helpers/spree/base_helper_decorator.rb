@@ -8,8 +8,8 @@ Spree::BaseHelper.class_eval do
   end
 
   def stylesheet_asset_path(store)
-    if !Rails.application.config.action_controller.asset_host.blank? and respond_to? AssetSync
-      key = Digest::SHA1.hexdigest @stylesheet.updated_at.to_s
+    if !Rails.application.config.action_controller.asset_host.blank? and defined? AssetSync
+      key = Digest::SHA1.hexdigest current_store.stylesheets.first.updated_at.to_s
       return "/spree/stylesheets/#{current_store.stylesheets.first.id}-#{key}.css"
     else
       return stylesheet_path(current_store.stylesheets.first.id)
