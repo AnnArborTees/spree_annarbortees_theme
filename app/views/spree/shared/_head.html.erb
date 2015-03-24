@@ -8,7 +8,7 @@
 <%= favicon_link_tag image_path('favicon.ico') %>
 <%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
 <% unless current_store.stylesheets.empty? %>
-    <%= stylesheet_link_tag stylesheet_path(current_store.stylesheets.first.id), media: 'screen' %>
+    <%= stylesheet_link_tag stylesheet_asset_path(current_store), media: 'screen' %>
 <% end %>
 <%= csrf_meta_tags %>
 <%= javascript_include_tag 'spree/frontend/all' %>

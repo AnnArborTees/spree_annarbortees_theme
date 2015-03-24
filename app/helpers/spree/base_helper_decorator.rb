@@ -7,6 +7,15 @@ Spree::BaseHelper.class_eval do
     return store.stylesheets.first.style_class unless store.stylesheets.empty?
   end
 
+  def stylesheet_asset_path(store)
+    if Rails.application.config.action_controller.asset_host.blank? and respond_to? AssetSync
+      key = Digest::SHA1.hexdigest @stylesheet.updated_at
+      return "/spree/stylesheets/#{current_store.stylesheets.first.id}-#{key}.css"
+    else
+      return stylesheet_path(current_store.stylesheets.first.id)
+    end
+  end
+
   def theme_logo_path(store)
     return store.stylesheets.first.logo.url unless store.stylesheets.empty? || store.stylesheets.first.logo.blank?
     return 'logo.png'
