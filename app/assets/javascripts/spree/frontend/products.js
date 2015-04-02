@@ -95,16 +95,6 @@ $( document).ready(function(){
     initSelectedVariant();
   }
 
-    /*
-     When loading the page, if the user is in a view less than 768, scroll down to product budy
-     */
-  function scrollToProductBody(){
-    if( $(window).width() < 767 && $('#product-images-and-options').length != 0) {
-      $('html, body').animate({
-        scrollTop: $("#product-images-and-options").offset().top
-      }, 1);
-    }
-  }
 
     $("[data-target='#sizingModal']").on('click', function(e) {
         $(".sizing-guide[data-style-id='"+$(this).attr('data-style-id')+"']").show();
@@ -114,8 +104,6 @@ $( document).ready(function(){
     $('#sizingModal').on('hidden.bs.modal', function (e) {
         $('.sizing-guide').hide();
     });
-
-  scrollToProductBody();
 
 
   $(".youtube").YouTubeModal(youTubeModalOptions());
