@@ -7,11 +7,4 @@ $(document).ready(function(){
             return $('.cart-count').html(data);
         }
     });
-
-    $('.products').imagesLoaded(function(){
-        $('.products').masonry({
-            itemSelector: '.product'
-        });
-    });
-
 });

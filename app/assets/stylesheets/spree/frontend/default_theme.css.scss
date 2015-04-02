@@ -107,6 +107,11 @@
       }
     }
 
+    .title {
+      background-color: $dark-green-rgb;
+      color: $white;
+    }
+
   }
 
   .pagination {
@@ -313,6 +318,7 @@
 
     #product-images-and-options{
       background: image_url('annarbor-cityscape.png') no-repeat center center;
+      background-size: cover;
     }
 
     #variantTabs .tab-content { background: $dark-green-rgb-70-opacity; }

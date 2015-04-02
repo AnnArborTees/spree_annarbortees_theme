@@ -76,6 +76,7 @@
 
 .nav-tabs > li > a {
   border-radius: 0 0 0 0;
+  font-weight: bold;
 }
 
 
@@ -83,7 +84,7 @@
 }
 
  .nav-tabs {
-  border-bottom: none;
+  border: none;
   text-transform: uppercase;
 }
  .nav-tabs > li {
@@ -102,12 +103,12 @@
  .nav-tabs > li.active > a,
  .nav-tabs > li.active > a:hover,
  .nav-tabs > li.active > a:focus {
-  border-bottom: none;
+  border: none;
   cursor: default;
 }
  .nav-tabs.nav-justified {
   width: 100%;
-  border-bottom: none;
+  border: none;
 }
  .nav-tabs.nav-justified > li {
   float: none;
@@ -172,6 +173,7 @@ ul.variants .btn {
   margin: 5px;
   padding: 5px 5px 0 5px;
   font-size: 24px;
+  font-weight: bold;
   border-radius: 0;
   background: none;
   box-shadow: none;
@@ -340,6 +342,8 @@ ul.digital-variants .btn {
   }
 
 }
+
+
 
 #products img.imprinted_apparel, #products img.premade_apparel  {
   min-height: 225px;

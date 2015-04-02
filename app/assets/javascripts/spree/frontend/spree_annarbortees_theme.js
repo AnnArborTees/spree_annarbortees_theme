@@ -6,7 +6,6 @@
 //= require jquery
 //= require jquery-mobile
 //= require imagesloaded
-//= require masonry
 //= require spree/frontend/bootstrap/youtubepopup
 //= require_tree .
 
@@ -91,5 +90,12 @@ $(function() {
       }
     });
 
-    $('[data-toggle="tooltip"]').tooltip();
+    function isTouchDevice(){
+        return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+    }
+
+    if(isTouchDevice()===false) {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+
 });
