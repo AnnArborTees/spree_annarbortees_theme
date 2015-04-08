@@ -18,7 +18,7 @@ gem 'spree_annarbortees_twitter', github: 'annarbortees/spree_annarbortees_twitt
 
 group :test do
   gem 'shoulda-matchers', require: false
-  gem 'byebug'
+  gem 'byebug', platforms: :mri
   gem 'sunspot_matchers'
 end
 
