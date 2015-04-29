@@ -138,23 +138,61 @@ footer {
 /****************************/
 
 @media (max-width: $screen-xxs-max) {
+  ul.products li .product-image-and-price-wrapper {
+//    line-height: 400px;
+//    height: 400px;
+  }
 
+  ul.products li img {
+    width: 100%;
+  }
 }
 
 @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
-  .imprinted_apparel {
+  ul.products li .product-image-and-price-wrapper {
+    line-height: 245px;
+    height: 245px;
+  }
 
+  ul.products li img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  ul.products li .product-image-and-price-wrapper {
+    line-height: 245px;
+    height: 245px;
+  }
 
+  ul.products li img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 
 }
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  ul.products li .product-image-and-price-wrapper {
+    line-height: 300px;
+    height: 300px;
+  }
 
+  ul.products li img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 @media (min-width: $screen-lg-min) {
+  ul.products li .product-image-and-price-wrapper {
+    line-height: 300px;
+    height: 300px;
+  }
+
+  ul.products li img {
+    max-width: 240px;
+    max-height: 300px;
+  }
 
 }
 
@@ -181,6 +219,7 @@ ul.products {
         right: 0;
         bottom: 0;
         padding: 10px 10px 5px 10px;
+        line-height: 20px
       }
     }
 
@@ -189,7 +228,6 @@ ul.products {
     }
 
     img{
-      width: 100%;
       -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
       filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
       -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#000')";
