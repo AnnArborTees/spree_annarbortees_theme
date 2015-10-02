@@ -31,6 +31,12 @@
       <%= error_message_on :stylesheet, :banner_bg %>
   <% end %>
 
+  <%= f.field_container :hide_banner_text do %>
+      <%= f.label :hide_banner_text, Spree.t(:hide_banner_text) %><br />
+      <%= f.select :hide_banner_text, [['No', false], ['Yes', true]], {}, {class: 'select2 fullwidth'} %>
+      <%= error_message_on :stylesheet, :hide_banner_text %>
+  <% end %>
+
   <%= f.field_container :header_1_background_color do %>
       <%= f.label :header_1_background_color, Spree.t(:header_1_background_color) %><br />
       <%= f.text_field :header_1_background_color, class: 'color-picker stylesheet-input' %>

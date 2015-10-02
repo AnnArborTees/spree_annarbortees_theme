@@ -218,7 +218,11 @@ color: #FFFFFF;
 
 
 
-
+<% if @stylesheet.hide_banner_text? %>
+h3.site-name {
+  display: none;
+}
+<% end %>
 
 @media (max-width: 767px) {
     .<%= @stylesheet.style_class %> #variantTabs .tab-content {
