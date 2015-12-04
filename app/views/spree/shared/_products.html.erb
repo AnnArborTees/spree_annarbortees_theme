@@ -12,6 +12,7 @@
 <% if products.any? %>
     <ul class="products" class="inline product-listing clearfix" data-hook>
       <% products.each do |product| %>
+          <% cache(["shared/_products.html.erb", product] ) do  %>
           <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
           <li id="product_<%= product.id %>" class="<%= product.layout %> product col-xxs-12 col-xs-6 col-sm-6 col-md-6 col-lg-4"
               data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
@@ -32,6 +33,7 @@
                 </p>
             <% end %>
           </li>
+          <% end %>
       <% end %>
       <% reset_cycle("classes") %>
     </ul>
@@ -42,6 +44,7 @@
 <% end %>
 
 <% if !current_store.homepage.blank? %>
+    <br clear="all">
     <div class="clear clearfix">
       <div class="text-right browse-all-button">
         <%= link_to products_path, class: 'btn btn-primary' do %>

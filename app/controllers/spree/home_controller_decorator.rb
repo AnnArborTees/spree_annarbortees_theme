@@ -6,13 +6,15 @@ Spree::HomeController.class_eval do
     add_current_store_id_to_params
     @taxonomies = current_store.taxonomies.includes(root: :children)
 
+    @page = current_store.try(:page)
     layout = current_store.try(:homepage_layout)
 
-    if layout.nil? || layout == 'default'
+    if @page
+      render template: 'spree/static_content/show'
+    elsif layout.nil? || layout == 'default'
       @searcher = build_searcher(params)
       @products = @searcher.retrieve_products
     else
-
       @products = {}
       %w(media apparel accessories).each do |category|
         if category == 'media'
@@ -30,15 +32,16 @@ Spree::HomeController.class_eval do
         # .limit(limit)
       end
 
-      # @media = {
-      #     taxon: @taxonomies.find_by(name: 'collection').taxons.find_by(name: 'media')
-      # }
-      # @media[:products] = build_searcher(params.merge(taxon: @media[:taxon].id, include_images: true)).retrieve_products.limit(4)
-
       @apparel = @taxonomies.find_by(name: 'collection').taxons.find_by(name: 'apparel')
       @accessories = @taxonomies.find_by(name: 'collection').taxons.find_by(name: 'accessories')
 
     end
   end
 
+  private
+
+  def determine_layout
+    return @page.layout if @page && @page.layout.present? && !@page.render_layout_as_partial?
+    Spree::Config.layout
+  end
 end
