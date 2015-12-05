@@ -1,0 +1,7 @@
+<div data-hook="admin_product_form_backorder_details">
+  <%= f.field_container :backorder_details do %>
+      <%= f.label :backorder_details, Spree.t(:backorder_details) %>
+      <%= f.text_area :backorder_details, {:rows => '8', :class => 'fullwidth'} %>
+      <%= f.error_message_on :backorder_details %>
+  <% end %>
+</div>

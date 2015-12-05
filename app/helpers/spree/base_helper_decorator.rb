@@ -163,4 +163,14 @@ Spree::BaseHelper.class_eval do
     deserunt mollit anim id est laborum.")
   end
 
+
+  def backorder_details(variant)
+    if variant.product.backorder_details.blank?
+      return "The item you've selected is currently sold out. It is however"\
+          " available for backorder, although no details have been specified at this time"
+    else
+      return variant.product.backorder_details
+    end
+  end
+
 end

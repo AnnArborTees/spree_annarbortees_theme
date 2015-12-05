@@ -7,7 +7,7 @@
         <h4><%= Spree.t(:shipping_address) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless @order.completed? %></h4>
         <%= render :partial => 'spree/shared/address', :locals => { :address => order.ship_address } %>
       </div>
-    <% end %> 
+    <% end %>
 
     <div class="col-md-3" data-hook="order-bill-address">
       <h4><%= Spree.t(:billing_address) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless @order.completed? %></h4>
@@ -71,6 +71,9 @@
         </td>
         <td data-hook="order_item_description">
           <h4><%= item.variant.product.name %></h4>
+          <% if item.variant.on_backorder > 0   %>
+              <p class="alert alert-danger"><%= backorder_details(item.variant) %></p>
+          <% end %>
           <%= truncated_product_description(item.variant.product) %>
           <%= "(" + item.variant.options_text + ")" unless item.variant.option_values.empty? %>
         </td>

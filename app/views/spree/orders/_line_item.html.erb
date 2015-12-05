@@ -4,6 +4,9 @@
       <div class="small-cart-item-title col-xs-12">
         <h4><%= line_item.name %></h4>
         <p><%= variant.options_text %></p>
+        <% if variant.on_backorder > 0   %>
+        <p class="alert alert-danger"><%= backorder_details(variant) %></p>
+        <% end %>
       </div>
       <div class="col-xs-4 col-sm-3 cart-item-image" data-hook="cart_item_image">
         <% option_value = variant.option_values.detect { |o| o.option_type.name == 'apparel-style' } %>
@@ -12,6 +15,9 @@
       <div class="large-cart-item-title col-sm-4">
         <h4><%= line_item.name %></h4>
         <p><%= variant.options_text %></p>
+        <% if variant.on_backorder > 0   %>
+            <p class="alert alert-danger"><%= backorder_details(variant) %></p>
+        <% end %>
         <%= line_item_description_text(line_item.description) %>
       </div>
       <div class="large-cart-item-unit-price col-sm-1">
