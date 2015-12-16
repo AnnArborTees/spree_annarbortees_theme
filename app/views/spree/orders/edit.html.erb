@@ -39,7 +39,12 @@
 
         <%= render 'adjustments', order_form: order_form %>
         <%= render 'coupon_form', order_form: order_form %>
-
+        
+        <% if @order.line_items.map{|li| li.variant.on_backorder }.any?{|q| q > 0 } %>
+        <div class="">
+          <p>Your order includes backordered items</p>
+        </div>
+        <% end %>
 
         <div class="cart-checkout-button">
           <%= button_tag :class => 'btn btn-lg', :id => 'checkout-link', :name => 'checkout' do %>

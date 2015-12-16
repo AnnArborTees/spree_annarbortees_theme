@@ -3,6 +3,32 @@
     <h3 class="panel-title"><%= Spree.t(:delivery) %></h3>
   </div>
   <div class="panel-body" data-hook="shipping_method_inner">
+
+  <% if @order.line_items.map{|li| li.variant.on_backorder }.any?{|q| q > 0 } %>
+      
+    <div class="row clear shipping-method-backorder-form">
+        <p class="alert alert-success">
+          This shopping cart contains a backordered item. 
+          <% if @order.dont_split_packages_on_backorder? %>
+            Your current preference is to wait on all items to become available to ship together in one shipment.
+            <% link_to "Click to change your preference to shipping backordered items separately as they become available", '#', class: 'btn btn-danger' %>
+          <% else %>
+            Your current preference is to ship your backordered items separately as they become available. 
+            <% link_to "Click to change your preference to shipping all items together after backordered items become available", '#', class: 'btn btn-danger' %>
+          <% end %>
+        </p> 
+        <p class="text-center">
+          <%= link_to toggle_backorder_preference_path, class: 'btn btn-danger', style: 'color: #fff' do %>
+            <% if @order.dont_split_packages_on_backorder? %>
+              Click if you'd prefer to ship backordered items separately from the rest of your order. 
+            <% else %>
+              Click if you'd prefer all items to be shipped together after backordered items become available. 
+            <% end %>
+          <% end %>
+        </p>  
+    </div>
+  
+  <% end %>
     <div id="methods">
       <%= form.fields_for :shipments do |ship_form| %>
 

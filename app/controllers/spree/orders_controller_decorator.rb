@@ -1,10 +1,19 @@
 Spree::OrdersController.class_eval do
-  before_filter :clear_cache, only: [:populate, :update, :empty]
+
+  def update_backorder_preference
+    current_order.update_attribute(:dont_split_packages_on_backorder, !current_order.dont_split_packages_on_backorder)
+    setup_for_current_state
+    redirect_to checkout_state_path(current_order.state), flash: {success: 'Successfully updated backorder preference' }    
+  end
 
   private
 
-  def clear_cache
-    expire_fragment [@order, current_store]
+  def order_params
+    if params[:order]
+      params[:order].permit(*permitted_order_attributes + [:dont_split_packages_on_backorder])
+    else
+      {}
+    end
   end
 
 end
