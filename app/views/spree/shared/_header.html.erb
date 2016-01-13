@@ -9,10 +9,10 @@
         <%= form_tag spree.products_path, :method => :get, id: 'large-search' do %>
           <div class="input-group">
             <%= search_field_tag :keywords, params[:keywords], type: 'search', class: 'form-control input-lg', placeholder: 'Search Ann Arbor Tees', id: 'search-keywords' %>
-            <%= hidden_field_tag :store, current_store.slug, disabled: current_store == domain_store, id: 'search-store' %>
+            <%= hidden_field_tag :store, current_store.try(:slug), disabled: current_store == domain_store, id: 'search-store' %>
             <div id="search-dropdown-wrapper">
                 <div id="search-dropdown" style="display: none;">
-                  <% stores = current_store.up_to(domain_store) %>
+                  <% stores = current_store ? current_store.up_to(domain_store) : [] %>
                   <% unless stores.size == 1 %>
                     <% stores.each_with_index do |store, i| %>
                       <div class="store-search-selection <%= 'search-selected' if i == 0 %>"

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="carousel-homepage carousel slide">
       <ol class="carousel-indicators">
-        <% if !current_store.homepage_slides.empty? %>
+        <% if current_store && !current_store.homepage_slides.empty? %>
             <li data-target="#banner-slides" data-slide-to="0" class="active"></li>
             <% current_store.homepage_slides.each_with_index do |slide, i| %>
                 <li data-target="#banner-slides" data-slide-to="<%= i+1 %>"></li>
@@ -11,12 +11,12 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-          <img data-src="holder.js/900x250/auto/#333:#333" src="data:image/png;base64," alt="<%= current_store.name %>" class="banner-trans-img">
+          <img data-src="holder.js/900x250/auto/#333:#333" src="data:image/png;base64," alt="<%= current_store.try(:name) || 'no store' %>" class="banner-trans-img">
           <div class="carousel-caption">
-            <h3 class="site-name"><%= current_store.name %></h3>
+            <h3 class="site-name"><%= current_store.try(:name) || 'no store' %></h3>
           </div>
         </div>
-        <% current_store.homepage_slides.each do |slide| %>
+        <% (current_store.try(:homepage_slides) || []).each do |slide| %>
             <div class="item">
               <% if slide.image.blank? %>
                   <img data-src="holder.js/900x250/auto/#333:#333" src="data:image/png;base64," alt="<%= slide.label %>" class="banner-trans-img">
@@ -42,7 +42,7 @@
 
   <div id="homepage-right-column" class="col-sm-8 col-md-9">
     <div id="products">
-      <% if current_store.homepage.blank? %>
+      <% if current_store.blank? || current_store.homepage.blank? %>
         <%= render :partial => 'spree/shared/products', :locals => { :products => @products } %>
       <% else %>
         <%= render :partial => 'spree/shared/products', :locals => { products: current_store.homepage.products, pagination: nil } %>

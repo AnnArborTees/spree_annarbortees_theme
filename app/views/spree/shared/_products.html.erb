@@ -43,7 +43,7 @@
     <%= paginate paginated_products %>
 <% end %>
 
-<% if !current_store.homepage.blank? %>
+<% if current_store && !current_store.homepage.blank? %>
     <br clear="all">
     <div class="clear clearfix">
       <div class="text-right browse-all-button">

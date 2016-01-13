@@ -7,7 +7,7 @@
 <%= canonical_tag(Spree::Config.site_url) %>
 <%= favicon_link_tag image_path('favicon.ico') %>
 <%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
-<% unless current_store.stylesheets.empty? %>
+<% unless current_store.nil? || current_store.stylesheets.empty? %>
     <%= stylesheet_link_tag stylesheet_asset_path(current_store), media: 'screen' %>
 <% end %>
 <%= csrf_meta_tags %>

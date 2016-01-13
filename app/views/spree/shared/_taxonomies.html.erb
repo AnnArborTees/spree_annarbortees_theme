@@ -3,7 +3,7 @@
 
   <h4>Shop By</h4>
 
-  <% if current_store.children.any? %>
+  <% if current_store && current_store.children.any? %>
     <h5 class='taxonomy-root'>Store</h5>
     <ul class='taxons-list'>
       <% current_store.children.each do |store| %>
