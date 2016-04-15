@@ -11,5 +11,12 @@ FactoryGirl.define do
     default 1
     email 'support@aatc.com'
     default_currency 'USD'
+    homepage { |h| h.association(:homepage) }
   end
+
+=begin
+  factory :homepage, class: Spree::Homepage do
+    name 'whatever'
+  end
+=end
 end
