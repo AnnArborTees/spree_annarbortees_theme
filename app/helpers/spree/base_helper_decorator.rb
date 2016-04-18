@@ -1,6 +1,38 @@
 require 'uri'
 
 Spree::BaseHelper.class_eval do
+  def order_predicted_shipments(order, shipping_address = nil)
+    return order.shipments unless order.shipments.blank?
+
+    if shipping_address
+      order.shipping_address ||= Spree::Address.new
+      order.shipping_address.firstname = shipping_address[:firstname]
+      order.shipping_address.lastname = shipping_address[:lastname]
+      order.shipping_address.address1 = shipping_address[:address1]
+      order.shipping_address.address2 = shipping_address[:address2]
+      order.shipping_address.city = shipping_address[:city]
+      order.shipping_address.zipcode = shipping_address[:zipcode]
+      order.shipping_address.phone = shipping_address[:phone]
+      order.shipping_address.state_name = shipping_address[:state_name]
+      order.shipping_address.alternative_phone = shipping_address[:alternative_phone]
+      order.shipping_address.company = shipping_address[:company]
+      order.shipping_address.state_id = shipping_address[:state_id]
+      order.shipping_address.country_id = shipping_address[:country_id]
+      order.shipping_address.save
+    end
+    begin
+      order.shipments = Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment)
+    rescue StandardError => _e
+      order.shipping_address.destroy
+      order.shipments = Spree::Stock::Coordinator.new(order.reload).packages.map(&:to_shipment)
+    end
+  end
+
+  def modify_order(order, attrs)
+    attrs.each do |key, value|
+      order.send("#{key}=", value)
+    end
+  end
 
   def theme_class(store)
     return 'default' if store.stylesheets.empty?
@@ -62,7 +94,6 @@ Spree::BaseHelper.class_eval do
 
   def breadcrumbs(taxon = nil, product = nil)
     if String === product
-      sep = product
       product = nil
     end
     crumbs = [content_tag(:li, link_to(current_store.name , store_home_path))]

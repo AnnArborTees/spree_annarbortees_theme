@@ -1,0 +1,6 @@
+<% if step = params[:step] %>
+  var step = $("#checkout_<%= step %>");
+  step.replaceWith("<%=j render 'step', order: @order, step: step %>");
+<% else %>
+  console.log("replaced NOTHING!!!");
+<% end %>

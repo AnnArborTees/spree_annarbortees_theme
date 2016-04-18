@@ -98,4 +98,82 @@ $(function() {
         $('[data-toggle="tooltip"]').tooltip();
     }
 
+    // Hide/show shipping address form based on "use billing address" checkbox
+    var orderUseBilling = $('#order_use_billing');
+    if (orderUseBilling.length > 0) {
+      orderUseBilling.on('change', function() {
+        var modClass;
+        if (this.checked)
+          modClass = 'addClass';
+        else
+          modClass = 'removeClass';
+
+        $(this).closest('.panel-body').find('[data-hook="shipping_inner"]')[modClass]("hidden");
+      });
+      orderUseBilling.trigger('change');
+    }
+
+    // Selecting a country reloads the shipping step
+    var requiredFields = 'input.required,select.required';
+    var reloadDeliveryStep = function() {
+      console.log('reloadDeliveryStep enter');
+      var inner = $(this).closest('.address-form');
+      var addressType = inner.data('address-type');
+
+      if (addressType == null || (addressType === 'billing' && !$('.use-billing')[0].checked)) {
+        console.log("bailing.");
+        if (inner.length === 0)
+          console.log("no inner");
+        console.log("I'm "+$(this).prop('id'));
+        return;
+      }
+
+      var field = function(attr) { return inner.find('.address-'+attr).val(); };
+
+      var formComplete = true;
+      inner.find(requiredFields).each(function() {
+        if ($(this).val() == '')
+          formComplete = false;
+      });
+      if (!formComplete) {
+        console.log('shipping address form not complete');
+        return;
+      }
+      console.log('querying for shipping');
+
+      shipping_address = {
+        firstname:  field('firstname'),
+        lastname:   field('lastname'),
+        address1:   field('address1'),
+        address2:   field('address2'),
+        city:       field('city'),
+        zipcode:    field('zipcode'),
+        state_name: field('state_name'),
+        company:    field('company'),
+        state_id:   field('state_id'),
+        country_id: field('country_id'),
+        phone:      field('phone'),
+        alternative_phone: field('alternative_phone'),
+      };
+
+      console.table(shipping_address);
+
+      $.ajax({
+        url:      "/checkout",
+        method:   "GET",
+        dataType: "script",
+        data: {
+          step: "delivery",
+          shipping_address: shipping_address
+        }
+      });
+    }
+    window.reloadShippingTimer = null;
+    $('.address-form '+requiredFields).on('input', function() {
+      if (reloadShippingTimer != null) {
+        clearTimeout(reloadShippingTimer);
+        reloadShippingTimer = null;
+      }
+      reloadShippingTimer = setTimeout(reloadDeliveryStep.bind(this), 1500);
+    });
 });
