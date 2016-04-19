@@ -2,7 +2,7 @@ require 'uri'
 
 Spree::BaseHelper.class_eval do
   def order_predicted_shipments(order, shipping_address = nil)
-    return order.shipments unless order.shipments.blank?
+    return order.shipments if !order.shipments.blank? && shipping_address.nil?
 
     if shipping_address
       order.shipping_address ||= Spree::Address.new
@@ -20,11 +20,13 @@ Spree::BaseHelper.class_eval do
       order.shipping_address.country_id = shipping_address[:country_id]
       order.shipping_address.save
     end
+
     begin
       order.shipments = Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment)
     rescue StandardError => _e
       order.shipping_address.destroy
-      order.shipments = Spree::Stock::Coordinator.new(order.reload).packages.map(&:to_shipment)
+      order.shipping_address = nil
+      order.shipments = Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment)
     end
   end
 

@@ -98,21 +98,6 @@ $(function() {
         $('[data-toggle="tooltip"]').tooltip();
     }
 
-    // Hide/show shipping address form based on "use billing address" checkbox
-    var orderUseBilling = $('#order_use_billing');
-    if (orderUseBilling.length > 0) {
-      orderUseBilling.on('change', function() {
-        var modClass;
-        if (this.checked)
-          modClass = 'addClass';
-        else
-          modClass = 'removeClass';
-
-        $(this).closest('.panel-body').find('[data-hook="shipping_inner"]')[modClass]("hidden");
-      });
-      orderUseBilling.trigger('change');
-    }
-
     // Selecting a country reloads the shipping step
     var requiredFields = 'input.required,select.required';
     var reloadDeliveryStep = function() {
@@ -156,8 +141,6 @@ $(function() {
         alternative_phone: field('alternative_phone'),
       };
 
-      console.table(shipping_address);
-
       $.ajax({
         url:      "/checkout",
         method:   "GET",
@@ -174,6 +157,25 @@ $(function() {
         clearTimeout(reloadShippingTimer);
         reloadShippingTimer = null;
       }
-      reloadShippingTimer = setTimeout(reloadDeliveryStep.bind(this), 1500);
+      reloadShippingTimer = setTimeout(reloadDeliveryStep.bind(this), 700);
     });
+
+    // Hide/show shipping address form based on "use billing address" checkbox
+    var orderUseBilling = $('#order_use_billing');
+    if (orderUseBilling.length > 0) {
+      orderUseBilling.on('change', function() {
+        var modClass;
+        if (this.checked) {
+          modClass = 'addClass';
+          reloadDeliveryStep.apply($('#bfirstname')[0]);
+        }
+        else {
+          modClass = 'removeClass';
+          reloadDeliveryStep.apply($('#sfirstname')[0]);
+        }
+
+        $(this).closest('.panel-body').find('[data-hook="shipping_inner"]')[modClass]("hidden");
+      });
+      orderUseBilling.trigger('change');
+    }
 });

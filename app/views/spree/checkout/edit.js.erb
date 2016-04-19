@@ -1,6 +1,28 @@
 <% if step = params[:step] %>
   var step = $("#checkout_<%= step %>");
+
+  <%# Persist selected shipping rates %>
+  <% if step == 'delivery' %>
+    var selectedShippingRates = [];
+    <% @order.shipments.each_with_index do |shipment, i| %>
+      selectedShippingRates.push(
+        $("input[type=radio][name='order[shipments_attributes][<%=i%>][selected_shipping_rate_id]']:checked+.rate-name").text()
+      );
+    <% end %>
+  <% end %>
+
   step.replaceWith("<%=j render 'step', order: @order, step: step %>");
+
+  <% if step == 'delivery' %>
+    <% @order.shipments.each_with_index do |shipment, i| %>
+      $("input[type=radio][name='order[shipments_attributes][<%=i%>][selected_shipping_rate_id]']")
+      .filter(function() { return $(this).next('.rate-name').text() == selectedShippingRates[<%=i%>]; })
+      .prop('checked', true);
+    <% end %>
+  <% end %>
+
 <% else %>
   console.log("replaced NOTHING!!!");
 <% end %>
+
+$('#checkout-summary-content').html("<%=j render partial: 'summary', locals: { order: @order } %>");

@@ -9,22 +9,22 @@
 
   <div class="row" data-hook="checkout_content">
     <%# TODO if not logged in, render the login thing here? %>
-    <div class='col-md-12'>
+    <div class='col-sm-12'>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-sm-5">
       <%= render 'step', order: @order, step: 'address' %>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-sm-5">
       <%= render 'step', order: @order, step: 'delivery' %>
       <%= render 'step', order: @order, step: 'payment' %>
     </div>
 
     <% if @order.state != 'confirm' %>
-      <div id="checkout-summary" data-hook="checkout_summary_box" class="col-md-4">
-        <div data-spy="affix" class="affix-top">
-          <%= render :partial => 'summary', :locals => { :order => @order } %>
+      <div id="checkout-summary" data-hook="checkout_summary_box" class="col-sm-2">
+        <div data-spy="affix" id="checkout-summary-content" class="affix-top white-background">
+          <%= render partial: 'summary', locals: { order: @order } %>
         </div>
       </div>
     <% end %>
