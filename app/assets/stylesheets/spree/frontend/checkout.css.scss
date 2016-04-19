@@ -28,3 +28,13 @@ ol.progress-steps {
 .white-background {
   background-color: white;
 }
+
+@media (min-width: 768px) {
+  .checkout-summary {
+    position: fixed
+  }
+}
+
+.checkout-loading {
+  opacity: 0.5;
+}

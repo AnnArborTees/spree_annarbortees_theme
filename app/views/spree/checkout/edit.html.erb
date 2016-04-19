@@ -23,7 +23,7 @@
 
     <% if @order.state != 'confirm' %>
       <div id="checkout-summary" data-hook="checkout_summary_box" class="col-sm-2">
-        <div data-spy="affix" id="checkout-summary-content" class="affix-top white-background">
+        <div id="checkout-summary-content" class="checkout-summary white-background">
           <%= render partial: 'summary', locals: { order: @order } %>
         </div>
       </div>

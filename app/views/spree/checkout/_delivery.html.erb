@@ -1,3 +1,5 @@
+<%= hidden_field_tag 'steps', 'payment' %>
+
 <div class="panel panel-default" id='shipping_method' data-hook>
   <div class="panel-heading">
     <h3 class="panel-title"><%= Spree.t(:delivery) %></h3>
@@ -30,7 +32,7 @@
   
   <% end %>
     <div id="methods">
-      <%= form.fields_for :shipments, order_predicted_shipments(form.object, params[:shipping_address]) do |ship_form| %>
+      <%= form.fields_for :shipments do |ship_form| %>
 
         <div class="shipment">
           <h4 class="stock-location" data-hook="stock-location">
