@@ -32,6 +32,10 @@
   
   <% end %>
     <div id="methods">
+      <% if form.object.shipments.empty? && order_predicted_shipments(form.object).empty? %>
+        Fill out your shipping address to view shipping rates
+      <% end %>
+
       <%= form.fields_for :shipments do |ship_form| %>
 
         <div class="shipment">
@@ -69,15 +73,17 @@
 
           <h4 class="stock-shipping-method-title"><%= Spree.t(:shipping_method) %></h4>
           <ul class="list-group shipping-methods">
-            <% if form.object.state == 'address' %>
-              <% if order_predicted_shipments(form.object).empty? %>
-                Fill out your shipping address to view shipping rates
-              <% end %>
-            <% end %>
 
             <% if ship_form.object.shipping_rates.empty? %>
-              Free shipping
+
+              <% if form.object.state == 'address' %>
+                Fill in shipping address to see shipping options
+              <% else %>
+                Free shipping
+              <% end %>
+
             <% else %>
+
               <% ship_form.object.shipping_rates.each do |rate| %>
                 <li class="list-group-item shipping-method">
                   <label>

@@ -22,7 +22,13 @@ Spree::BaseHelper.class_eval do
     end
 
     begin
-      order.shipments = Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment)
+      shipments = Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment)
+      if shipments.empty?
+        return shipments
+      elsif order.state == 'address'
+        return order.shipments if order.next
+      end
+      []
     rescue StandardError => _e
       order.shipping_address.destroy
       order.shipping_address = nil

@@ -164,7 +164,7 @@ $(function() {
       }
 
       window.reloadShippingTimer = null;
-      $(document).on('input', '.address-form input,select', function() {
+      $(document).on('input', '.address-form input,.address-form select', function() {
         if (reloadShippingTimer != null) {
           clearTimeout(reloadShippingTimer);
           reloadShippingTimer = null;
