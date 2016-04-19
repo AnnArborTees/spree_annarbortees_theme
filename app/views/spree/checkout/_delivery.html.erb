@@ -13,14 +13,14 @@
           This shopping cart contains a backordered item. 
           <% if form.object.dont_split_packages_on_backorder? %>
             Your current preference is to wait on all items to become available to ship together in one shipment.
-            <% link_to "Click to change your preference to shipping backordered items separately as they become available", '#', class: 'btn btn-danger' %>
+            <% link_to "Click to change your preference to shipping backordered items separately as they become available", '#', class: 'btn btn-danger wrap-btn' %>
           <% else %>
             Your current preference is to ship your backordered items separately as they become available. 
-            <% link_to "Click to change your preference to shipping all items together after backordered items become available", '#', class: 'btn btn-danger' %>
+            <% link_to "Click to change your preference to shipping all items together after backordered items become available", '#', class: 'btn btn-danger wrap-btn' %>
           <% end %>
         </p> 
         <p class="text-center">
-          <%= link_to toggle_backorder_preference_path, class: 'btn btn-danger', style: 'color: #fff' do %>
+          <%= link_to toggle_backorder_preference_path, class: 'btn btn-danger wrap-btn', style: 'color: #fff' do %>
             <% if form.object.dont_split_packages_on_backorder? %>
               Click if you'd prefer to ship backordered items separately from the rest of your order. 
             <% else %>
@@ -69,8 +69,14 @@
 
           <h4 class="stock-shipping-method-title"><%= Spree.t(:shipping_method) %></h4>
           <ul class="list-group shipping-methods">
+            <% if form.object.state == 'address' %>
+              <% if order_predicted_shipments(form.object).empty? %>
+                Fill out your shipping address to view shipping rates
+              <% end %>
+            <% end %>
+
             <% if ship_form.object.shipping_rates.empty? %>
-              Fill out shipping address to see shipping options.
+              Free shipping
             <% else %>
               <% ship_form.object.shipping_rates.each do |rate| %>
                 <li class="list-group-item shipping-method">

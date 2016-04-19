@@ -176,6 +176,11 @@ $(function() {
       $(document).on('change', '.shipping-methods input', function() {
         window.submitStepFrom($(this));
       });
+
+      // Place order by submitting payment step
+      $(document).on('click', '#place-order-button', function() {
+        window.submitStepFrom($('#payment'));
+      });
     }
 });
 

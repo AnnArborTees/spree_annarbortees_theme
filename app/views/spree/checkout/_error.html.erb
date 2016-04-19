@@ -1,0 +1,20 @@
+<div class='alert alert-danger alert-dismissible order-errors' role='alert'>
+  <button type='button' class='close' data-dismiss='alert' aria-lable='Close'>
+    &times;
+  </button>
+
+  <% if field.to_s.strip == 'base' %>
+    <h3>Unable to place order for the following reasons:</h3>
+  <% else %>
+    <h3><%= field %></h3>
+  <% end %>
+  <% if errors.respond_to?(:each) %>
+    <ul>
+      <% errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <%= errors %>
+  <% end %>
+</div>

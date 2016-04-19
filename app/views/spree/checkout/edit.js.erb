@@ -1,14 +1,21 @@
 <% steps = Array(params[:steps] || @order.state) %>
 
-<% if @errors.present? %>
-  alert(<%= @errors.join(', ').inspect %>);
+$('.order-errors').remove();
+
+<% if @order.errors.any? %>
+  window.scrollTo(0, 0);
+<% end %>
+
+<% @order.errors.each do |field, errors| %>
+  $("#checkout").prepend("<%=j render 'error', field: field, errors: errors %>");
 <% end %>
 
 <% if steps.empty? %>
-  console.log("replaced NOTHING!!!");
+  console.log("replacing no steps");
 <% else %>
   <% steps.each do |step| %>
     var step = $("#checkout_<%= step %>");
+    console.log("replacing <%=step%>");
 
     step.replaceWith("<%=j render 'step', order: @order, step: step %>");
   <% end %>
@@ -25,4 +32,4 @@ try {
   console.error(e);
 }
 
-$('#checkout-summary-content').html("<%=j render partial: 'summary', locals: { order: @order } %>");
+$('#checkout-summary-content').html("<%=j render 'summary', order: @order %>");

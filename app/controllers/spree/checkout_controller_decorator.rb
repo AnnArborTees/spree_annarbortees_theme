@@ -40,7 +40,12 @@ Spree::CheckoutController.class_eval do
   def update_backorder_preference
     @order.update_attribute(:dont_split_packages_on_backorder, !@order.dont_split_packages_on_backorder)
     @order.create_proposed_shipments
-    redirect_to checkout_state_path(:delivery), flash: {success: 'Successfully updated backorder preference' }    
+    respond_to do |format|
+      format.html do
+        redirect_to checkout_state_path(:delivery), flash: {success: 'Successfully updated backorder preference' }    
+      end
+      format.js { params[:steps] = 'delivery' and render 'edit' }
+    end
   end
 
   protected
@@ -48,14 +53,14 @@ Spree::CheckoutController.class_eval do
   def redirect_to_state
     respond_to do |format|
       format.html { redirect_to checkout_state_path(@order.state) }
-      format.js { render :edit }
+      format.js { params[:steps] = @order.state and render :edit }
     end
   end
 
   def checkout_complete
     respond_to do |format|
       format.html { redirect_to completion_route }
-      format.js { @completion_route = completion_route; render :complete }
+      format.js { @completion_route = "#{request.base_url}#{completion_route}"; render :complete }
     end
   end
 end

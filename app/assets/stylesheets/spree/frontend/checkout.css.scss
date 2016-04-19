@@ -35,6 +35,14 @@ ol.progress-steps {
   }
 }
 
+.checkout-summary {
+  z-index: 100000;
+}
+
 .checkout-loading {
   opacity: 0.5;
+}
+
+.wrap-btn {
+  white-space: normal;
 }
