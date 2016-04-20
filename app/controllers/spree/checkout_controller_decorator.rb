@@ -53,7 +53,7 @@ Spree::CheckoutController.class_eval do
   def redirect_to_state
     respond_to do |format|
       format.html { redirect_to checkout_state_path(@order.state) }
-      format.js { params[:steps] = @order.state and render :edit }
+      format.js { render :edit }
     end
   end
 
