@@ -120,7 +120,7 @@ $(function() {
         var affectedStep = form.find('input[name=steps]').val();
         var affectedForm;
         if (affectedStep != null) {
-          affectedForm = $("#checkout_"+affectedStep).find('.panel');
+          affectedForm = $("#checkout_form_"+affectedStep).find('.panel');
         }
 
         // All of the adjustments here are undone in app/views/spree/checkout/edit.js.erb
@@ -134,7 +134,7 @@ $(function() {
       };
 
       // Changing address submits the address step if all required fields are in
-      var requiredFields = 'input.required,select.required';
+      var requiredFields = "[name$='[address1]'],[name$='[city]'],[name$='[country_id]'],[name$='[zip]']";
       window.reloadDeliveryStep = function() {
         console.log('reloadDeliveryStep enter');
         var inner = $(this).closest('.address-form');
@@ -169,7 +169,7 @@ $(function() {
           clearTimeout(reloadShippingTimer);
           reloadShippingTimer = null;
         }
-        reloadShippingTimer = setTimeout(window.reloadDeliveryStep.bind(this), 700);
+        reloadShippingTimer = setTimeout(window.reloadDeliveryStep.bind(this), 1200);
       });
 
       // Changing shipping method submits shipment step
@@ -184,29 +184,16 @@ $(function() {
     }
 });
 
-// Hide/show shipping address form based on "use billing address" checkbox
+// Reload delivery when billing address=shipping address is changed
 window.useBillingAddressCheckbox = function() {
   var orderUseBilling = $('#order_use_billing');
   if (orderUseBilling.length > 0) {
-    var hideShippingAddress = function() {
-      var modClass;
-      if (this.checked)
-        modClass = 'addClass';
-      else
-        modClass = 'removeClass';
-
-      $(this).closest('.panel-body').find('[data-hook="shipping_inner"]')[modClass]("hidden");
-    };
-
     orderUseBilling.on('change', function() {
-      hideShippingAddress.apply(this);
-
       if (this.checked)
         window.reloadDeliveryStep.apply($('#bfirstname')[0]);
       else
         window.reloadDeliveryStep.apply($('#sfirstname')[0]);
     });
-    hideShippingAddress.apply(orderUseBilling[0]);
   }
   else
     console.log('not doin it');
