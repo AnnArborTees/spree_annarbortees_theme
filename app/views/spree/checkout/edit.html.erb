@@ -8,17 +8,10 @@
   </div>
 
   <div class="row" data-hook="checkout_content">
-    <%# TODO if not logged in, render the login thing here? %>
-    <div class='col-sm-12'>
-    </div>
-
-    <div class="col-sm-5">
-      <%= render 'step', order: @order, step: 'address' %>
-    </div>
-
-    <div class="col-sm-5">
-      <%= render 'step', order: @order, step: 'delivery' %>
-      <%= render 'step', order: @order, step: 'payment' %>
+    <div class='col-sm-10'>
+      <% if @order.email.blank? || !try_spree_current_user %>
+        <%= render 'email', order: @order %>
+      <% end %>
     </div>
 
     <% if @order.state != 'confirm' %>
@@ -28,12 +21,23 @@
         </div>
       </div>
     <% end %>
+
+    <div class="col-sm-5">
+      <%= render 'step', order: @order, step: 'address' %>
+    </div>
+
+    <div id="checkout-col-2" class="col-sm-5">
+      <%= render 'step', order: @order, step: 'delivery' %>
+      <%= render 'step', order: @order, step: 'payment' %>
+    </div>
+
+    <div class='col-sm-2'></div>
   </div>
 </div>
 
 <script>
-Spree.current_order_id = "<%= @order.number %>"
-Spree.current_order_token = "<%= @order.token %>"
+Spree.current_order_id = "<%= @order.number %>";
+Spree.current_order_token = "<%= @order.token %>";
 </script>
 
 <% if I18n.locale != :en %>

@@ -4,6 +4,8 @@ en:
     secure_checkout: Secure Checkout
     estimated_total: Estimated total
     update_quantities: Update Cart Quantities
+    already_have_an_account: It looks like you already have an account here. Enter your password to add this order to your account (optional).
+    dont_have_an_account: Enter a password if you'd like to create an account to keep track of your orders (optional).
   activerecord:
     attributes:
       spree/product:

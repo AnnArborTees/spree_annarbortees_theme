@@ -34,12 +34,12 @@
   </div>
 </div>
 
-<% if try_spree_current_user %>
+<% if user = try_spree_current_user %>
   <div class="box-info text-left form-buttons" data-hook="buttons">
         <br />
       <span data-hook="save_user_address">
         &nbsp; &nbsp;
-        <%= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
+        <%= check_box_tag 'save_user_address', '1', user.respond_to?(:persist_order_address) %>
         <%= label_tag :save_user_address, Spree.t(:save_my_address) %>
       </span>
   </div>

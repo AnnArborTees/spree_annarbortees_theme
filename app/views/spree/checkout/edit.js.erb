@@ -10,21 +10,6 @@ $('.order-errors').remove();
   $("#checkout").prepend("<%=j render 'error', field: field, errors: errors %>");
 <% end %>
 
-<% if steps.empty? %>
-  console.log("replacing no steps");
-<% else %>
-  <% steps.each do |step| %>
-    var step = $("#checkout_<%= step %>");
-    console.log("replacing <%=step%>");
-
-    step.replaceWith("<%=j render 'step', order: @order, step: step %>");
-
-    <% step_func = "on#{step.camelize}" %>
-    if (Spree.<%=step_func%>)
-      Spree.<%=step_func%>();
-  <% end %>
-<% end %>
-
 try {
   $('.checkout-loading').each(function() {
     var spinner = $(this).data('spinner');
@@ -35,5 +20,20 @@ try {
 } catch(e) {
   console.error(e);
 }
+
+<% if steps.empty? %>
+  console.log("replacing no steps");
+<% else %>
+  <% steps.each do |step| %>
+    var step = $("#checkout_form_<%= step %>");
+    console.log("replacing <%=step%> ("+step.length+")");
+
+    step.replaceWith("<%=j render 'step', order: @order, step: step %>");
+
+    <% step_func = "on#{step.camelize}" %>
+    if (Spree.<%=step_func%>)
+      Spree.<%=step_func%>();
+  <% end %>
+<% end %>
 
 $('#checkout-summary-content').html("<%=j render 'summary', order: @order %>");

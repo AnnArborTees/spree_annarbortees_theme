@@ -1,0 +1,9 @@
+<% if @order.user_id.blank? %>
+  var newAccountPanel = "<%=j render 'password', order: @order %>";
+  var accountPanel = $('#checkout-account-panel');
+
+  if (accountPanel.length > 0)
+    accountPanel.replaceWith(newAccountPanel);
+  else
+    $('#checkout-col-2').append(newAccountPanel);
+<% end %>

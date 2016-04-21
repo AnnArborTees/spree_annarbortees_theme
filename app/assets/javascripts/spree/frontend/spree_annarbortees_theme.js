@@ -163,13 +163,15 @@ $(function() {
         window.submitStepFrom(inner);
       }
 
+      const inputDelay = 1200;
+
       window.reloadShippingTimer = null;
       $(document).on('input', '.address-form input,.address-form select', function() {
-        if (reloadShippingTimer != null) {
-          clearTimeout(reloadShippingTimer);
-          reloadShippingTimer = null;
+        if (window.reloadShippingTimer != null) {
+          clearTimeout(window.reloadShippingTimer);
+          window.reloadShippingTimer = null;
         }
-        reloadShippingTimer = setTimeout(window.reloadDeliveryStep.bind(this), 1200);
+        window.reloadShippingTimer = setTimeout(window.reloadDeliveryStep.bind(this), inputDelay);
       });
 
       // Changing shipping method submits shipment step
@@ -179,7 +181,40 @@ $(function() {
 
       // Place order by submitting payment step
       $(document).on('click', '#place-order-button', function() {
-        window.submitStepFrom($('#payment'));
+        var userForm = $('#checkout-assign-user-form');
+        if (userForm.length > 0) {
+          var checkoutSummary = $('#checkout-summary-content');
+          checkoutSummary.addClass('checkout-loading');
+          spinOn(checkoutSummary);
+
+          userForm.submit();
+        }
+        else {
+          window.submitStepFrom($('#payment'));
+        }
+      });
+
+      // Assign email to order here
+      window.checkEmailTimer = null;
+      $(document).on('change', '#checkout-order-email input', function() {
+        if (window.checkEmailTimer != null) {
+          clearTimeout(window.checkEmailTimer);
+          window.checkEmailTimer = null;
+        }
+
+        var form = $(this).closest('form');
+        window.checkEmailTimer = setTimeout(function() { form.submit(); }, inputDelay / 2);
+      });
+
+      // Reload delivery button just submits the address form again
+      $(document).on('click', '#reload-delivery-step', function(event) {
+        if ($('#order_use_billing').length > 0 && $('#order_use_billing')[0].checked)
+          window.reloadDeliveryStep.apply($('#bfirstname')[0]);
+        else
+          window.reloadDeliveryStep.apply($('#sfirstname')[0]);
+
+        event.preventDefault();
+        return false;
       });
     }
 });

@@ -1,0 +1,12 @@
+<div id='checkout-order-email' class='panel panel-default'>
+  <div class='panel-heading'>
+    <h3 class='panel-title'>Email Address</h3>
+  </div>
+
+  <div class='panel-body'>
+    <%= form_tag checkout_check_email_path, remote: true do %>
+      <%= label_tag :user_email, "Email" %>
+      <%= email_field_tag :user_email, '', class: 'form-control' %>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,40 @@
 Spree::CheckoutController.class_eval do
+  include Devise::Controllers::SignInOut
+
+  skip_before_filter :check_registration, only: [:update, :edit, :check_email]
+
+  def check_email
+    raise "No order present" if @order.blank?
+    @email = params[:user_email]
+    @order.update_column :email, @email
+    respond_to(&:js)
+  end
+
+  def assign_user
+    raise "No order present" if @order.blank?
+    return if @order.email.blank?
+
+    pass = ->x{ params[x].is_a?(Array) ? params[x].first : params[x] }
+
+    if pass[:password] && pass[:password_confirmation]
+      @user = Spree::User.create(
+        email: @order.email,
+        password: pass[:password],
+        password_confirmation: pass[:password_confirmation]
+      )
+    elsif pass[:password]
+      @user = Spree::User.find_by(email: @order.email)
+
+      unless @user && @user.valid_password?(pass[:password])
+        @user = nil
+      end
+    end
+
+    if @user && @user.persisted?
+      sign_in @user and @order.update_column :user_id, @user.id
+    end
+  end
+
   # Updates the order and advances to the next state (when possible.)
   # (Slightly modified copy/paste from spree/spree)
   def update
