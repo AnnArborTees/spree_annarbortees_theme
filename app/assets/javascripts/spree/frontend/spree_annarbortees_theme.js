@@ -216,6 +216,18 @@ $(function() {
         event.preventDefault();
         return false;
       });
+
+      // Reload on page load if the current step is address or somehow cart
+      var orderState = $('#checkout').data('step');
+      if (orderState === 'cart' || orderState === 'address') {
+        window.setTimeout(function() {
+          console.log("doing it");
+          if ($('#order_use_billing').length > 0 && $('#order_use_billing')[0].checked)
+            window.reloadDeliveryStep.apply($('#bfirstname')[0]);
+          else
+            window.reloadDeliveryStep.apply($('#sfirstname')[0]);
+        }, 100);
+      }
     }
 });
 
